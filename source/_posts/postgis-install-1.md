@@ -1,6 +1,6 @@
-title: POSTGISをインストールする　その１
+title: POSTGISの環境を構築　その１
 date: 2014-12-29 17:40:17
-tags:
+tags: POSTGIS
 ---
 
 まずは[POSTGIS](http://ja.wikipedia.org/wiki/PostGIS)をインストールしてみます。
@@ -56,7 +56,7 @@ the comments in the Vagrantfile as well as documentation on
 $ ls
 Vagrantfile
 ```
-作成されたVagrantfileの中身を確認して、'config.vm.box = "chef/centos-6.5"'となっていれば大丈夫。
+作成されたVagrantfileの中身を確認して、`config.vm.box = "chef/centos-6.5"`となっていれば大丈夫。
 
 VMを起動する
 ``` sh

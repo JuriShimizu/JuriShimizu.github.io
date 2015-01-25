@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>OSMのデータをPostGISのDBに入れてみる | JURI★GIS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前回、Geoなデータベースを作ったので、今回はそこにGeoなデータを入れてみたいと思います">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OSMのデータをPostGISのDBに入れてみる">
+<meta property="og:url" content="http://jurishimizu.github.io/2015/01/12/osm-download/">
+<meta property="og:site_name" content="JURI★GIS">
+<meta property="og:description" content="前回、Geoなデータベースを作ったので、今回はそこにGeoなデータを入れてみたいと思います">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OSMのデータをPostGISのDBに入れてみる">
+<meta name="twitter:description" content="前回、Geoなデータベースを作ったので、今回はそこにGeoなデータを入れてみたいと思います">
+
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">JURI★GIS</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">知識ゼロからGeoなSEを目指すブログ</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://jurishimizu.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-osm-download" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/12/osm-download/" class="article-date">
+  <time datetime="2015-01-12T08:35:12.000Z" itemprop="datePublished">Jan 12 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      OSMのデータをPostGISのDBに入れてみる
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://jurishimizu.github.io/2015/01/09/postgis-install-2/" target="_blank" rel="external">前回</a>、Geoなデータベースを作ったので、<br>今回はそこにGeoなデータを入れてみたいと思います</p>
+<a id="more"></a>
+
+<p><a href="http://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%88%E3%83%9E%E3%83%83%E3%83%97" target="_blank" rel="external">OSM（オープンストリートマップ）</a>のデータをいれてみます。<br>OSMは誰でも使用できて、だれでも編集できる地図なのです。<br>もちろんタダです。<br>そしてこのOSMを編集する人をマッパーと呼ぶらしいです。地図好きってけっこう多いんですね</p>
+<p>他にも<a href="http://nlftp.mlit.go.jp" target="_blank" rel="external">国土数値情報</a>とか<a href="http://www.vegetation.biodic.go.jp/" target="_blank" rel="external">自然環境情報GIS</a>とか、<br>タダでダウンロードできるGISデータはたくさんあるようです。<br>それを組み合わせれば、いろいろ面白そうですね</p>
+<h2 id="osm2pgsqlインストール">osm2pgsqlインストール</h2>
+<p>OSMのデータを扱うために、<a href="http://wiki.openstreetmap.org/wiki/Osm2pgsql" target="_blank" rel="external">osm2pgsql</a>を入れます。<br>説明が英語だ、、、<br>OSMのデータをPostGISのDBにいれるためのツールってことでいいかと思います。。。</p>
+<p>osm2pgsqlを入れるためは、他にもいろいろインストールが必要なのですが、<br>その辺もあんまり理解できていないので、<br>トライ&amp;エラーでやっていきたいと思います。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git clone https://github.com/openstreetmap/osm2pgsql</div><div class="line">$ <span class="built_in">cd</span> osm2pgsql</div><div class="line">$ ./autogen.sh</div><div class="line">./autogen.sh: line <span class="number">2</span>: autoreconf: command not found</div></pre></td></tr></table></figure>
+
+<p>案の定エラーになりました、、、<br>libtoolが必要らしいので入れます</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ yum install libtool</div><div class="line">$ ./autogen.sh</div></pre></td></tr></table></figure>
+
+<p>これでautogen.shは成功しました</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ ./configure --with-protobuf-c</div><div class="line">checking <span class="keyword">for</span> xml2-config... no</div><div class="line">configure: error:  does not exist or it is not an exectuable file</div></pre></td></tr></table></figure>
+
+<p>またエラーだ、、、<br>libxml12を入れます</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ yum install libxml2 libxml2-devel</div><div class="line">$ ./configure --with-protobuf-c</div><div class="line">checking <span class="keyword">for</span> bzip2 compression library... no</div><div class="line">configure: error: required library not found</div></pre></td></tr></table></figure>
+
+<p>別のエラーが、、、<br>bzip2をいれます</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ yum install bzip2 bzip2-devel</div><div class="line">$ ./configure --with-protobuf-c</div><div class="line">configure: error: geos-config does not exist or it is not an exectuable file</div></pre></td></tr></table></figure>
+
+<p>今度はgeosです</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ yum install geos geos-devel</div><div class="line">$ ./configure --with-protobuf-c</div><div class="line">checking <span class="keyword">for</span> proj projection library... no</div><div class="line">configure: error: required library not found</div></pre></td></tr></table></figure>
+
+<p>続いてproj、、、、</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ yum install proj proj-devel</div><div class="line">$ ./configure --with-protobuf-c</div><div class="line">checking <span class="keyword">for</span> protobuf-c usability... no</div><div class="line">configure: WARNING: protobuf-c support requested but headers or library not found. Specify valid prefix of protobuf-c using --with-protobuf-c=[DIR] or provide include directory and linker flags using --with-protobuf-c-inc and --with-protobuf-c-lib</div><div class="line">checking <span class="keyword">for</span> pg_config... no</div><div class="line">configure: error:  does not exist or it is not an exectuable file</div></pre></td></tr></table></figure>
+
+<p>protobuf-cがない、、、</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ yum install protobuf-c protobuf-c-devel</div><div class="line">$ ./configure --with-protobuf-c</div><div class="line">checking <span class="keyword">for</span> pg_config... no</div><div class="line">configure: error:  does not exist or it is not an exectuable file</div></pre></td></tr></table></figure>
+
+<p>pg_configがみつからないようですが、<br>これは環境変数を設定すればOKなようです</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ <span class="keyword">export</span> PATH=/usr/pgsql-<span class="number">9.3</span>/bin:<span class="variable">$PATH</span></div><div class="line">$ ./configure --with-protobuf-c</div><div class="line">checking <span class="keyword">if</span> more special flags are required <span class="keyword">for</span> pthreads... no</div><div class="line">checking <span class="keyword">for</span> boostlib &gt;= <span class="number">1.48</span>... configure: We could not detect the boost libraries (version <span class="number">1.48</span> or higher). If you have a staged boost library (still not installed) please specify <span class="variable">$BOOST_ROOT</span> <span class="keyword">in</span> your environment and <span class="keyword">do</span> not give a PATH to --with-boost option.  If you are sure you have boost installed, <span class="keyword">then</span> check your version number looking <span class="keyword">in</span> &lt;boost/version.hpp&gt;. See http://randspringer.de/boost <span class="keyword">for</span> more documentation.</div><div class="line">configure: error: cannot find Boost libraries, which are are required <span class="keyword">for</span> building osm2pgsql. Please install libboost-dev.</div></pre></td></tr></table></figure>
+
+<p>Boostが必要なようです<br>これは手でいれないといけないみたい、、、</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ wget http://downloads.sourceforge.net/project/boost/boost/<span class="number">1.53</span>.<span class="number">0</span>/boost_1_53_0.tar.gz</div><div class="line">$ tar -xvzf boost_1_53_0.tar.gz</div><div class="line">$ <span class="built_in">cd</span> boost_1_53_0</div><div class="line">$ ./bootstrap.sh --prefix=/usr/local</div><div class="line">$ ./b2</div><div class="line">$ ./b2 install</div><div class="line">$ /sbin/ldconfig</div></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ./configure --with-protobuf-c</div></pre></td></tr></table></figure>
+
+<p>やっと成功しました。あとはmakeすればOK</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="keyword">make</span></div><div class="line">$ <span class="keyword">make</span> install</div></pre></td></tr></table></figure>
+
+<p>やっとできました。。。。<br>長かった、、、</p>
+<h2 id="OSMのデータをいれる">OSMのデータをいれる</h2>
+<p>日本の最新の地図情報を落としてきて、DBに入れてみます</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ wget <span class="keyword">http</span>://download.geofabrik.de/asia/japan-latest.osm.pbf</div><div class="line">$ osm2pgsql -c -d japan  -E <span class="number">3857</span> -S /usr/<span class="built_in">local</span>/share/osm2pgsql/default.style <span class="comment">--host localhost japan-latest.osm.pbf</span></div><div class="line">osm2pgsql: error <span class="keyword">while</span> loading shared libraries: libboost_filesystem.so<span class="number">.1</span><span class="number">.53</span><span class="number">.0</span>: cannot <span class="built_in">open</span> shared object <span class="built_in">file</span>: No such <span class="built_in">file</span> <span class="operator">or</span> <span class="built_in">directory</span></div></pre></td></tr></table></figure>
+
+<p>またエラーが、、、<br>libboost_filesystem.so* の場所を探して、環境変数に追加</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$ sudo find / -name libboost_filesystem.so*</div><div class="line">$ export LD_LIBRARY_PATH=/usr/local/<span class="keyword">lib</span>/</div><div class="line">$ osm2pgsql -c -m <span class="number">1000</span> -d japan -U postgres -C <span class="number">1500</span> --cache-strategy sparse -S /usr/local/share/osm2pgsql/<span class="keyword">default</span>.style --host localhost japan-latest.osm.pbf</div><div class="line">osm2pgsql SVN version <span class="number">0.87</span><span class="number">.2</span>-dev (<span class="number">64</span>bit id space)</div><div class="line"></div><div class="line"><span class="keyword">Using</span> built-<span class="keyword">in</span> tag processing pipeline</div><div class="line"><span class="keyword">Using</span> projection SRS <span class="number">900913</span> (Spherical Mercator)</div><div class="line">Setting up table: planet_osm_point</div><div class="line">Setting up table: planet_osm_line</div><div class="line">Setting up table: planet_osm_polygon</div><div class="line">Setting up table: planet_osm_roads</div><div class="line">Allocating memory <span class="keyword">for</span> dense node cache</div><div class="line">Out <span class="keyword">of</span> memory <span class="keyword">for</span> node cache dense index, <span class="keyword">try</span> <span class="keyword">using</span> <span class="string">"--cache-strategy sparse"</span> instead</div><div class="line"><span class="keyword">Error</span> occurred, cleaning up</div></pre></td></tr></table></figure>
+
+<p>またエラーになってしまいました。<br><code>--cache-strategy sparse</code>のオプションをつけよと言われたので、その通りに、、、、</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">$ osm2pgsql -c -d japan -U postgres --cache-strategy sparse -S /usr/local/share/osm2pgsql/<span class="keyword">default</span>.style --host localhost japan-latest.osm.pbf</div><div class="line">osm2pgsql SVN version <span class="number">0.87</span>.<span class="number">2</span>-dev (<span class="number">64</span>bit id space)</div><div class="line"></div><div class="line"><span class="keyword">Using</span> built-<span class="keyword">in</span> tag processing pipeline</div><div class="line"><span class="keyword">Using</span> projection SRS <span class="number">900913</span> (Spherical Mercator)</div><div class="line">Setting up table: planet_osm_point</div><div class="line">Setting up table: planet_osm_line</div><div class="line">Setting up table: planet_osm_polygon</div><div class="line">Setting up table: planet_osm_roads</div><div class="line">Allocating memory <span class="keyword">for</span> sparse node cache</div><div class="line">Node-cache: cache=<span class="number">800</span>MB, maxblocks=<span class="number">102400</span>*<span class="number">8192</span>, allocation <span class="function"><span class="keyword">method</span>=1</span></div><div class="line"><span class="title">Mid</span>: Ram, scale=<span class="number">100</span></div><div class="line"></div><div class="line">Reading <span class="keyword">in</span> file: japan-latest.osm.pbf</div><div class="line">Processing: Node(<span class="number">52420</span>k <span class="number">859.3</span>k/s) Way(<span class="number">0</span>k <span class="number">0.00</span>k/s) Relation(<span class="number">0</span> <span class="number">0.00</span>/s)</div><div class="line">Node cache size <span class="keyword">is</span> too small <span class="keyword">to</span> fit all nodes. Please increase cache size</div><div class="line">Error occurred, cleaning up</div></pre></td></tr></table></figure>
+
+<p>メモリが足りないので<code>-C</code>で指定してあげます。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ osm2pgsql -c -d japan -U postgres <span class="comment">--cache-strategy sparse -C 2400 -S /usr/local/share/osm2pgsql/default.style --host localhost japan-latest.osm.pbf</span></div><div class="line">osm2pgsql SVN version <span class="number">0.87</span><span class="number">.2</span>-dev (<span class="number">64</span>bit id space)</div><div class="line"></div><div class="line">Using built-<span class="keyword">in</span> tag processing pipeline</div><div class="line">Using projection SRS <span class="number">900913</span> (Spherical Mercator)</div><div class="line">Setting up <span class="built_in">table</span>: planet_osm_point</div><div class="line">Setting up <span class="built_in">table</span>: planet_osm_line</div><div class="line">Setting up <span class="built_in">table</span>: planet_osm_polygon</div><div class="line">Setting up <span class="built_in">table</span>: planet_osm_roads</div><div class="line">Allocating memory <span class="keyword">for</span> sparse node cache</div><div class="line">Out of memory <span class="keyword">for</span> sparse node cache, reduce <span class="comment">--cache size</span></div><div class="line">Error occurred, cleaning up</div></pre></td></tr></table></figure>
+
+<p>そもそも、メモリが足りない、、、<br><code>-C</code>の値をいろいろ変えてみても、<br>メモリが多いとそもそもメモリがないよと怒られ、メモリが少ないとメモリが足りないと言われます、、、、<br>詰んだ、、、、</p>
+<p>ここで諦めてはいけません<br><a href="http://jurishimizu.github.io/2014/12/29/postgis-install-1/" target="_blank" rel="external">この記事</a>で作った仮想環境のメモリを増やしましょう<br>まず今のメモリを確認</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>free</div><div class="line">             total       used       free     shared    buffers     cached</div><div class="line"><span class="constant">Mem</span><span class="symbol">:</span>        <span class="number">469452</span>     <span class="number">117408</span>     <span class="number">352044</span>          <span class="number">0</span>       <span class="number">2432</span>      <span class="number">42320</span></div><div class="line">-<span class="regexp">/+ buffers/cache</span><span class="symbol">:</span>      <span class="number">72656</span>     <span class="number">396796</span></div><div class="line"><span class="constant">Swap</span><span class="symbol">:</span>       <span class="number">950264</span>      <span class="number">25060</span>     <span class="number">925204</span></div></pre></td></tr></table></figure>
+
+<p>vagrantの環境からログアウトして、Vagrantfileにメモリ割当の記述を追加</p>
+<figure class="highlight Vagrantfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">config.vm.provider <span class="symbol">:virtualbox</span> <span class="keyword">do</span> |vb|</div><div class="line">  ・</div><div class="line">  ・</div><div class="line">  vb.customize [<span class="string">"modifyvm"</span>, <span class="symbol">:id</span>, <span class="string">"--memory"</span>, <span class="number">2048</span>]</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+
+<p>vagrantを再起動して、メモリを確認</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>vagrant reload</div><div class="line"><span class="variable">$ </span>vagrant ssh</div><div class="line"><span class="variable">$ </span>free</div><div class="line">             total       used       free     shared    buffers     cached</div><div class="line"><span class="constant">Mem</span><span class="symbol">:</span>       <span class="number">1922488</span>     <span class="number">172968</span>    <span class="number">1749520</span>          <span class="number">0</span>       <span class="number">7184</span>      <span class="number">64644</span></div><div class="line">-<span class="regexp">/+ buffers/cache</span><span class="symbol">:</span>     <span class="number">101140</span>    <span class="number">1821348</span></div><div class="line"><span class="constant">Swap</span><span class="symbol">:</span>       <span class="number">950264</span>          <span class="number">0</span>     <span class="number">950264</span></div></pre></td></tr></table></figure>
+
+<p>メモリが増えました。</p>
+<p>しかし、この方法で<code>-C</code>の値を4200までふやしましたが、<br>エラーが解消されませんでした、、、、<br>やっぱり詰んだ、、、</p>
+<p>と思っていましたが、slimモードを使うと、メモリが少なくてもいけるそうです。<br><code>--slim</code>を追加して、再実行！</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div></pre></td><td class="code"><pre><div class="line">$ osm2pgsql -c -d japan -U postgres <span class="comment">--slim -C 4200 --cache-strategy sparse -S /usr/local/share/osm2pgsql/default.style --host localhost japan-latest.osm.pbf</span></div><div class="line">osm2pgsql SVN version 0.87.2-dev (64bit id space)</div><div class="line"></div><div class="line">Using built-in tag processing pipeline</div><div class="line">Using projection SRS 900913 (Spherical Mercator)</div><div class="line">Setting up table: planet_osm_point</div><div class="line">Setting up table: planet_osm_line</div><div class="line">Setting up table: planet_osm_polygon</div><div class="line">Setting up table: planet_osm_roads</div><div class="line">Allocating memory for sparse node <span class="operator"><span class="keyword">cache</span></span></div><div class="line">Node-<span class="keyword">cache</span>: <span class="keyword">cache</span>=<span class="number">4200</span>MB, maxblocks=<span class="number">537600</span>*<span class="number">8192</span>, allocation method=<span class="number">9</span></div><div class="line"><span class="keyword">Mid</span>: pgsql, scale=<span class="number">100</span> <span class="keyword">cache</span>=<span class="number">4200</span></div><div class="line">Setting up <span class="keyword">table</span>: planet_osm_nodes</div><div class="line">Setting up <span class="keyword">table</span>: planet_osm_ways</div><div class="line">Setting up <span class="keyword">table</span>: planet_osm_rels</div><div class="line"></div><div class="line">Reading <span class="keyword">in</span> file: japan-latest.osm.pbf</div><div class="line">Processing: Node(<span class="number">103668</span>k <span class="number">1.7</span>k/s) Way(<span class="number">9965</span>k <span class="number">10.77</span>k/s) Relation(<span class="number">23920</span> <span class="number">42.64</span>/s)  <span class="keyword">parse</span> <span class="keyword">time</span>: <span class="number">60967</span>s</div><div class="line">Node stats: total(<span class="number">103668009</span>), <span class="keyword">max</span>(<span class="number">3297129224</span>) <span class="keyword">in</span> <span class="number">59481</span>s</div><div class="line">Way stats: total(<span class="number">9965258</span>), <span class="keyword">max</span>(<span class="number">322927091</span>) <span class="keyword">in</span> <span class="number">925</span>s</div><div class="line">Relation stats: total(<span class="number">23920</span>), <span class="keyword">max</span>(<span class="number">4497829</span>) <span class="keyword">in</span> <span class="number">561</span>s</div><div class="line">Committing <span class="keyword">transaction</span> <span class="keyword">for</span> planet_osm_point</div><div class="line">Committing <span class="keyword">transaction</span> <span class="keyword">for</span> planet_osm_line</div><div class="line">Committing <span class="keyword">transaction</span> <span class="keyword">for</span> planet_osm_polygon</div><div class="line">Committing <span class="keyword">transaction</span> <span class="keyword">for</span> planet_osm_roads</div><div class="line">Setting up <span class="keyword">table</span>: planet_osm_nodes</div><div class="line">Setting up <span class="keyword">table</span>: planet_osm_ways</div><div class="line">Setting up <span class="keyword">table</span>: planet_osm_rels</div><div class="line"><span class="keyword">Using</span> built-<span class="keyword">in</span> tag processing pipeline</div><div class="line"></div><div class="line">Going over pending ways...</div><div class="line">  <span class="number">2856546</span> ways <span class="keyword">are</span> pending</div><div class="line"></div><div class="line"><span class="keyword">Using</span> <span class="number">1</span> helper-processes</div><div class="line">Finished processing <span class="number">2856546</span> ways <span class="keyword">in</span> <span class="number">1052</span> sec</div><div class="line"></div><div class="line"><span class="number">2856546</span> Pending ways took <span class="number">1052</span>s <span class="keyword">at</span> a rate <span class="keyword">of</span> <span class="number">2715.35</span>/s</div><div class="line">Committing <span class="keyword">transaction</span> <span class="keyword">for</span> planet_osm_point</div><div class="line">Committing <span class="keyword">transaction</span> <span class="keyword">for</span> planet_osm_line</div><div class="line">Committing <span class="keyword">transaction</span> <span class="keyword">for</span> planet_osm_polygon</div><div class="line">Committing <span class="keyword">transaction</span> <span class="keyword">for</span> planet_osm_roads</div><div class="line"></div><div class="line">Going over pending relations...</div><div class="line">  <span class="number">0</span> relations <span class="keyword">are</span> pending</div><div class="line"></div><div class="line"><span class="keyword">Using</span> <span class="number">1</span> helper-processes</div><div class="line">Finished processing <span class="number">0</span> relations <span class="keyword">in</span> <span class="number">0</span> sec</div><div class="line"></div><div class="line">Committing <span class="keyword">transaction</span> <span class="keyword">for</span> planet_osm_point</div><div class="line">WARNING:  there <span class="keyword">is</span> <span class="keyword">no</span> <span class="keyword">transaction</span> <span class="keyword">in</span> progress</div><div class="line">Committing <span class="keyword">transaction</span> <span class="keyword">for</span> planet_osm_line</div><div class="line">WARNING:  there <span class="keyword">is</span> <span class="keyword">no</span> <span class="keyword">transaction</span> <span class="keyword">in</span> progress</div><div class="line">Committing <span class="keyword">transaction</span> <span class="keyword">for</span> planet_osm_polygon</div><div class="line">WARNING:  there <span class="keyword">is</span> <span class="keyword">no</span> <span class="keyword">transaction</span> <span class="keyword">in</span> progress</div><div class="line">Committing <span class="keyword">transaction</span> <span class="keyword">for</span> planet_osm_roads</div><div class="line">WARNING:  there <span class="keyword">is</span> <span class="keyword">no</span> <span class="keyword">transaction</span> <span class="keyword">in</span> progress</div><div class="line">Stopping <span class="keyword">table</span>: planet_osm_rels</div><div class="line">Building <span class="keyword">index</span> <span class="keyword">on</span> <span class="keyword">table</span>: planet_osm_rels (fastupdate=off)</div><div class="line">Stopping <span class="keyword">table</span>: planet_osm_ways</div><div class="line">Stopping <span class="keyword">table</span>: planet_osm_nodes</div><div class="line">Stopped <span class="keyword">table</span>: planet_osm_nodes <span class="keyword">in</span> <span class="number">0</span>s</div><div class="line">Sorting <span class="keyword">data</span> <span class="keyword">and</span> creating indexes <span class="keyword">for</span> planet_osm_point</div><div class="line">Sorting <span class="keyword">data</span> <span class="keyword">and</span> creating indexes <span class="keyword">for</span> planet_osm_line</div><div class="line">Sorting <span class="keyword">data</span> <span class="keyword">and</span> creating indexes <span class="keyword">for</span> planet_osm_polygon</div><div class="line">Building <span class="keyword">index</span> <span class="keyword">on</span> <span class="keyword">table</span>: planet_osm_ways (fastupdate=off)</div><div class="line">Sorting <span class="keyword">data</span> <span class="keyword">and</span> creating indexes <span class="keyword">for</span> planet_osm_roads</div><div class="line">Analyzing planet_osm_point finished</div><div class="line">Stopped <span class="keyword">table</span>: planet_osm_rels <span class="keyword">in</span> <span class="number">10</span>s</div><div class="line">Analyzing planet_osm_roads finished</div><div class="line">Analyzing planet_osm_polygon finished</div><div class="line">Analyzing planet_osm_line finished</div><div class="line">Copying planet_osm_point <span class="keyword">to</span> cluster <span class="keyword">by</span> geometry finished</div><div class="line">Creating geometry <span class="keyword">index</span> <span class="keyword">on</span>  planet_osm_point</div><div class="line">Copying planet_osm_roads <span class="keyword">to</span> cluster <span class="keyword">by</span> geometry finished</div><div class="line">Creating geometry <span class="keyword">index</span> <span class="keyword">on</span>  planet_osm_roads</div><div class="line">Creating osm_id <span class="keyword">index</span> <span class="keyword">on</span>  planet_osm_point</div><div class="line">Creating indexes <span class="keyword">on</span>  planet_osm_point finished</div><div class="line"><span class="keyword">All</span> indexes <span class="keyword">on</span>  planet_osm_point created  <span class="keyword">in</span> <span class="number">188</span>s</div><div class="line">Completed planet_osm_point</div><div class="line">Creating osm_id <span class="keyword">index</span> <span class="keyword">on</span>  planet_osm_roads</div><div class="line">Creating indexes <span class="keyword">on</span>  planet_osm_roads finished</div><div class="line"><span class="keyword">All</span> indexes <span class="keyword">on</span>  planet_osm_roads created  <span class="keyword">in</span> <span class="number">216</span>s</div><div class="line">Completed planet_osm_roads</div><div class="line">Copying planet_osm_polygon <span class="keyword">to</span> cluster <span class="keyword">by</span> geometry finished</div><div class="line">Creating geometry <span class="keyword">index</span> <span class="keyword">on</span>  planet_osm_polygon</div><div class="line">Creating osm_id <span class="keyword">index</span> <span class="keyword">on</span>  planet_osm_polygon</div><div class="line">Creating indexes <span class="keyword">on</span>  planet_osm_polygon finished</div><div class="line"><span class="keyword">All</span> indexes <span class="keyword">on</span>  planet_osm_polygon created  <span class="keyword">in</span> <span class="number">674</span>s</div><div class="line">Completed planet_osm_polygon</div><div class="line">Copying planet_osm_line <span class="keyword">to</span> cluster <span class="keyword">by</span> geometry finished</div><div class="line">Creating geometry <span class="keyword">index</span> <span class="keyword">on</span>  planet_osm_line</div><div class="line">Creating osm_id <span class="keyword">index</span> <span class="keyword">on</span>  planet_osm_line</div><div class="line">Creating indexes <span class="keyword">on</span>  planet_osm_line finished</div><div class="line"><span class="keyword">All</span> indexes <span class="keyword">on</span>  planet_osm_line created  <span class="keyword">in</span> <span class="number">1496</span>s</div><div class="line">Completed planet_osm_line</div><div class="line">Stopped <span class="keyword">table</span>: planet_osm_ways <span class="keyword">in</span> <span class="number">1873</span>s</div><div class="line">node <span class="keyword">cache</span>: stored: <span class="number">103668009</span>(<span class="number">100.00</span>%), storage efficiency: <span class="number">50.00</span>% (dense blocks: <span class="number">0</span>, sparse nodes: <span class="number">103668009</span>), hit rate: <span class="number">100.00</span>%</div><div class="line"></div><div class="line">Osm2pgsql took <span class="number">63895</span>s overall</div></pre></td></tr></table></figure>
+
+<p>やっとできました。。。<br>長い道のりだった、、、、</p>
+<h2 id="データを確認する">データを確認する</h2>
+<p>ほんとに入ってるか、DBをのぞいてみましょう</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">sudo</span> su - postgres</div><div class="line">$ psql <span class="operator">-d</span> japan</div></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">japan=# \d</div><div class="line">               List of relations</div><div class="line"> Schema |        Name        | Type  |  Owner</div><div class="line"><span class="comment">--------+--------------------+-------+----------</span></div><div class="line"> public | geography_columns  | view  | postgres</div><div class="line"> public | geometry_columns   | view  | postgres</div><div class="line"> public | planet_osm_line    | table | postgres</div><div class="line"> public | planet_osm_nodes   | table | postgres</div><div class="line"> public | planet_osm_point   | table | postgres</div><div class="line"> public | planet_osm_polygon | table | postgres</div><div class="line"> public | planet_osm_rels    | table | postgres</div><div class="line"> public | planet_osm_roads   | table | postgres</div><div class="line"> public | planet_osm_ways    | table | postgres</div><div class="line"> public | raster_columns     | view  | postgres</div><div class="line"> public | raster_overviews   | view  | postgres</div><div class="line"> public | spatial_ref_sys    | table | postgres</div><div class="line">(12 rows)</div></pre></td></tr></table></figure>
+
+<p>テーブルが増えてます！</p>
+<p><code>planet_osm_polygon</code>に建物などの「面」の情報（ポリゴン）<br><code>planet_osm_line</code>に道路などの「線」の情報（ライン）<br><code>planet_osm_point</code>に「点」の情報（ポイント）が格納されています。<br>じゃあ、<code>planet_osm_roads</code>は何なのかというと、<br>縮尺が大きいときにつかわれる<code>planet_osm_line</code>のサブセットだそうです。<br>縮尺が大きいときに細い道まで全部表示したら大変だからってことでしょうかね<br>他の３つは中間テーブルのようです。</p>
+<p>詳細は<a href="http://wiki.openstreetmap.org/wiki/JA:Osm2pgsql/schema" target="_blank" rel="external">コチラ</a></p>
+<p>テーブルの定義をみてみます</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">japan=# \d planet_osm_polygon</div><div class="line">           Table "public.planet_osm_polygon"</div><div class="line">       Column       |          Type           | Modifiers</div><div class="line"><span class="comment">--------------------+-------------------------+-----------</span></div><div class="line"> osm_id             | bigint                  |</div><div class="line"> access             | text                    |</div><div class="line"> addr:housename     | text                    |</div><div class="line"> addr:housenumber   | text                    |</div><div class="line"> addr:interpolation | text                    |</div><div class="line">・・・・・・・</div><div class="line"> wetland            | text                      |</div><div class="line"> width              | text                      |</div><div class="line"> wood               | text                      |</div><div class="line"> z_order            | integer                   |</div><div class="line"> way_area           | real                      |</div><div class="line"> way                | geometry(Geometry,900913) |</div></pre></td></tr></table></figure>
+
+<p>カラムが多い、、、、<br>最後にあるgeometryというデータ型がジオなデータなわけですね。<br>900913というナゾの数字、これは前回のブログでもふれた空間参照系を表しています。<br>繰り返しになりますが、DBで扱える空間参照系は<code>spatial_ref_sys</code>テーブルで管理しています。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span> * <span class="keyword">from</span> spatial_ref_sys <span class="keyword">where</span> srid=<span class="number">900913</span>;</span></div><div class="line">  srid  |       auth_name        | auth_srid |                                                                       srtext                                                                                                       |            proj4text</div><div class="line"><span class="comment">--------+------------------------+-----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------</span></div><div class="line"> 900913 | spatialreferencing.org |    900913 | PROJCS["Popular Visualisation CRS / Mercator (deprecated)",GEOGCS["Popular Visualisation CRS",DATUM["Popular_Visualisation_Datum",SPHEROID["Popular Visualisation Sphere",6378137,0,AUTHORITY["EPSG","7059"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY["EPSG","6055"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.01745329251994328,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4055"]],UNIT["metre",1,AUTHORITY["EPSG","9001"]],PROJECTION["Mercator_1SP"],PARAMETER["central_meridian",0],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],AUTHORITY["EPSG","3785"],AXIS["X",EAST],AXIS["Y",NORTH]] | +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs</div><div class="line">(1 row)</div></pre></td></tr></table></figure>
+
+<p>意味不明ですが、<a href="http://ja.wikipedia.org/wiki/%E6%B8%AC%E5%9C%B0%E7%B3%BB#.E4.B8.96.E7.95.8C.E6.B8.AC.E5.9C.B0.E7.B3.BB.E3.81.A8.E3.81.84.E3.81.86.E5.91.BC.E7.A7.B0" target="_blank" rel="external">WGS</a>と書いてあるので、世界測地系なのでしょう、、、<br>wayというカラムはこの空間参照系のデータだよっていうことですね。</p>
+<p>テーブルの中身を見てみなしょう。<br>まずは件数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span> <span class="keyword">count</span>(<span class="number">1</span>) <span class="keyword">from</span>  planet_osm_polygon ;</span></div><div class="line">  count</div><div class="line"><span class="comment">---------</span></div><div class="line"> 2591940</div><div class="line">(1 row)</div></pre></td></tr></table></figure>
+
+<p>カラムも多いけど、データ数も多いですね。日本全国なので、、、、<br>適当にselectしても混乱しそうなので、データの仕様を確認してみましょう。</p>
+<p>OSMの仕様はこちらで確認できます。<br><a href="http://wiki.openstreetmap.org/wiki/JA:Map_Features" target="_blank" rel="external">http://wiki.openstreetmap.org/wiki/JA:Map_Features</a></p>
+<p>例えば<a href="http://wiki.openstreetmap.org/wiki/JA:Map_Features#.E5.95.86.E6.A5.AD.E6.96.BD.E8.A8.AD" target="_blank" rel="external">このページ</a>をみれば、<br>buildingカラムに「commercial」が設定されていたらは「商業施設なんだな」ってわかるわけですね。<br>バーとかアイスクリーム屋さんまで指定できるみたいで、眺めてると結構面白いです。</p>
+<p>商業施設をselectしてみましょう</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span> name,building <span class="keyword">from</span> planet_osm_polygon <span class="keyword">where</span> building=<span class="string">'commercial'</span> <span class="keyword">limit</span> <span class="number">10</span> ;</span></div><div class="line">              name               |  building</div><div class="line"><span class="comment">---------------------------------+------------</span></div><div class="line"> 久米島町B&G海洋センター         | commercial</div><div class="line"> ヤマダ電機                      | commercial</div><div class="line">                                 | commercial</div><div class="line"> JPR那覇ビル (JPR Naha Building) | commercial</div><div class="line"> 和民 (Watami)                   | commercial</div><div class="line">                                 | commercial</div><div class="line"> A-Price                         | commercial</div><div class="line"> 西原シティ (Nishihara City)     | commercial</div><div class="line"> BEST                            | commercial</div><div class="line">                                 | commercial</div><div class="line">(10 rows)</div></pre></td></tr></table></figure>
+
+<p>それっぽい検索結果になったので、ちゃんとデータが入ってるみたいです！<br>今日はここまで！！！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jurishimizu.github.io/2015/01/12/osm-download/" data-id="3kw92x3ro77oyawl" class="article-share-link">Share</a>
+      
+        <a href="http://jurishimizu.github.io/2015/01/12/osm-download/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/">centos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/osm/">osm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgis/">postgis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vagrant/">vagrant</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/virtualized-environment/">virtualized_environment</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/01/09/postgis-install-extla/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">yumを使わずにwgetでPostGISをインストール</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/01/12/osm-download/">OSMのデータをPostGISのDBに入れてみる</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/09/postgis-install-extla/">yumを使わずにwgetでPostGISをインストール</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/09/postgis-install-2/">CentOSにPostgreSQL/PostGISの環境構築</a>
+          </li>
+        
+          <li>
+            <a href="/2014/12/29/postgis-install-1/">Vagrantで仮想環境を作成</a>
+          </li>
+        
+          <li>
+            <a href="/2014/12/29/aboutGIS/">GISについて</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/">centos</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osm/">osm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgis/">postgis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/">postgresql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vagrant/">vagrant</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualized-environment/">virtualized_environment</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+</aside>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 JuriShimizu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'jurigis';
+  
+  var disqus_url = 'http://jurishimizu.github.io/2015/01/12/osm-download/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>

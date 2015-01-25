@@ -1,16 +1,19 @@
-title: POSTGISの環境を構築　その１
+title: Vagrantで仮想環境を作成
 date: 2014-12-29 17:40:17
-tags: POSTGIS
+tags: 
+- vagrant
+- centos
+- virtualized_environment
 ---
 
-まずは[POSTGIS](http://ja.wikipedia.org/wiki/PostGIS)をインストールしてみます。
-POSIGISを入れるとPostgreで地理空間情報が扱えるようになってしまうのです。
-データベースで地理情報を扱えるなんてビックリです。
+これから勉強するために仮想環境をつくります。
+自分のPCでやってもいいのですが、失敗した時のことを考えて、、、
+
+<!-- more -->
 
 # 仮想環境を作ってみる
 
-まずは、Vagrant と VirtualBox を使って、仮想環境を作ってみます。
-自分のPCにPOSTGISをインストールしてもいいのですが、失敗した時のことを考えて、、、
+Vagrant と VirtualBox を使って、仮想環境を作ってみます。
 
 ## Vagrant をインストール
 

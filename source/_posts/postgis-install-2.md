@@ -1,24 +1,34 @@
-title: POSTGISの環境を構築　その２
+title: CentOSにPostgreSQL/PostGISの環境構築
 date: 2015-01-09 11:46:17
-tags: POSTGIS
+tags: 
+- vagrant
+- centos
+- virtualized_environment
+- postgresql
+- postgis
 ---
 
-[前回](http://jurishimizu.github.io/2014/12/29/postgis-install-1/)の続きです
+[前回](http://jurishimizu.github.io/2014/12/29/Postgis-install-1/)作った仮想環境に、
+[PostGIS](http://ja.wikipedia.org/wiki/Postgis)をインストールしてみます。
+PostGISを入れるとPostgreSQLで地理空間情報が扱えるようになってしまうのです。
+データベースで地理情報を扱えるなんてビックリです。
 
-# POSTGISをインストール
+<!-- more -->
 
-前回作成した仮想環境に接続して、POSTGISをインストールします
+# Postgisをインストール
+
+前回作成した仮想環境に接続して、Postgisをインストールします
 
 仮想環境に接続
 ``` 
 $ vagrant ssh
 ```
-postgresqlとpostgisインストール
+postgresqlとPostgisインストール
 ``` 
 $ rpm -ivh http://yum.postgresql.org/9.3/redhat/rhel-6-x86_64/pgdg-centos93-9.3-1.noarch.rpm
 $ yum -y install postgresql93 postgresql93-server postgresql93-libspostgresql93-contrib postgresql93-devel
 $ rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-$ yum -y install postgis2_93
+$ yum -y install Postgis2_93
 ```
 バージョン確認
 ```
@@ -70,23 +80,18 @@ Starting postgresql-9.3 service:                           [  OK  ]
 $ sudo su - postgres
 $ createdb japan
 ```
-ログインして`create extension postgis;`を実行します
+ログインして`create extension Postgis;`を実行します
 ```
 $ psql -d japan
 ```
 ```SQL
-japan=# create extension postgis;
+japan=# create extension Postgis;
 CREATE EXTENSION
-japan=# SELECT postgis_full_version() ;
-                                                                        postgis_
-full_version
+japan=# SELECT Postgis_full_version() ;
+                                                                        Postgis_full_version
 
---------------------------------------------------------------------------------
---------------------------------------------------------------------------------
------
- POSTGIS="2.1.5 r13152" GEOS="3.4.2-CAPI-1.8.2 r3921" PROJ="Rel. 4.8.0, 6 March
-2012" GDAL="GDAL 1.9.2, released 2012/10/08" LIBXML="2.7.6" LIBJSON="UNKNOWN" RA
-STER
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Postgis="2.1.5 r13152" GEOS="3.4.2-CAPI-1.8.2 r3921" PROJ="Rel. 4.8.0, 6 March2012" GDAL="GDAL 1.9.2, released 2012/10/08" LIBXML="2.7.6" LIBJSON="UNKNOWN" RASTER
 (1 row)
 ```
 これでGeoなデータベースの出来上がりです！
@@ -107,7 +112,7 @@ japan=# \d
 まだ何もしてないのに、テーブルとビューができてます。
 このおかげでGeoなデータが扱えるようになるみたいですね。
 
-spatial_ref_sysの中身を除いてみます。
+`spatial_ref_sys`の中身を除いてみます。
 ```SQL
 japan=# \d spatial_ref_sys
          Table "public.spatial_ref_sys"

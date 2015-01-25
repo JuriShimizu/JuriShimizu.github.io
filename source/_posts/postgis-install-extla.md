@@ -1,13 +1,17 @@
-title: POSTGISの環境を構築　番外編
+title: yumを使わずにwgetでPostGISをインストール
 date: 2015-01-09 18:18:40
-tags: POSTGIS
+tags: 
+- centos
+- postgis
 ---
 
 [前回](http://jurishimizu.github.io/2015/01/09/postgis-install-2/)はあっさりとyumでPOSTGISをインストールしましたが、
-諸事情でyumを使えないこともあるってことで、番外編としてyumを使わないインストール方法を書いておきます。
+諸事情でyumを使えないこともあるってことで、yumを使わないインストール方法を書いておきます。
 postgresqlのインストールは省いてます、、、
 
-# POSTGISをインストール
+<!-- more -->
+
+# PostGISをインストール
 
 [PROJ](http://www.torutk.com/projects/swe/wiki/PROJ4)インストール
 ```
@@ -39,7 +43,7 @@ $ make
 $ make install
 ```
 
-POSTGISインストール
+PostGISインストール
 ```
 $ wget http://download.osgeo.org/postgis/source/postgis-2.0.4.tar.gz
 $ tar xvfz postgis-2.0.4.tar.gz
@@ -65,8 +69,8 @@ $ vi /etc/ld.so.conf
 # create extension postgis;
 ERROR:  could not load library "/usr/lib/pgsql/postgis-2.0.so": /usr/lib/pgsql/postgis-2.0.so: undefined symbol: pj_get_spheroid_defn
 ```
-PROJのバージョンが古い場合にも同じエラーになるみたいです。
+PROJのバージョンが4.8より古い場合にも同じエラーになるみたいです。
 
-POSTGISを使うときは、PROJとかGDALとか、いろいろ必要なのですね。
+PostGISを使うときは、PROJとかGDALとか、いろいろ必要なのですね。
 yumでインストールしたときは、勝手にインストールしてくれてたってことですね。
 yumって便利ですね、、、

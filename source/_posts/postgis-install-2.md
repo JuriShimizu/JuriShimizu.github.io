@@ -15,7 +15,7 @@ PostGISを入れるとPostgreSQLで地理空間情報が扱えるようになっ
 
 <!-- more -->
 
-# Postgisをインストール
+# PostgreSQL/PostGISをインストール
 
 前回作成した仮想環境に接続して、Postgisをインストールします
 
@@ -23,7 +23,7 @@ PostGISを入れるとPostgreSQLで地理空間情報が扱えるようになっ
 ``` 
 $ vagrant ssh
 ```
-postgresqlとPostgisインストール
+PostgreSQLとPostGISインストール
 ``` 
 $ rpm -ivh http://yum.postgresql.org/9.3/redhat/rhel-6-x86_64/pgdg-centos93-9.3-1.noarch.rpm
 $ yum -y install postgresql93 postgresql93-server postgresql93-libspostgresql93-contrib postgresql93-devel

@@ -129,7 +129,7 @@ $ make install
 
 ```
 $ wget http://download.geofabrik.de/asia/japan-latest.osm.pbf
-$ osm2pgsql -c -d japan  -E 3857 -S /usr/local/share/osm2pgsql/default.style --host localhost japan-latest.osm.pbf
+$ osm2pgsql -c -d japan -S /usr/local/share/osm2pgsql/default.style --host localhost japan-latest.osm.pbf
 osm2pgsql: error while loading shared libraries: libboost_filesystem.so.1.53.0: cannot open shared object file: No such file or directory
 ```
 またエラーが、、、
@@ -137,7 +137,7 @@ libboost_filesystem.so* の場所を探して、環境変数に追加
 ```
 $ sudo find / -name libboost_filesystem.so*
 $ export LD_LIBRARY_PATH=/usr/local/lib/
-$ osm2pgsql -c -m 1000 -d japan -U postgres -C 1500 --cache-strategy sparse -S /usr/local/share/osm2pgsql/default.style --host localhost japan-latest.osm.pbf
+$ osm2pgsql -c -d japan -S /usr/local/share/osm2pgsql/default.style --host localhost japan-latest.osm.pbf
 osm2pgsql SVN version 0.87.2-dev (64bit id space)
 
 Using built-in tag processing pipeline

@@ -7,7 +7,7 @@ tags:
 
 [前回](http://jurishimizu.github.io/2015/01/09/postgis-install-2/)はあっさりとyumでPOSTGISをインストールしましたが、
 諸事情でyumを使えないこともあるってことで、yumを使わないインストール方法を書いておきます。
-postgresqlのインストールは省いてます、、、
+PostgreSQLのインストールは省いてます、、、
 
 <!-- more -->
 

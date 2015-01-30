@@ -3,17 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>はじめに | JURI★GIS</title>
+  <title>QGISでPostGISのデータを確認 | JURI★GIS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Geoはgeographic（地理的な, 地理学の）です。地理につよいSEを目指します。">
+  <meta name="description" content="前回、OSMのデータをDBに入れて、selectしたりしたわけですが、やっぱり視覚的に「ちゃんと日本のデータが入った！」っていうのを確認したいですね。ということで、今回はQGISでデータの中身を確認してみます。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="はじめに">
-<meta property="og:url" content="http://jurishimizu.github.io/2014/12/29/Introduction/">
+<meta property="og:title" content="QGISでPostGISのデータを確認">
+<meta property="og:url" content="http://jurishimizu.github.io/2015/01/29/display-postgis-data-in-qgis/">
 <meta property="og:site_name" content="JURI★GIS">
-<meta property="og:description" content="Geoはgeographic（地理的な, 地理学の）です。地理につよいSEを目指します。">
+<meta property="og:description" content="前回、OSMのデータをDBに入れて、selectしたりしたわけですが、やっぱり視覚的に「ちゃんと日本のデータが入った！」っていうのを確認したいですね。ということで、今回はQGISでデータの中身を確認してみます。">
+<meta property="og:image" content="QGIS_01.png">
+<meta property="og:image" content="QGIS_02.png">
+<meta property="og:image" content="QGIS_03.png">
+<meta property="og:image" content="QGIS_04.png">
+<meta property="og:image" content="QGIS_05.png">
+<meta property="og:image" content="QGIS_06.png">
+<meta property="og:image" content="QGIS_07.png">
+<meta property="og:image" content="QGIS_08.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="はじめに">
-<meta name="twitter:description" content="Geoはgeographic（地理的な, 地理学の）です。地理につよいSEを目指します。">
+<meta name="twitter:title" content="QGISでPostGISのデータを確認">
+<meta name="twitter:description" content="前回、OSMのデータをDBに入れて、selectしたりしたわけですが、やっぱり視覚的に「ちゃんと日本のデータが入った！」っていうのを確認したいですね。ということで、今回はQGISでデータの中身を確認してみます。">
 
   
   
@@ -61,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Introduction" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-display-postgis-data-in-qgis" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/12/29/Introduction/" class="article-date">
-  <time datetime="2014-12-29T08:10:33.000Z" itemprop="datePublished">Dec 29 2014</time>
+    <a href="/2015/01/29/display-postgis-data-in-qgis/" class="article-date">
+  <time datetime="2015-01-29T08:59:38.000Z" itemprop="datePublished">Jan 29 2015</time>
 </a>
     
   </div>
@@ -75,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      はじめに
+      QGISでPostGISのデータを確認
     </h1>
   
 
@@ -83,34 +91,60 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Geoはgeographic（地理的な, 地理学の）です。<br>地理につよいSEを目指します。</p>
-<a id="more"></a>
-
-<p>経験も知識もないですが、<br>カッコイイ地図をサクッと作ったり、<br>地理情報を使ったサービスが作れるようになりたいです</p>
+        <p>前回、OSMのデータをDBに入れて、selectしたりしたわけですが、<br>やっぱり視覚的に「ちゃんと日本のデータが入った！」っていうのを確認したいですね。<br>ということで、今回は<a href="http://ja.wikipedia.org/wiki/QGIS" target="_blank" rel="external">QGIS</a>でデータの中身を確認してみます。<br><a id="more"></a><br>QGISはGISのツールの中でもメジャーな方なので、比較的情報もたくさんあります。<br>かなり奥深いツールですが、今回はデータを見てみるだけにしておきます。</p>
+<p>QGISのインストールは<a href="http://www.qgis.org/ja/site/forusers/download.html" target="_blank" rel="external">こちらのページ</a>からインストーラを落として実行するだけです。</p>
+<h2 id="QGISにデータを読み込む">QGISにデータを読み込む</h2>
+<p>QGISを起動して、左側にあるゾウのマークをクリックします</p>
+<p><img src="QGIS_01.png" alt="QGIS"></p>
+<p>「PostGIS テーブルを追加」という画面が出てくるので、新規をクリック</p>
+<p><img src="QGIS_02.png" alt="QGIS"></p>
+<p>こんな感じで接続情報を書きます。<br>ホストは<a href="http://jurishimizu.github.io/2014/12/29/postgis-install-1/" target="_blank" rel="external">この記事</a>でつくった仮想環境です。<br>接続テストがでてきたら、OKをクリック</p>
+<p><img src="QGIS_03.png" alt="QGIS"></p>
+<p>「接続」ボタンを押すとテーブルの一覧がでてきます。<br>osmのデータが入っている４つのテーブルを選んで「追加」をクリック</p>
+<p><img src="QGIS_04.png" alt="QGIS"></p>
+<p>そうすると、レイヤーに選択したテーブルがでてきて、徐々に日本地図が現れます<br>（けっこう時間かかります）</p>
+<p><img src="QGIS_05.png" alt="QGIS"></p>
+<h2 id="地物を確認してみる">地物を確認してみる</h2>
+<p>地図にのってる建物や道のことを<a href="http://wiki.openstreetmap.org/wiki/JA:%E5%9C%B0%E7%89%A9" target="_blank" rel="external">地物</a>といいます。<br>この地物をQGISで確認してみましょう。</p>
+<p>＋ボタンを使って、東京駅のあるところまでズームします</p>
+<p><img src="QGIS_06.png" alt="QGIS"></p>
+<p>iボタン（地物情報表示）で地物をひとつ選んでみます</p>
+<p><img src="QGIS_07.png" alt="QGIS"></p>
+<p>そうすると、こんな画面がでてきて、DBの値がわかります</p>
+<p><img src="QGIS_08.png" alt="QGIS"></p>
+<p>こうやって視覚的に見れると、ちゃんと日本地図のデータが入ったんだなって実感しますね</p>
+<p>今日はここまで！</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jurishimizu.github.io/2014/12/29/Introduction/" data-id="g4skoyrgju8fb7xj" class="article-share-link">Share</a>
+      <a data-url="http://jurishimizu.github.io/2015/01/29/display-postgis-data-in-qgis/" data-id="whb8s7722iaw3rcu" class="article-share-link">Share</a>
       
-        <a href="http://jurishimizu.github.io/2014/12/29/Introduction/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://jurishimizu.github.io/2015/01/29/display-postgis-data-in-qgis/#disqus_thread" class="article-comment-link">Comments</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/osm/">osm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgis/">postgis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qgis/">qgis</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2014/12/29/aboutGIS/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/01/29/output-image-in-qgis/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          GISについて
+          QGISのスタイルを変更＆画像を出力
         
       </div>
     </a>
   
+  
+    <a href="/2015/01/12/osm-download/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">OSMのデータをPostGISのDBに入れてみる</div>
+    </a>
   
 </nav>
 
@@ -200,7 +234,7 @@
 <script>
   var disqus_shortname = 'jurigis';
   
-  var disqus_url = 'http://jurishimizu.github.io/2014/12/29/Introduction/';
+  var disqus_url = 'http://jurishimizu.github.io/2015/01/29/display-postgis-data-in-qgis/';
   
   (function(){
     var dsq = document.createElement('script');

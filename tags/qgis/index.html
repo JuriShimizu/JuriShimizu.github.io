@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: virtualized_environment | JURI★GIS</title>
+  <title>Tag: qgis | JURI★GIS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="JURI★GIS">
-<meta property="og:url" content="http://jurishimizu.github.io/tags/virtualized-environment/">
+<meta property="og:url" content="http://jurishimizu.github.io/tags/qgis/">
 <meta property="og:site_name" content="JURI★GIS">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-osm-download" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-output-image-in-qgis" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/01/12/osm-download/" class="article-date">
-  <time datetime="2015-01-12T08:35:12.000Z" itemprop="datePublished">Jan 12 2015</time>
+    <a href="/2015/01/29/output-image-in-qgis/" class="article-date">
+  <time datetime="2015-01-29T09:58:14.000Z" itemprop="datePublished">Jan 29 2015</time>
 </a>
     
   </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/12/osm-download/">OSMのデータをPostGISのDBに入れてみる</a>
+      <a class="article-title" href="/2015/01/29/output-image-in-qgis/">QGISのスタイルを変更＆画像を出力</a>
     </h1>
   
 
@@ -85,22 +85,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://jurishimizu.github.io/2015/01/09/postgis-install-2/" target="_blank" rel="external">前回</a>、Geoなデータベースを作ったので、<br>今回はそこにGeoなデータを入れてみたいと思います</p>
+        <p>今回は小ネタとして、QGISで表示されている画面を、画像として出力する方法をご紹介します</p>
 
         
           <p class="article-more-link">
-            <a href="/2015/01/12/osm-download/#more">Read More</a>
+            <a href="/2015/01/29/output-image-in-qgis/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jurishimizu.github.io/2015/01/12/osm-download/" data-id="2dycckp8xqw0fhxi" class="article-share-link">Share</a>
+      <a data-url="http://jurishimizu.github.io/2015/01/29/output-image-in-qgis/" data-id="mfbcldblorzrf7ij" class="article-share-link">Share</a>
       
-        <a href="http://jurishimizu.github.io/2015/01/12/osm-download/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://jurishimizu.github.io/2015/01/29/output-image-in-qgis/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/">centos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/osm/">osm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgis/">postgis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vagrant/">vagrant</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/virtualized-environment/">virtualized_environment</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qgis/">qgis</a></li></ul>
 
     </footer>
   </div>
@@ -109,10 +109,10 @@
 
 
   
-    <article id="post-postgis-install-2" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-display-postgis-data-in-qgis" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/01/09/postgis-install-2/" class="article-date">
-  <time datetime="2015-01-09T02:46:17.000Z" itemprop="datePublished">Jan 9 2015</time>
+    <a href="/2015/01/29/display-postgis-data-in-qgis/" class="article-date">
+  <time datetime="2015-01-29T08:59:38.000Z" itemprop="datePublished">Jan 29 2015</time>
 </a>
     
   </div>
@@ -123,7 +123,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/09/postgis-install-2/">CentOSにPostgreSQL/PostGISの環境構築</a>
+      <a class="article-title" href="/2015/01/29/display-postgis-data-in-qgis/">QGISでPostGISのデータを確認</a>
     </h1>
   
 
@@ -131,68 +131,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://jurishimizu.github.io/2014/12/29/Postgis-install-1/" target="_blank" rel="external">前回</a>作った仮想環境に、<br><a href="http://ja.wikipedia.org/wiki/Postgis" target="_blank" rel="external">PostGIS</a>をインストールしてみます。<br>PostGISを入れるとPostgreSQLで地理空間情報が扱えるようになってしまうのです。<br>データベースで地理情報を扱えるなんてビックリです。</p>
-
+        <p>前回、OSMのデータをDBに入れて、selectしたりしたわけですが、<br>やっぱり視覚的に「ちゃんと日本のデータが入った！」っていうのを確認したいですね。<br>ということで、今回は<a href="http://ja.wikipedia.org/wiki/QGIS" target="_blank" rel="external">QGIS</a>でデータの中身を確認してみます。<br>
         
           <p class="article-more-link">
-            <a href="/2015/01/09/postgis-install-2/#more">Read More</a>
+            <a href="/2015/01/29/display-postgis-data-in-qgis/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jurishimizu.github.io/2015/01/09/postgis-install-2/" data-id="sg8h8nouowvz5vgo" class="article-share-link">Share</a>
+      <a data-url="http://jurishimizu.github.io/2015/01/29/display-postgis-data-in-qgis/" data-id="whb8s7722iaw3rcu" class="article-share-link">Share</a>
       
-        <a href="http://jurishimizu.github.io/2015/01/09/postgis-install-2/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/">centos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgis/">postgis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgresql/">postgresql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vagrant/">vagrant</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/virtualized-environment/">virtualized_environment</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-postgis-install-1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/12/29/postgis-install-1/" class="article-date">
-  <time datetime="2014-12-29T08:40:17.000Z" itemprop="datePublished">Dec 29 2014</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/29/postgis-install-1/">Vagrantで仮想環境を作成</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>これから勉強するために仮想環境をつくります。<br>自分のPCでやってもいいのですが、失敗した時のことを考えて、、、</p>
-
-        
-          <p class="article-more-link">
-            <a href="/2014/12/29/postgis-install-1/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://jurishimizu.github.io/2014/12/29/postgis-install-1/" data-id="sdqc7otu3qeznjz6" class="article-share-link">Share</a>
-      
-        <a href="http://jurishimizu.github.io/2014/12/29/postgis-install-1/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://jurishimizu.github.io/2015/01/29/display-postgis-data-in-qgis/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/">centos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vagrant/">vagrant</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/virtualized-environment/">virtualized_environment</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/osm/">osm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgis/">postgis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qgis/">qgis</a></li></ul>
 
     </footer>
   </div>

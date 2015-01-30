@@ -130,10 +130,10 @@
 <p>やっとできました。。。。<br>長かった、、、</p>
 <h2 id="OSMのデータをいれる">OSMのデータをいれる</h2>
 <p>日本の最新の地図情報を落としてきて、DBに入れてみます</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ wget <span class="keyword">http</span>://download.geofabrik.de/asia/japan-latest.osm.pbf</div><div class="line">$ osm2pgsql -c -d japan  -E <span class="number">3857</span> -S /usr/<span class="built_in">local</span>/share/osm2pgsql/default.style <span class="comment">--host localhost japan-latest.osm.pbf</span></div><div class="line">osm2pgsql: error <span class="keyword">while</span> loading shared libraries: libboost_filesystem.so<span class="number">.1</span><span class="number">.53</span><span class="number">.0</span>: cannot <span class="built_in">open</span> shared object <span class="built_in">file</span>: No such <span class="built_in">file</span> <span class="operator">or</span> <span class="built_in">directory</span></div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ wget <span class="keyword">http</span>://download.geofabrik.de/asia/japan-latest.osm.pbf</div><div class="line">$ osm2pgsql -c -d japan -S /usr/<span class="built_in">local</span>/share/osm2pgsql/default.style <span class="comment">--host localhost japan-latest.osm.pbf</span></div><div class="line">osm2pgsql: error <span class="keyword">while</span> loading shared libraries: libboost_filesystem.so<span class="number">.1</span><span class="number">.53</span><span class="number">.0</span>: cannot <span class="built_in">open</span> shared object <span class="built_in">file</span>: No such <span class="built_in">file</span> <span class="operator">or</span> <span class="built_in">directory</span></div></pre></td></tr></table></figure>
 
 <p>またエラーが、、、<br>libboost_filesystem.so* の場所を探して、環境変数に追加</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$ sudo find / -name libboost_filesystem.so*</div><div class="line">$ export LD_LIBRARY_PATH=/usr/local/<span class="keyword">lib</span>/</div><div class="line">$ osm2pgsql -c -m <span class="number">1000</span> -d japan -U postgres -C <span class="number">1500</span> --cache-strategy sparse -S /usr/local/share/osm2pgsql/<span class="keyword">default</span>.style --host localhost japan-latest.osm.pbf</div><div class="line">osm2pgsql SVN version <span class="number">0.87</span><span class="number">.2</span>-dev (<span class="number">64</span>bit id space)</div><div class="line"></div><div class="line"><span class="keyword">Using</span> built-<span class="keyword">in</span> tag processing pipeline</div><div class="line"><span class="keyword">Using</span> projection SRS <span class="number">900913</span> (Spherical Mercator)</div><div class="line">Setting up table: planet_osm_point</div><div class="line">Setting up table: planet_osm_line</div><div class="line">Setting up table: planet_osm_polygon</div><div class="line">Setting up table: planet_osm_roads</div><div class="line">Allocating memory <span class="keyword">for</span> dense node cache</div><div class="line">Out <span class="keyword">of</span> memory <span class="keyword">for</span> node cache dense index, <span class="keyword">try</span> <span class="keyword">using</span> <span class="string">"--cache-strategy sparse"</span> instead</div><div class="line"><span class="keyword">Error</span> occurred, cleaning up</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$ sudo find / -<span class="property">name</span> libboost_filesystem.so*</div><div class="line">$ export LD_LIBRARY_PATH=/usr/<span class="keyword">local</span>/lib/</div><div class="line">$ osm2pgsql -c -d japan -S /usr/<span class="keyword">local</span>/share/osm2pgsql/default.style <span class="comment">--host localhost japan-latest.osm.pbf</span></div><div class="line">osm2pgsql SVN <span class="property">version</span> <span class="number">0.87</span><span class="number">.2</span>-dev (<span class="number">64</span>bit <span class="property">id</span> <span class="constant">space</span>)</div><div class="line"></div><div class="line">Using built-<span class="keyword">in</span> tag processing pipeline</div><div class="line">Using projection SRS <span class="number">900913</span> (Spherical Mercator)</div><div class="line">Setting up table: planet_osm_point</div><div class="line">Setting up table: planet_osm_line</div><div class="line">Setting up table: planet_osm_polygon</div><div class="line">Setting up table: planet_osm_roads</div><div class="line">Allocating memory <span class="keyword">for</span> dense node cache</div><div class="line">Out <span class="keyword">of</span> memory <span class="keyword">for</span> node cache dense index, <span class="keyword">try</span> using <span class="string">"--cache-strategy sparse"</span> instead</div><div class="line">Error occurred, cleaning up</div></pre></td></tr></table></figure>
 
 <p>またエラーになってしまいました。<br><code>--cache-strategy sparse</code>のオプションをつけよと言われたので、その通りに、、、、</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">$ osm2pgsql -c -d japan -U postgres --cache-strategy sparse -S /usr/local/share/osm2pgsql/<span class="keyword">default</span>.style --host localhost japan-latest.osm.pbf</div><div class="line">osm2pgsql SVN version <span class="number">0.87</span>.<span class="number">2</span>-dev (<span class="number">64</span>bit id space)</div><div class="line"></div><div class="line"><span class="keyword">Using</span> built-<span class="keyword">in</span> tag processing pipeline</div><div class="line"><span class="keyword">Using</span> projection SRS <span class="number">900913</span> (Spherical Mercator)</div><div class="line">Setting up table: planet_osm_point</div><div class="line">Setting up table: planet_osm_line</div><div class="line">Setting up table: planet_osm_polygon</div><div class="line">Setting up table: planet_osm_roads</div><div class="line">Allocating memory <span class="keyword">for</span> sparse node cache</div><div class="line">Node-cache: cache=<span class="number">800</span>MB, maxblocks=<span class="number">102400</span>*<span class="number">8192</span>, allocation <span class="function"><span class="keyword">method</span>=1</span></div><div class="line"><span class="title">Mid</span>: Ram, scale=<span class="number">100</span></div><div class="line"></div><div class="line">Reading <span class="keyword">in</span> file: japan-latest.osm.pbf</div><div class="line">Processing: Node(<span class="number">52420</span>k <span class="number">859.3</span>k/s) Way(<span class="number">0</span>k <span class="number">0.00</span>k/s) Relation(<span class="number">0</span> <span class="number">0.00</span>/s)</div><div class="line">Node cache size <span class="keyword">is</span> too small <span class="keyword">to</span> fit all nodes. Please increase cache size</div><div class="line">Error occurred, cleaning up</div></pre></td></tr></table></figure>
@@ -189,7 +189,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jurishimizu.github.io/2015/01/12/osm-download/" data-id="3kw92x3ro77oyawl" class="article-share-link">Share</a>
+      <a data-url="http://jurishimizu.github.io/2015/01/12/osm-download/" data-id="2dycckp8xqw0fhxi" class="article-share-link">Share</a>
       
         <a href="http://jurishimizu.github.io/2015/01/12/osm-download/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -201,6 +201,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2015/01/29/display-postgis-data-in-qgis/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          QGISでPostGISのデータを確認
+        
+      </div>
+    </a>
   
   
     <a href="/2015/01/09/postgis-install-extla/" id="article-nav-older" class="article-nav-link-wrap">
@@ -233,6 +242,14 @@
       <ul>
         
           <li>
+            <a href="/2015/01/29/output-image-in-qgis/">QGISのスタイルを変更＆画像を出力</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/29/display-postgis-data-in-qgis/">QGISでPostGISのデータを確認</a>
+          </li>
+        
+          <li>
             <a href="/2015/01/12/osm-download/">OSMのデータをPostGISのDBに入れてみる</a>
           </li>
         
@@ -244,14 +261,6 @@
             <a href="/2015/01/09/postgis-install-2/">CentOSにPostgreSQL/PostGISの環境構築</a>
           </li>
         
-          <li>
-            <a href="/2014/12/29/postgis-install-1/">Vagrantで仮想環境を作成</a>
-          </li>
-        
-          <li>
-            <a href="/2014/12/29/aboutGIS/">GISについて</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -261,7 +270,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/">centos</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osm/">osm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgis/">postgis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/">postgresql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vagrant/">vagrant</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualized-environment/">virtualized_environment</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/">centos</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osm/">osm</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgis/">postgis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/">postgresql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qgis/">qgis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vagrant/">vagrant</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualized-environment/">virtualized_environment</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -270,7 +279,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 

@@ -21,7 +21,7 @@ japan=# select way from planet_osm_point  where name = '東京';
 
 #### ST_SRID
 
-まずはジオメトリのSRIDを確認
+ジオメトリのSRIDを確認
 テーブル定義を確認すればわかるんですけどね・・
 
 ```sql

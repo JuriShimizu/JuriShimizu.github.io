@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>PostGISでGeoな検索条件 | JURI★GIS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="すっかり勉強をサボってしまいましたが、前回に引き続き、OSMのデータを使ってPostGISのGeoなSQLを学んでいきます！
+今回はGeoな検索条件です。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PostGISでGeoな検索条件">
+<meta property="og:url" content="http://jurishimizu.github.io/2015/02/28/conditions-in-postgis/">
+<meta property="og:site_name" content="JURI★GIS">
+<meta property="og:description" content="すっかり勉強をサボってしまいましたが、前回に引き続き、OSMのデータを使ってPostGISのGeoなSQLを学んでいきます！
+今回はGeoな検索条件です。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PostGISでGeoな検索条件">
+<meta name="twitter:description" content="すっかり勉強をサボってしまいましたが、前回に引き続き、OSMのデータを使ってPostGISのGeoなSQLを学んでいきます！
+今回はGeoな検索条件です。">
+
+  
+    <link rel="alternative" href="/atom.xml" title="JURI★GIS" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">JURI★GIS</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">知識ゼロからGeoなSEを目指すブログ</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://jurishimizu.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-conditions-in-postgis" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/28/conditions-in-postgis/" class="article-date">
+  <time datetime="2015-02-28T07:09:17.000Z" itemprop="datePublished">Feb 28 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PostGISでGeoな検索条件
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>すっかり勉強をサボってしまいましたが、<br>前回に引き続き、OSMのデータを使ってPostGISのGeoなSQLを学んでいきます！</p>
+<p>今回はGeoな検索条件です。</p>
+<a id="more"></a>
+
+<h4 id="ST_Within(geometry_A_,_geometry_B)">ST_Within(geometry A , geometry B)</h4>
+<p>ジオメトリAが完全にジオメトリBの中に含まれているときにTRUEを返します。</p>
+<p>台東区内にあるファーストフード店をselectしてみます</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span></span></div><div class="line">japan-#     fst.name</div><div class="line">japan-# <span class="keyword">from</span></div><div class="line">japan-#     planet_osm_point fst</div><div class="line">japan-#     ,planet_osm_polygon tit</div><div class="line">japan-# <span class="keyword">where</span></div><div class="line">japan-#     tit.name <span class="keyword">like</span> <span class="string">'台東%'</span></div><div class="line">japan-#     <span class="keyword">and</span> tit.boundary = <span class="string">'administrative'</span></div><div class="line">japan-#     <span class="keyword">and</span> tit.admin_level = <span class="string">'7'</span></div><div class="line">japan-#     <span class="keyword">and</span> fst.amenity = <span class="string">'fast_food'</span></div><div class="line">japan-#     <span class="keyword">and</span> ST_Within(fst.way,tit.way)</div><div class="line">japan-# ;</div><div class="line">            name</div><div class="line"><span class="comment">----------------------------</span></div><div class="line"> 麺昇七辻</div><div class="line"> かめや</div><div class="line"> 東京チカラ飯</div><div class="line"> フレッシュネスバーガー</div><div class="line"> 吉野家</div><div class="line"> 奥州麺処 秘伝</div><div class="line"> 川中島うどん店</div><div class="line"> 日高屋</div><div class="line"> 富士そば</div><div class="line"> サブウェイ</div><div class="line"> ケンタッキーフライドチキン</div><div class="line"> マクドナルド</div><div class="line"> 回転寿司 大江戸</div><div class="line"> 味噌麺</div><div class="line"> マクドナルド</div><div class="line"> 味噌屋 せいべえ</div><div class="line"> 吉野家</div><div class="line"> かつや</div><div class="line"> 富士そば</div><div class="line"> Freshness Burger</div><div class="line"> 楽釜製麺所</div><div class="line"> まぐろ人</div><div class="line"> 寿司食べ放題</div><div class="line"> 藪そば</div><div class="line"> 大江戸 回転寿司</div><div class="line"> 東尋坊</div><div class="line"> てん屋</div><div class="line"></div><div class="line"> 元祖寿司</div><div class="line"> 牛の力</div><div class="line"></div><div class="line"> モスバーガー</div><div class="line"></div><div class="line"> Yoshinoya</div><div class="line"> すき家</div><div class="line"> McDonalds</div><div class="line"> たい焼き たいち</div><div class="line"> 麺八</div><div class="line"> 松屋</div><div class="line"> 日本海</div><div class="line"> Sukiya</div><div class="line"> デリカ ぱくぱく</div><div class="line"> モスバーガー</div><div class="line"> ら麺亭 (Ramen-tei)</div><div class="line"> 松屋</div><div class="line"> ケンタッキーフライドチキン</div><div class="line"> 銀だこ (Gindaco)</div><div class="line"> CoCo壱番屋</div><div class="line">(48 rows)</div></pre></td></tr></table></figure>
+
+<p>ファーストフード？？？みたいなお店もありますが、ちゃんとselectできました。</p>
+<h4 id="ST_Contains(geometry_A,_geometry_B_)">ST_Contains(geometry A, geometry B )</h4>
+<p>ST_Withinの真逆です。</p>
+<p>ジオメトリBが完全にジオメトリAの中に含まれているときにTRUEを返します。</p>
+<p>ST_Withinの代わりにST_Containsを使って、引数をひっくり返すと同じ結果になります。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span></span></div><div class="line">japan-#     fst.name</div><div class="line">japan-# <span class="keyword">from</span></div><div class="line">japan-#     planet_osm_point fst</div><div class="line">japan-#     ,planet_osm_polygon tit</div><div class="line">japan-# <span class="keyword">where</span></div><div class="line">japan-#     tit.name <span class="keyword">like</span> <span class="string">'台東%'</span></div><div class="line">japan-#     <span class="keyword">and</span> tit.boundary = <span class="string">'administrative'</span></div><div class="line">japan-#     <span class="keyword">and</span> tit.admin_level = <span class="string">'7'</span></div><div class="line">japan-#     <span class="keyword">and</span> fst.amenity = <span class="string">'fast_food'</span></div><div class="line">japan-#     <span class="keyword">and</span> ST_Contains(tit.way,fst.way)</div><div class="line">japan-# ;</div><div class="line">            name</div><div class="line"><span class="comment">----------------------------</span></div><div class="line"> 麺昇七辻</div><div class="line"> かめや</div><div class="line"> 東京チカラ飯</div><div class="line">・・・・・</div><div class="line">(48 rows)</div></pre></td></tr></table></figure>
+
+<h4 id="ST_Equals(geometry_A_,_geometry_B)">ST_Equals(geometry A , geometry B)</h4>
+<p>AとBがまったく同じジオメトリのときにTRUEを返します。</p>
+<p><code>ST_Equals(A,B)</code>は、<br><code>ST_Within(A,B) and ST_Contains(A,B)</code>と同じ意味になります。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span></span></div><div class="line">japan-#     fst.osm_id</div><div class="line">japan-#     ,fst.name</div><div class="line">japan-# <span class="keyword">from</span></div><div class="line">japan-#     planet_osm_polygon fst</div><div class="line">japan-#     ,(<span class="keyword">select</span> way <span class="keyword">from</span> planet_osm_polygon <span class="keyword">where</span> name <span class="keyword">like</span> <span class="string">'東京%'</span> <span class="keyword">and</span> boundary = <span class="string">'administrative'</span>) tky</div><div class="line">japan-# <span class="keyword">where</span></div><div class="line">japan-#     ST_Equals(fst.way,tky.way)</div><div class="line">japan-#     <span class="keyword">and</span> name <span class="keyword">like</span> <span class="string">'東京%'</span></div><div class="line">japan-# ;</div><div class="line">  osm_id  |  name</div><div class="line"><span class="comment">----------+--------</span></div><div class="line"> -1543125 | 東京都</div><div class="line"> -1543125 | 東京都</div><div class="line"> -1543125 | 東京都</div><div class="line"> -1543125 | 東京都</div><div class="line"> -1543125 | 東京都</div><div class="line"> -1543125 | 東京都</div><div class="line"> -4479121 | 東京都</div><div class="line"> -1543125 | 東京都</div><div class="line">(8 rows)</div></pre></td></tr></table></figure>
+
+<p>なぜか、まったく同じ東京がたくさん。。。<br>いろんな人が登録しちゃったってことですかね。。。</p>
+<h4 id="ST_DWithin">ST_DWithin</h4>
+<p>ジオメトリが，指定したジオメトリから指定した距離内にある場合に，TRUEを返します。<br>メートル単位で距離を指定するためにはgeography型にする必要があるようです。</p>
+<p>東京駅の半径１km以内にあるファーストフードを検索してみます</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span></span></div><div class="line">japan-#     fst.name</div><div class="line">japan-# <span class="keyword">from</span></div><div class="line">japan-#     planet_osm_point fst</div><div class="line">japan-#     ,(<span class="keyword">select</span> way <span class="keyword">from</span> planet_osm_point  <span class="keyword">where</span> name = <span class="string">'東京'</span>) tky</div><div class="line">japan-# <span class="keyword">where</span></div><div class="line">japan-#     ST_DWithin(geography(ST_Transform( fst.way,<span class="number">4326</span> )),geography(ST_Transform( tky.way,<span class="number">4326</span> )),<span class="number">1000</span>)</div><div class="line">japan-#     <span class="keyword">and</span> amenity = <span class="string">'fast_food'</span></div><div class="line">japan-# ;</div><div class="line">        name</div><div class="line"><span class="comment">--------------------</span></div><div class="line"> ロッテリア</div><div class="line"> よもだそば</div><div class="line"> 喜多方ラーメン坂内</div><div class="line"> サブウェイ</div><div class="line"> 吉野家</div><div class="line"> カレーショップC&C</div><div class="line"> 吉野家</div><div class="line"> 吉野家</div><div class="line"> サブウェイ</div><div class="line"> マクドナルド</div><div class="line"> 松屋</div><div class="line"> 富士そば</div><div class="line"> 小諸そば</div><div class="line"> 小諸そば</div><div class="line"> なか卯</div><div class="line">(15 rows)</div></pre></td></tr></table></figure>
+
+<p>１５件ほどひっかかりました！</p>
+<p>型の変換をしないとこんな感じで検索結果が変わってしまいます。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span></span></div><div class="line">japan-#     fst.name</div><div class="line">japan-# <span class="keyword">from</span></div><div class="line">japan-#     planet_osm_point fst</div><div class="line">japan-#     ,(<span class="keyword">select</span> way <span class="keyword">from</span> planet_osm_point  <span class="keyword">where</span> name = <span class="string">'東京'</span>) tky</div><div class="line">japan-# <span class="keyword">where</span></div><div class="line">japan-#     ST_DWithin(fst.way,tky.way,<span class="number">1000</span>)</div><div class="line">japan-#     <span class="keyword">and</span> amenity = <span class="string">'fast_food'</span></div><div class="line">japan-# ;</div><div class="line">       name</div><div class="line"><span class="comment">-------------------</span></div><div class="line"> 吉野家</div><div class="line"> カレーショップC&C</div><div class="line"> 吉野家</div><div class="line"> サブウェイ</div><div class="line"> マクドナルド</div><div class="line"> 松屋</div><div class="line"> 富士そば</div><div class="line"> 小諸そば</div><div class="line"> 小諸そば</div><div class="line"> なか卯</div><div class="line">(10 rows)</div></pre></td></tr></table></figure>
+
+<p>ST_DWithinの引数は、ラインやポリゴンでもOKです。</p>
+<h4 id="ST_Touches">ST_Touches</h4>
+<p>ジオメトリが共通のポイントを少なくとも一つ持ち，内部でインタセクトしない場合に，TRUEを返します。<br>つまり、接しているか？ってことですね</p>
+<p>台東区に接している区を調べてみましょう！</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span></span></div><div class="line">japan-#     cty.name</div><div class="line">japan-#     ,cty.admin_level</div><div class="line">japan-# <span class="keyword">from</span></div><div class="line">japan-#     planet_osm_polygon cty</div><div class="line">japan-#     ,planet_osm_polygon tit</div><div class="line">japan-# <span class="keyword">where</span></div><div class="line">japan-#     tit.name <span class="keyword">like</span> <span class="string">'台東%'</span></div><div class="line">japan-#     <span class="keyword">and</span> tit.boundary = <span class="string">'administrative'</span></div><div class="line">japan-#     <span class="keyword">and</span> tit.admin_level = <span class="string">'7'</span></div><div class="line">japan-#     <span class="keyword">and</span> cty.boundary = <span class="string">'administrative'</span></div><div class="line">japan-#     <span class="keyword">and</span> cty.admin_level = <span class="string">'7'</span></div><div class="line">japan-#     <span class="keyword">and</span> ST_Touches(tit.way,cty.way)</div><div class="line">japan-# ;</div><div class="line">      name       | admin_level</div><div class="line"><span class="comment">-----------------+-------------</span></div><div class="line"> 中央区          | 7</div><div class="line"> 千代田区        | 7</div><div class="line"> 墨田区 (Sumida) | 7</div><div class="line"> 荒川区          | 7</div><div class="line">(4 rows)</div></pre></td></tr></table></figure>
+
+<p>あれ？文京区とかも接しているはずなんですが、、、</p>
+<p>検索してみたところ、文京区のデータがそもそもありませんでした。<br>OSMにデータ登録されてないのか、うまくデータインポートできていないのかはナゾです。。。</p>
+<p>他にもクロスしてる〜とか、ジオメトリの関係を表す検索条件はいっぱいあるようです！</p>
+<p>SQLはずっと使っていますが、Geoな条件はちょっと勝手が違って戸惑いました。。。<br>SQLがあんまりキレーじゃないのは許してください。。。</p>
+<p>今日はここまで！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jurishimizu.github.io/2015/02/28/conditions-in-postgis/" data-id="azlbbmwpxrsx0xeo" class="article-share-link">Share</a>
+      
+        <a href="http://jurishimizu.github.io/2015/02/28/conditions-in-postgis/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/osm/">osm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgis/">postgis</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/02/07/select-in-postgis/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">PostGISでGeoなSELECT</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/02/28/conditions-in-postgis/">PostGISでGeoな検索条件</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/07/select-in-postgis/">PostGISでGeoなSELECT</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/05/about-srid/">PostGISで使用されるSRIDについて</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/29/output-image-in-qgis/">QGISのスタイルを変更＆画像を出力</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/29/display-postgis-data-in-qgis/">QGISでPostGISのデータを確認</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/">centos</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osm/">osm</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgis/">postgis</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/">postgresql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qgis/">qgis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vagrant/">vagrant</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualized-environment/">virtualized_environment</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+</aside>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 JuriShimizu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'jurigis';
+  
+  var disqus_url = 'http://jurishimizu.github.io/2015/02/28/conditions-in-postgis/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>

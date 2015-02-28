@@ -88,3 +88,11 @@ deploy:
   type: github
   repo: git@github.com:JuriShimizu/JuriShimizu.github.io.git
   branch: master
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+
+# Miscellaneous
+google_analytics: UA-59725882-1

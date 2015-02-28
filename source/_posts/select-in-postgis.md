@@ -3,7 +3,9 @@ date: 2015-02-07 20:05:03
 tags: postgis
 ---
 
-PostGISの環境は整ったので、PostGISのGeoなSQLについて、学んでいきたいと思います！
+PostGISの環境は整ったので、
+OSMのデータを使ってPostGISのGeoなSQLについて、学んでいきたいと思います！
+
 今日はGeoなSELECTです
 
 <!-- more -->

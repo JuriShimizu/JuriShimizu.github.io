@@ -3,17 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>はじめに | JURI★GIS</title>
+  <title>QGISで表示する地物を絞る＆ラベルを表示 | JURI★GIS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Geoはgeographic（地理的な, 地理学の）です。地理につよいSEを目指します。">
+  <meta name="description" content="今日はQGISの使い方についての小ネタです。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="はじめに">
-<meta property="og:url" content="http://jurishimizu.github.io/2014/12/29/Introduction/">
+<meta property="og:title" content="QGISで表示する地物を絞る＆ラベルを表示">
+<meta property="og:url" content="http://jurishimizu.github.io/2015/03/08/filter-in-qgis/">
 <meta property="og:site_name" content="JURI★GIS">
-<meta property="og:description" content="Geoはgeographic（地理的な, 地理学の）です。地理につよいSEを目指します。">
+<meta property="og:description" content="今日はQGISの使い方についての小ネタです。">
+<meta property="og:image" content="QGIS_01.png">
+<meta property="og:image" content="QGIS_02.png">
+<meta property="og:image" content="QGIS_03.png">
+<meta property="og:image" content="QGIS_04.png">
+<meta property="og:image" content="QGIS_05.png">
+<meta property="og:image" content="QGIS_06.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="はじめに">
-<meta name="twitter:description" content="Geoはgeographic（地理的な, 地理学の）です。地理につよいSEを目指します。">
+<meta name="twitter:title" content="QGISで表示する地物を絞る＆ラベルを表示">
+<meta name="twitter:description" content="今日はQGISの使い方についての小ネタです。">
 
   
     <link rel="alternative" href="/atom.xml" title="JURI★GIS" type="application/atom+xml">
@@ -67,10 +73,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Introduction" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-filter-in-qgis" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/12/29/Introduction/" class="article-date">
-  <time datetime="2014-12-29T08:10:33.000Z" itemprop="datePublished">Dec 29 2014</time>
+    <a href="/2015/03/08/filter-in-qgis/" class="article-date">
+  <time datetime="2015-03-08T12:19:47.000Z" itemprop="datePublished">Mar 8 2015</time>
 </a>
     
   </div>
@@ -81,7 +87,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      はじめに
+      QGISで表示する地物を絞る＆ラベルを表示
     </h1>
   
 
@@ -89,34 +95,45 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Geoはgeographic（地理的な, 地理学の）です。<br>地理につよいSEを目指します。</p>
+        <p>今日はQGISの使い方についての小ネタです。</p>
 <a id="more"></a>
 
-<p>経験も知識もないですが、<br>カッコイイ地図をサクッと作ったり、<br>地理情報を使ったサービスが作れるようになりたいです</p>
+<h2 id="表示する地物を絞る">表示する地物を絞る</h2>
+<p>まず、全部の地物を表示しているとこんな感じ<br>場所は新宿らへんです</p>
+<p><img src="QGIS_01.png" alt="絞り込みなし"></p>
+<p>ポイントの表示をファストフードだけに絞ってみます。</p>
+<p>レイヤを右クリック→スタイル の画面で、「ルールに基づいた」を選択<br><code>(no filter)</code>とかいてあるところをクリックして、条件を入力してOKを押します。</p>
+<p><img src="QGIS_02.png" alt="レイヤプロパティ"></p>
+<p><img src="QGIS_03.png" alt="レイヤプロパティ"></p>
+<p>こんな感じでポイントが減りました</p>
+<p><img src="QGIS_04.png" alt="絞り込みあり"></p>
+<h2 id="地物のラベルを表示する">地物のラベルを表示する</h2>
+<p>レイヤを右クリック→ラベル の画面で、ラベルとして表示したいカラム名を入力して、OKを押します</p>
+<p><img src="QGIS_05.png" alt="レイヤプロパティ"></p>
+<p>こんな感じでラベルが表示されます</p>
+<p><img src="QGIS_06.png" alt="ラベル表示あり"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jurishimizu.github.io/2014/12/29/Introduction/" data-id="qn64gnkjvb8j7r4h" class="article-share-link">Share</a>
+      <a data-url="http://jurishimizu.github.io/2015/03/08/filter-in-qgis/" data-id="dkd8dcrujb35kyj1" class="article-share-link">Share</a>
       
-        <a href="http://jurishimizu.github.io/2014/12/29/Introduction/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://jurishimizu.github.io/2015/03/08/filter-in-qgis/#disqus_thread" class="article-comment-link">Comments</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qgis/">qgis</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2014/12/29/aboutGIS/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          GISについて
-        
-      </div>
-    </a>
   
+    <a href="/2015/02/28/conditions-in-postgis/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">PostGISでGeoな検索条件</div>
+    </a>
   
 </nav>
 
@@ -206,7 +223,7 @@
 <script>
   var disqus_shortname = 'jurigis';
   
-  var disqus_url = 'http://jurishimizu.github.io/2014/12/29/Introduction/';
+  var disqus_url = 'http://jurishimizu.github.io/2015/03/08/filter-in-qgis/';
   
   (function(){
     var dsq = document.createElement('script');

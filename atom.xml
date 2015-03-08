@@ -4,7 +4,7 @@
   <subtitle><![CDATA[知識ゼロからGeoなSEを目指すブログ]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jurishimizu.github.io/"/>
-  <updated>2015-02-28T13:07:07.272Z</updated>
+  <updated>2015-03-08T13:15:40.997Z</updated>
   <id>http://jurishimizu.github.io/</id>
   
   <author>
@@ -13,6 +13,40 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[QGISで表示する地物を絞る＆ラベルを表示]]></title>
+    <link href="http://jurishimizu.github.io/2015/03/08/filter-in-qgis/"/>
+    <id>http://jurishimizu.github.io/2015/03/08/filter-in-qgis/</id>
+    <published>2015-03-08T12:19:47.000Z</published>
+    <updated>2015-03-08T13:14:56.000Z</updated>
+    <content type="html"><![CDATA[<p>今日はQGISの使い方についての小ネタです。</p>
+<a id="more"></a>
+
+<h2 id="表示する地物を絞る">表示する地物を絞る</h2>
+<p>まず、全部の地物を表示しているとこんな感じ<br>場所は新宿らへんです</p>
+<p><img src="QGIS_01.png" alt="絞り込みなし"></p>
+<p>ポイントの表示をファストフードだけに絞ってみます。</p>
+<p>レイヤを右クリック→スタイル の画面で、「ルールに基づいた」を選択<br><code>(no filter)</code>とかいてあるところをクリックして、条件を入力してOKを押します。</p>
+<p><img src="QGIS_02.png" alt="レイヤプロパティ"></p>
+<p><img src="QGIS_03.png" alt="レイヤプロパティ"></p>
+<p>こんな感じでポイントが減りました</p>
+<p><img src="QGIS_04.png" alt="絞り込みあり"></p>
+<h2 id="地物のラベルを表示する">地物のラベルを表示する</h2>
+<p>レイヤを右クリック→ラベル の画面で、ラベルとして表示したいカラム名を入力して、OKを押します</p>
+<p><img src="QGIS_05.png" alt="レイヤプロパティ"></p>
+<p>こんな感じでラベルが表示されます</p>
+<p><img src="QGIS_06.png" alt="ラベル表示あり"></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>今日はQGISの使い方についての小ネタです。</p>
+]]>
+    
+    </summary>
+    
+      <category term="qgis" scheme="http://jurishimizu.github.io/tags/qgis/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[PostGISでGeoな検索条件]]></title>

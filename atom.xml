@@ -4,7 +4,7 @@
   <subtitle><![CDATA[知識ゼロからGeoなSEを目指すブログ]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jurishimizu.github.io/"/>
-  <updated>2015-03-15T06:48:22.769Z</updated>
+  <updated>2015-03-15T13:59:57.576Z</updated>
   <id>http://jurishimizu.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://jurishimizu.github.io/2015/03/15/insert-in-postgis/"/>
     <id>http://jurishimizu.github.io/2015/03/15/insert-in-postgis/</id>
     <published>2015-03-15T05:23:48.000Z</published>
-    <updated>2015-03-15T06:46:45.000Z</updated>
+    <updated>2015-03-15T13:59:43.000Z</updated>
     <content type="html"><![CDATA[<p>PostGISで地物をINSERTしてみます。</p>
 <a id="more"></a>
 
@@ -34,7 +34,7 @@
 <h2 id="TABLE作成">TABLE作成</h2>
 <p>TABLEを作成します。</p>
 <p>GEOMETRYの種類は点・線・面の３種類なので、３つテーブルを用意します。</p>
-<p>図形タイプと、SRIDを指定します。<br>SRIDについては<a href="http://localhost:4000/2015/02/05/about-srid/" target="_blank" rel="external">こちら</a>を参照</p>
+<p>図形タイプと、SRIDを指定します。<br>SRIDについては<a href="http://www.jurigis.me/2015/02/05/about-srid/" target="_blank" rel="external">こちら</a>を参照</p>
 <p>今回は 4326（WGS84、地理座標系）にします。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">test=# <span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> sample_point (</span></div><div class="line">test(# id <span class="built_in">SERIAL</span> <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span></div><div class="line">test(#  , name <span class="built_in">text</span></div><div class="line">test(#  , geom GEOMETRY (POINT , <span class="number">4326</span>)</div><div class="line">test(# );</div><div class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span></span></div><div class="line">test=#</div><div class="line">test=#</div><div class="line">test=# <span class="keyword">CREATE</span> <span class="keyword">TABLE</span> sample_line (</div><div class="line">test(# id <span class="built_in">SERIAL</span> <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span></div><div class="line">test(#  , name <span class="built_in">TEXT</span></div><div class="line">test(#  , geom GEOMETRY (LINESTRING , <span class="number">4326</span>)</div><div class="line">test(# );</div><div class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span></span></div><div class="line">test=#</div><div class="line">test=#</div><div class="line">test=# <span class="keyword">CREATE</span> <span class="keyword">TABLE</span> sample_polygon (</div><div class="line">test(# id <span class="built_in">SERIAL</span> <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span></div><div class="line">test(#  , name <span class="built_in">TEXT</span></div><div class="line">test(#  , geom GEOMETRY (POLYGON , <span class="number">4326</span>)</div><div class="line">test(# );</div><div class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span></span></div><div class="line">test=#</div></pre></td></tr></table></figure>
 
@@ -51,7 +51,7 @@
 <p><strong>面</strong>を指定するときは、緯度経度の最初と最後を同じにします。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">test=# <span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> sample_polygon(name,geom)</span></div><div class="line">test-# <span class="keyword">VALUES</span> (<span class="string">'polygon1'</span>,ST_GeomFromText(<span class="string">'POLYGON((35.68 139.76,35.686 139.76,35.686 139.766,35.68 139.766 ,35.68 139.76 ))'</span>,<span class="number">4326</span>));</div><div class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="number">0</span> <span class="number">1</span></span></div></pre></td></tr></table></figure>
 
-<p>本当にINSERTできてるか、QGISで確認するとこんな感じです。<br>方法は<a href="http://localhost:4000/2015/01/29/display-postgis-data-in-qgis/" target="_blank" rel="external">こちら</a>を参照</p>
+<p>本当にINSERTできてるか、QGISで確認するとこんな感じです。<br>方法は<a href="http://www.jurigis.me/2015/01/29/display-postgis-data-in-qgis/" target="_blank" rel="external">こちら</a>を参照</p>
 <p><img src="QGIS_01.png" alt="QGIS"></p>
 ]]></content>
     <summary type="html">

@@ -5,32 +5,17 @@
   
   <title>GeoJSONのデータをleafletを使って出力 | JURI★GIS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近ずっとPostGISをいじっていろいろやっていたわけですが、そろそろ地図を動かしたりしてみたい！！ということでleafletに挑戦してみます。
-東京の観光名所のデータを地図上に表示することを目標にします。
-地図上に大量のマーカーを置く時は、eoJSONを利用するとらしいので、観光地のデータはGeoJSON形式にします。
-そのためにやらなくてはいけないことは、、、
-
-leafletで地図を表示">
+  <meta name="description" content="最近ずっとPostGISをいじっていろいろやっていたわけですが、そろそろ地図を動かしたりしてみたい！！ということでleafletに挑戦してみます。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GeoJSONのデータをleafletを使って出力">
 <meta property="og:url" content="http://jurishimizu.github.io/2015/03/22/output-geojson-using-the-leaflet/">
 <meta property="og:site_name" content="JURI★GIS">
-<meta property="og:description" content="最近ずっとPostGISをいじっていろいろやっていたわけですが、そろそろ地図を動かしたりしてみたい！！ということでleafletに挑戦してみます。
-東京の観光名所のデータを地図上に表示することを目標にします。
-地図上に大量のマーカーを置く時は、eoJSONを利用するとらしいので、観光地のデータはGeoJSON形式にします。
-そのためにやらなくてはいけないことは、、、
-
-leafletで地図を表示">
+<meta property="og:description" content="最近ずっとPostGISをいじっていろいろやっていたわけですが、そろそろ地図を動かしたりしてみたい！！ということでleafletに挑戦してみます。">
 <meta property="og:image" content="leaflet_1.png">
 <meta property="og:image" content="leaflet_2.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GeoJSONのデータをleafletを使って出力">
-<meta name="twitter:description" content="最近ずっとPostGISをいじっていろいろやっていたわけですが、そろそろ地図を動かしたりしてみたい！！ということでleafletに挑戦してみます。
-東京の観光名所のデータを地図上に表示することを目標にします。
-地図上に大量のマーカーを置く時は、eoJSONを利用するとらしいので、観光地のデータはGeoJSON形式にします。
-そのためにやらなくてはいけないことは、、、
-
-leafletで地図を表示">
+<meta name="twitter:description" content="最近ずっとPostGISをいじっていろいろやっていたわけですが、そろそろ地図を動かしたりしてみたい！！ということでleafletに挑戦してみます。">
 
   
     <link rel="alternative" href="/atom.xml" title="JURI★GIS" type="application/atom+xml">
@@ -107,6 +92,8 @@ leafletで地図を表示">
     <div class="article-entry" itemprop="articleBody">
       
         <p>最近ずっとPostGISをいじっていろいろやっていたわけですが、<br>そろそろ地図を動かしたりしてみたい！！<br>ということで<a href="http://leafletjs.com/" target="_blank" rel="external">leaflet</a>に挑戦してみます。</p>
+<a id="more"></a>
+
 <p>東京の観光名所のデータを地図上に表示することを目標にします。</p>
 <p>地図上に大量のマーカーを置く時は、<a href="http://ja.wikipedia.org/wiki/GeoJSON" target="_blank" rel="external">eoJSON</a>を利用するとらしいので、<br>観光地のデータはGeoJSON形式にします。</p>
 <p>そのためにやらなくてはいけないことは、、、</p>
@@ -118,8 +105,6 @@ leafletで地図を表示">
 </ol>
 <p>という感じになります。</p>
 <p>ひとつひとつやっていきます。</p>
-<a id="more"></a>
-
 <h2 id="leafletで地図を表示">leafletで地図を表示</h2>
 <p>leafletとは地図のためのJavaScriptライブラリ。<br>OSMなどのオープンデータを簡単に表示することができます。</p>
 <p><code>&lt;head&gt;</code>タグ内でCSSとLeafletを読み込みます。</p>

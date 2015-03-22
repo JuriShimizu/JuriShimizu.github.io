@@ -35,7 +35,7 @@ TABLEを作成します。
 GEOMETRYの種類は点・線・面の３種類なので、３つテーブルを用意します。
 
 図形タイプと、SRIDを指定します。
-SRIDについては[こちら](http://localhost:4000/2015/02/05/about-srid/)を参照
+SRIDについては[こちら](http://www.jurigis.me/2015/02/05/about-srid/)を参照
 
 今回は 4326（WGS84、地理座標系）にします。
 
@@ -101,7 +101,7 @@ INSERT 0 1
 ```
 
 本当にINSERTできてるか、QGISで確認するとこんな感じです。
-方法は[こちら](http://localhost:4000/2015/01/29/display-postgis-data-in-qgis/)を参照
+方法は[こちら](http://www.jurigis.me/2015/01/29/display-postgis-data-in-qgis/)を参照
 
 ![QGIS](QGIS_01.png)
 

@@ -4,7 +4,7 @@
   <subtitle><![CDATA[知識ゼロからGeoなSEを目指すブログ]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jurishimizu.github.io/"/>
-  <updated>2015-03-22T11:16:05.011Z</updated>
+  <updated>2015-03-22T11:17:06.633Z</updated>
   <id>http://jurishimizu.github.io/</id>
   
   <author>
@@ -19,12 +19,12 @@
     <link href="http://jurishimizu.github.io/2015/03/22/output-geojson-using-the-leaflet/"/>
     <id>http://jurishimizu.github.io/2015/03/22/output-geojson-using-the-leaflet/</id>
     <published>2015-03-22T05:08:20.000Z</published>
-    <updated>2015-03-22T11:16:00.000Z</updated>
+    <updated>2015-03-22T11:16:37.000Z</updated>
     <content type="html"><![CDATA[<p>最近ずっとPostGISをいじっていろいろやっていたわけですが、<br>そろそろ地図を動かしたりしてみたい！！<br>ということで<a href="http://leafletjs.com/" target="_blank" rel="external">leaflet</a>に挑戦してみます。</p>
 <a id="more"></a>
 
 <p>東京の観光名所のデータを地図上に表示することを目標にします。</p>
-<p>地図上に大量のマーカーを置く時は、<a href="http://ja.wikipedia.org/wiki/GeoJSON" target="_blank" rel="external">eoJSON</a>を利用するとらしいので、<br>観光地のデータはGeoJSON形式にします。</p>
+<p>地図上に大量のマーカーを置く時は、<a href="http://ja.wikipedia.org/wiki/GeoJSON" target="_blank" rel="external">GeoJSON</a>を利用するとらしいので、<br>観光地のデータはGeoJSON形式にします。</p>
 <p>そのためにやらなくてはいけないことは、、、</p>
 <ol>
 <li>leafletで地図を表示</li>

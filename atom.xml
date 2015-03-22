@@ -4,7 +4,7 @@
   <subtitle><![CDATA[知識ゼロからGeoなSEを目指すブログ]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jurishimizu.github.io/"/>
-  <updated>2015-03-15T13:59:57.576Z</updated>
+  <updated>2015-03-22T11:15:21.006Z</updated>
   <id>http://jurishimizu.github.io/</id>
   
   <author>
@@ -13,6 +13,109 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[GeoJSONのデータをleafletを使って出力]]></title>
+    <link href="http://jurishimizu.github.io/2015/03/22/output-geojson-using-the-leaflet/"/>
+    <id>http://jurishimizu.github.io/2015/03/22/output-geojson-using-the-leaflet/</id>
+    <published>2015-03-22T05:08:20.000Z</published>
+    <updated>2015-03-22T11:13:58.000Z</updated>
+    <content type="html"><![CDATA[<p>最近ずっとPostGISをいじっていろいろやっていたわけですが、<br>そろそろ地図を動かしたりしてみたい！！<br>ということで<a href="http://leafletjs.com/" target="_blank" rel="external">leaflet</a>に挑戦してみます。</p>
+<p>東京の観光名所のデータを地図上に表示することを目標にします。</p>
+<p>地図上に大量のマーカーを置く時は、<a href="http://ja.wikipedia.org/wiki/GeoJSON" target="_blank" rel="external">eoJSON</a>を利用するとらしいので、<br>観光地のデータはGeoJSON形式にします。</p>
+<p>そのためにやらなくてはいけないことは、、、</p>
+<ol>
+<li>leafletで地図を表示</li>
+<li>地図にマーカーを表示</li>
+<li>GeoJSONの観光地データを準備</li>
+<li>地図にGeoJSONのデータを表示</li>
+</ol>
+<p>という感じになります。</p>
+<p>ひとつひとつやっていきます。</p>
+<a id="more"></a>
+
+<h2 id="leafletで地図を表示">leafletで地図を表示</h2>
+<p>leafletとは地図のためのJavaScriptライブラリ。<br>OSMなどのオープンデータを簡単に表示することができます。</p>
+<p><code>&lt;head&gt;</code>タグ内でCSSとLeafletを読み込みます。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p>地図を描画したいところにタグを置きます。<br>今回は<code>&lt;body&gt;</code>タグの中におきました。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"map"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p>CSSで地図の幅、高さを指定</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="id">#map</span><span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100%</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">500px</span></span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<p><code>&lt;script&gt;</code>タグ内で地図のデフォルト値を設定し、地図を描画します。<br>今回は東京タワーの場所をデフォルトにしました。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//地図のデフォルト値</span></div><div class="line"><span class="keyword">var</span> map = L.map(<span class="string">'map'</span>).setView([<span class="number">35.65863174</span>　, <span class="number">139.74542422</span>], <span class="number">14</span>);</div><div class="line"></div><div class="line"><span class="comment">//OSMレイヤー追加</span></div><div class="line">L.tileLayer(</div><div class="line">	<span class="string">'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'</span></div><div class="line">	,{</div><div class="line">	    attribution: <span class="string">'Map data &copy; &lt;a href="http://openstreetmap.org"&gt;OpenStreetMap&lt;/a&gt;'</span>,</div><div class="line">	    maxZoom: <span class="number">18</span></div><div class="line">	}</div><div class="line">).addTo(map);</div></pre></td></tr></table></figure>
+
+<p>地図を表示するのはたったこれだけで完了！</p>
+<h2 id="地図にマーカーを表示">地図にマーカーを表示</h2>
+<p>東京タワーの場所にマーカーを表示します。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> marker = L.marker([<span class="number">35.65863174</span>　, <span class="number">139.74542422</span>])</div><div class="line">    .bindPopup(<span class="string">"&lt;h3&gt;東京タワー&lt;/h3&gt;"</span>)</div><div class="line">    .addTo(map);</div></pre></td></tr></table></figure>
+
+<p>こんな感じで表示できました！</p>
+<p><img src="leaflet_1.png" alt="leaflet"></p>
+<h2 id="GeoJSONの観光地データを準備">GeoJSONの観光地データを準備</h2>
+<p>PostGISにいれたOSMのデータから観光地のデータを抜き出します。</p>
+<p><code>As_Geojson</code>を使うと、GeoJSON形式で出力できるようです。<br>検索条件については<a href="http://www.jurigis.me/2015/02/28/conditions-in-postgis/" target="_blank" rel="external">こちら</a>を参照。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">SELECT</span> row_to_json(feature)</span></div><div class="line"><span class="keyword">FROM</span> (</div><div class="line">  <span class="keyword">select</span></div><div class="line">    <span class="string">'Feature'</span> <span class="keyword">AS</span> type,</div><div class="line">    ST_AsGeoJSON(ST_Transform(trm.way,<span class="number">4326</span>))::json <span class="keyword">AS</span> geometry,</div><div class="line">    row_to_json((</div><div class="line">      <span class="keyword">SELECT</span> p <span class="keyword">FROM</span> (</div><div class="line">        <span class="keyword">SELECT</span> trm.name</div><div class="line">      ) <span class="keyword">AS</span> p</div><div class="line">    )) <span class="keyword">AS</span> properties</div><div class="line">  <span class="keyword">from</span></div><div class="line">    planet_osm_point trm</div><div class="line">    ,planet_osm_polygon tky</div><div class="line">  <span class="keyword">where</span></div><div class="line">    tky.name = <span class="string">'東京都'</span></div><div class="line">    <span class="keyword">and</span> tky.boundary = <span class="string">'administrative'</span></div><div class="line">    <span class="keyword">and</span> trm.tourism <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span></div><div class="line">    <span class="keyword">and</span> trm.name <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span></div><div class="line">    <span class="keyword">and</span> ST_Contains(tky.way,trm.way)</div><div class="line">) <span class="keyword">AS</span> feature</div><div class="line">;</div></pre></td></tr></table></figure>
+
+<p>こうすると、こんな感じの検索結果になります。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">{"<span class="attribute">type</span>":<span class="value"><span class="string">"Feature"</span></span>,"<span class="attribute">geometry</span>":<span class="value">{"<span class="attribute">type</span>":<span class="value"><span class="string">"Point"</span></span>,"<span class="attribute">coordinates</span>":<span class="value">[<span class="number">139.729260969094</span>,<span class="number">35.6604319722521</span>]</span>}</span>,"<span class="attribute">properties</span>":<span class="value">{"<span class="attribute">name</span>":<span class="value"><span class="string">"森美術館"</span></span>}</span>}</div></pre></td></tr></table></figure>
+
+<h2 id="GeoJSONのデータを地図で表示。">GeoJSONのデータを地図で表示。</h2>
+<p><code>&lt;script&gt;</code>タグ内でGeoJSONのデータを定義<br>先ほど取得したデータを書いておきます。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> geojsonFeature = [</div><div class="line">  {<span class="string">"type"</span>:<span class="string">"Feature"</span>,<span class="string">"geometry"</span>:{<span class="string">"type"</span>:<span class="string">"Point"</span>,<span class="string">"coordinates"</span>:[<span class="number">139.729260969094</span>,<span class="number">35.6604319722521</span>]},<span class="string">"properties"</span>:{<span class="string">"name"</span>:<span class="string">"森美術館"</span>}}</div><div class="line">]</div></pre></td></tr></table></figure>
+
+<p>マーカーをセットします</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">L.geoJson(geojsonFeature).addTo(<span class="built_in">map</span>);</div></pre></td></tr></table></figure>
+
+<p>マーカーをクリックしたときにポップアップ表示をさせる場合はこんな感じです。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">L.geoJson(</div><div class="line">geojsonFeature,</div><div class="line">{</div><div class="line">    onEachFeature: <span class="function"><span class="keyword">function</span><span class="params">(feature, layer)</span></span>{</div><div class="line">        layer.name(feature.properties.popupContent);</div><div class="line">    }</div><div class="line">}</div><div class="line">).addTo(map);</div></pre></td></tr></table></figure>
+
+<h2 id="GeoJSONのデータを外だしする">GeoJSONのデータを外だしする</h2>
+<p>大量のデータをhtmlファイルに書いていくのはあんまりイケてないので、<br>GeoJSONのデータを外だしします。</p>
+<p>jQueryを使うと簡単らしいので、やってみます。</p>
+<p>こんな感じで前項で取得したデータをもとにGeoJsonのデータファイルを用意します。<br>ディレクトリは<code>./data/map.geojson</code>とします。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">  "<span class="attribute">type</span>": <span class="value"><span class="string">"FeatureCollection"</span></span>,</div><div class="line">  "<span class="attribute">features</span>": <span class="value">[</span></div><div class="line">  {"<span class="attribute">type</span>":<span class="value"><span class="string">"Feature"</span></span>,"<span class="attribute">geometry</span>":<span class="value">{"<span class="attribute">type</span>":<span class="value"><span class="string">"Point"</span></span>,"<span class="attribute">coordinates</span>":<span class="value">[<span class="number">139.74542422</span>,<span class="number">35.65863174</span>]</span>}</span>,"<span class="attribute">properties</span>":<span class="value">{"<span class="attribute">name</span>":<span class="value"><span class="string">"東京タワー (Tokyo Tower)"</span></span>}</span>}</div><div class="line">  ,{"<span class="attribute">type</span>":<span class="value"><span class="string">"Feature"</span></span>,"<span class="attribute">geometry</span>":<span class="value">{"<span class="attribute">type</span>":<span class="value"><span class="string">"Point"</span></span>,"<span class="attribute">coordinates</span>":<span class="value">[<span class="number">139.729260969094</span>,<span class="number">35.6604319722521</span>]</span>}</span>,"<span class="attribute">properties</span>":<span class="value">{"<span class="attribute">name</span>":<span class="value"><span class="string">"森美術館"</span></span>}</span>}</div><div class="line">・・・・</div><div class="line"> ]</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p><code>&lt;head&gt;</code>タグ内でjQueryを読み込みます。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"https://code.jquery.com/jquery-2.1.1.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p>データを読み込んで、表示します。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$.getJSON(<span class="string">"./data/map.geojson"</span>, <span class="function"><span class="keyword">function</span><span class="params">(data)</span> </span>{</div><div class="line">    <span class="keyword">var</span> geojson = L.geoJson(data, {</div><div class="line">        onEachFeature: <span class="function"><span class="keyword">function</span> <span class="params">(feature, layer)</span> </span>{</div><div class="line">            layer.bindPopup(feature.properties.name);</div><div class="line">        }</div><div class="line">    });</div><div class="line">    geojson.addTo(map);</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p>こんな感じで、マーカーがたくさん表示されました！</p>
+<p><img src="leaflet_2.png" alt="leaflet"></p>
+<p>あんまり難しいことはやっていないのですが、<br>これだけでかなり時間がかかってしまいました、、、</p>
+<p>自分で地図を動かせるのは面白いので、<br>これからもちょいちょい勉強していきたいと思います！</p>
+<h3 id="参考にさせていただきました">参考にさせていただきました</h3>
+<p><a href="http://shimz.me/blog/leaflet-js/4142" target="_blank" rel="external">ぬるぬる動く！Web地図クライアント「Leaflet」を使おう！ |  #GUNMAGISGEEK</a><br><a href="http://unguis.cre8or.jp/web/6341" target="_blank" rel="external">Leaflet - OSMにgeoJSONでマーカーをつけたりできる便利なJavaScriptライブラリ | アンギス</a><br><a href="http://qiita.com/kshigeru/items/8940ecf7f261a6b01ed0" target="_blank" rel="external">PostGISからGeoJSON出力するときに属性を付与する - Qiita</a><br><a href="http://lyzidiamond.com/posts/external-geojson-and-leaflet-the-other-way/" target="_blank" rel="external">External GeoJSON and Leaflet: The Other Way(s)</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>最近ずっとPostGISをいじっていろいろやっていたわけですが、<br>そろそろ地図を動かしたりしてみたい！！<br>ということで<a href="http://leafletjs.com/" target="_blank" rel="external">leaflet</a>に挑戦してみます。</p>
+<p>東京の観光名所のデータを地図上に表示することを目標にします。</p>
+<p>地図上に大量のマーカーを置く時は、<a href="http://ja.wikipedia.org/wiki/GeoJSON" target="_blank" rel="external">eoJSON</a>を利用するとらしいので、<br>観光地のデータはGeoJSON形式にします。</p>
+<p>そのためにやらなくてはいけないことは、、、</p>
+<ol>
+<li>leafletで地図を表示</li>
+<li>地図にマーカーを表示</li>
+<li>GeoJSONの観光地データを準備</li>
+<li>地図にGeoJSONのデータを表示</li>
+</ol>
+<p>という感じになります。</p>
+<p>ひとつひとつやっていきます。</p>
+]]>
+    
+    </summary>
+    
+      <category term="leaflet" scheme="http://jurishimizu.github.io/tags/leaflet/"/>
+    
+      <category term="osm" scheme="http://jurishimizu.github.io/tags/osm/"/>
+    
+      <category term="geojson" scheme="http://jurishimizu.github.io/tags/geojson/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[PostGISでGeoなINSERT]]></title>

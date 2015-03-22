@@ -69,6 +69,63 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-output-geojson-using-the-leaflet" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/22/output-geojson-using-the-leaflet/" class="article-date">
+  <time datetime="2015-03-22T05:08:20.000Z" itemprop="datePublished">Mar 22 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/22/output-geojson-using-the-leaflet/">GeoJSONのデータをleafletを使って出力</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近ずっとPostGISをいじっていろいろやっていたわけですが、<br>そろそろ地図を動かしたりしてみたい！！<br>ということで<a href="http://leafletjs.com/" target="_blank" rel="external">leaflet</a>に挑戦してみます。</p>
+<p>東京の観光名所のデータを地図上に表示することを目標にします。</p>
+<p>地図上に大量のマーカーを置く時は、<a href="http://ja.wikipedia.org/wiki/GeoJSON" target="_blank" rel="external">eoJSON</a>を利用するとらしいので、<br>観光地のデータはGeoJSON形式にします。</p>
+<p>そのためにやらなくてはいけないことは、、、</p>
+<ol>
+<li>leafletで地図を表示</li>
+<li>地図にマーカーを表示</li>
+<li>GeoJSONの観光地データを準備</li>
+<li>地図にGeoJSONのデータを表示</li>
+</ol>
+<p>という感じになります。</p>
+<p>ひとつひとつやっていきます。</p>
+
+        
+          <p class="article-more-link">
+            <a href="/2015/03/22/output-geojson-using-the-leaflet/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jurishimizu.github.io/2015/03/22/output-geojson-using-the-leaflet/" data-id="e9fk25j90oi8h69r" class="article-share-link">Share</a>
+      
+        <a href="http://jurishimizu.github.io/2015/03/22/output-geojson-using-the-leaflet/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/geojson/">geojson</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leaflet/">leaflet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/osm/">osm</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-insert-in-postgis" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/03/15/insert-in-postgis/" class="article-date">
@@ -483,52 +540,6 @@
 
 
   
-    <article id="post-postgis-install-2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/09/postgis-install-2/" class="article-date">
-  <time datetime="2015-01-09T02:46:17.000Z" itemprop="datePublished">Jan 9 2015</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/09/postgis-install-2/">CentOSにPostgreSQL/PostGISの環境構築</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://jurishimizu.github.io/2014/12/29/Postgis-install-1/" target="_blank" rel="external">前回</a>作った仮想環境に、<br><a href="http://ja.wikipedia.org/wiki/Postgis" target="_blank" rel="external">PostGIS</a>をインストールしてみます。<br>PostGISを入れるとPostgreSQLで地理空間情報が扱えるようになってしまうのです。<br>データベースで地理情報を扱えるなんてビックリです。</p>
-
-        
-          <p class="article-more-link">
-            <a href="/2015/01/09/postgis-install-2/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://jurishimizu.github.io/2015/01/09/postgis-install-2/" data-id="ln90bj87gdbh1ex8" class="article-share-link">Share</a>
-      
-        <a href="http://jurishimizu.github.io/2015/01/09/postgis-install-2/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/">centos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgis/">postgis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgresql/">postgresql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vagrant/">vagrant</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/virtualized-environment/">virtualized_environment</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -548,6 +559,10 @@
       <ul>
         
           <li>
+            <a href="/2015/03/22/output-geojson-using-the-leaflet/">GeoJSONのデータをleafletを使って出力</a>
+          </li>
+        
+          <li>
             <a href="/2015/03/15/insert-in-postgis/">PostGISでGeoなINSERT</a>
           </li>
         
@@ -563,10 +578,6 @@
             <a href="/2015/02/07/select-in-postgis/">PostGISでGeoなSELECT</a>
           </li>
         
-          <li>
-            <a href="/2015/02/05/about-srid/">PostGISで使用されるSRIDについて</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -576,7 +587,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/">centos</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osm/">osm</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgis/">postgis</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/">postgresql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qgis/">qgis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vagrant/">vagrant</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualized-environment/">virtualized_environment</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/">centos</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/geojson/">geojson</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leaflet/">leaflet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osm/">osm</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgis/">postgis</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/">postgresql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qgis/">qgis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vagrant/">vagrant</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualized-environment/">virtualized_environment</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -585,7 +596,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 

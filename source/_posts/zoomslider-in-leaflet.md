@@ -125,7 +125,7 @@ Bootstrapのcssにはこんな定義があります。
 幅がボーダーラインよりも小さくなってしまって、背景色（黒）が見えなくなってしまうのです。
 
 なので、　こんな感じで`.leaflet-control-zoomslider-body`　の
-`box-sizing`の定義を書き換えることで、スライーダーの線が見えるようになるのです。
+`box-sizing`の定義を書き換えることで、スライダーの線が見えるようになるのです。
 
 ```css
 .leaflet-control-zoomslider-body {

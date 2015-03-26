@@ -4,7 +4,7 @@
   <subtitle><![CDATA[知識ゼロからGeoなSEを目指すブログ]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jurishimizu.github.io/"/>
-  <updated>2015-03-22T11:17:06.633Z</updated>
+  <updated>2015-03-26T12:50:07.260Z</updated>
   <id>http://jurishimizu.github.io/</id>
   
   <author>
@@ -15,11 +15,83 @@
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[leafletに縮尺を追加 & ズームコントローラをスライダーに変更]]></title>
+    <link href="http://jurishimizu.github.io/2015/03/23/zoomslider-in-leaflet/"/>
+    <id>http://jurishimizu.github.io/2015/03/23/zoomslider-in-leaflet/</id>
+    <published>2015-03-23T06:04:22.000Z</published>
+    <updated>2015-03-26T12:46:07.000Z</updated>
+    <content type="html"><![CDATA[<p>leafletの地図を見やすく＆操作しやすくするための小ネタです。</p>
+<a id="more"></a>
+
+<p>leafletの地図の表示については<a href="http://www.jurigis.me/2015/03/22/output-geojson-using-the-leaflet/" target="_blank" rel="external">こちら</a>を参照</p>
+<h2 id="縮尺を追加">縮尺を追加</h2>
+<p>やっぱり縮尺があったほうが地図は見やすい！<br>というわけで、縮尺を追加します。</p>
+<p>この１行を追加するだけです！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">L.control.scale().addTo(map);</div></pre></td></tr></table></figure>
+
+<p>左下に、メートル単位、フィート単位の縮尺が追加されました。</p>
+<p><img src="leaflet_1.png" alt="scalebar"></p>
+<p>フィートは日本では一般的ではないので、消しちゃいましょう。<br><code>imperial</code>の値をfalseにします。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">L.control.scale({imperial:<span class="literal">false</span>}).addTo(map);</div></pre></td></tr></table></figure>
+
+<p>メートルの縮尺だけになりました！</p>
+<p><img src="leaflet_2.png" alt="scalebar"></p>
+<p>他にも地図を重ねたり、切り替えたり、いろんなことが出来るようです。<br>leafletの<a href="http://leafletjs.com/reference.html" target="_blank" rel="external">公式HP</a>を参照してみてください。</p>
+<h2 id="ズームコントローラをスライダーに変更">ズームコントローラをスライダーに変更</h2>
+<p>leafletのズームコントローラはデフォルトでは、<code>＋</code> <code>ー</code>ボタンになっています。</p>
+<p><img src="leaflet_3.png" alt="zoomControl"></p>
+<p>これをスライダーに変更してみます。<br>これはleafletではサポートしていないので、<a href="https://www.mapbox.com/" target="_blank" rel="external">mapbox</a>の機能を使います。</p>
+<p>まずは<code>&lt;head&gt;</code>タグ内で、ズームスライダーを読み込みます。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">'https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-zoomslider/v0.7.0/L.Control.Zoomslider.js'</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">'https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-zoomslider/v0.7.0/L.Control.Zoomslider.css'</span> <span class="attribute">rel</span>=<span class="value">'stylesheet'</span> /&gt;</span></div></pre></td></tr></table></figure>
+
+<p><code>zoomsliderControl</code>の表示を<code>true</code>に、<br>デフォルトの<code>zoomControl</code>の表示を<code>false</code>にします。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> map = L.map(<span class="string">'map'</span>,{ zoomsliderControl: <span class="literal">true</span>,zoomControl: <span class="literal">false</span>}).setView([<span class="number">35.65863174</span>　, <span class="number">139.74542422</span>], <span class="number">14</span>);</div></pre></td></tr></table></figure>
+
+<p>こうすると、スライダーが表示されます。</p>
+<p><img src="leaflet_4.png" alt="zoomControl"></p>
+<p>しかし、、、<br><a href="http://getbootstrap.com/" target="_blank" rel="external">Bootstrap</a>を使っていると、スライダーの線が消えて、こんなマヌケな姿になってしまします、、、</p>
+<p><img src="leaflet_5.png" alt="zoomControl"></p>
+<p>しかもよく見ると、ツマミも小さくなって、つまみづらくなってる、、、</p>
+<p>こんなときはcssにこの記述を追加すると、元通りになります。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class">.leaflet-control-zoomslider-body</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">box-sizing</span>:<span class="value"> content-box</span></span>;</div><div class="line"><span class="rule">}</span></div><div class="line"></div><div class="line"><span class="class">.leaflet-control-zoomslider-knob</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">box-sizing</span>:<span class="value"> content-box</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<h2 id="おまけ：なんでスライダーの線が消えてしまったのか？？？">おまけ：なんでスライダーの線が消えてしまったのか？？？</h2>
+<p>なぜBootstrapを使うとスライダーの線が消えてしまったのでしょうか？</p>
+<p>Bootstrapのcssにはこんな定義があります。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">box-sizing</span>:<span class="value"> border-box</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<p><code>box-sizing</code>はボックスサイズの算出方法を指定します。</p>
+<p><code>border-box</code>だと線の太さを幅・高さに含める<br><code>content-box</code>だと線の太さを幅・高さに含めない</p>
+<p>デフォルトは<code>content-box</code>です。</p>
+<p>スライダーのツマミを動かす部分は、<code>L.Control.Zoomslider.css</code>でこのように定義されています。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class">.leaflet-control-zoomslider-body</span> <span class="rules">{</span></div><div class="line">	        <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">2px</span></span></span>;</div><div class="line">	        <span class="rule"><span class="attribute">border</span>:<span class="value"> solid <span class="hexcolor">#fff</span></span></span>;</div><div class="line">	        <span class="rule"><span class="attribute">border-width</span>:<span class="value"> <span class="number">0px</span> <span class="number">9px</span> <span class="number">0px</span> <span class="number">9px</span></span></span>;</div><div class="line">	        <span class="rule"><span class="attribute">background-color</span>:<span class="value"> black</span></span>;</div><div class="line">	        <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span> auto</span></span>;</div><div class="line">	<span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<p>背景色（background-color）が黒、横幅が２ピクセルになっています。<br>線のように見えていたのは、背景色だったのですね。</p>
+<p><code>box-sizing: content-box</code>が指定されている状態だと、<br>このボックスの幅は、<code>2px + 9px（ボーダーの太さ）* 2 = 20</code> となり、<br>背景色（黒）がみえる部分は 2px になります。</p>
+<p><code>box-sizing: border-box</code>が指定されている状態だと、<br>このボックスの幅は、<code>2px</code> となり、<br>幅がボーダーラインよりも小さくなってしまって、背景色（黒）が見えなくなってしまうのです。</p>
+<p>なので、　こんな感じで<code>.leaflet-control-zoomslider-body</code>　の<br><code>box-sizing</code>の定義を書き換えることで、スライーダーの線が見えるようになるのです。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class">.leaflet-control-zoomslider-body</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">box-sizing</span>:<span class="value"> content-box</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<p>ツマミが小さくなってしまったのも、同じ理由になります。</p>
+<p>GISとは関係のない話になりましたが、<br>いろんなcssを読み込むときは注意が必要ですね！</p>
+<p>という話でした！</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>leafletの地図を見やすく＆操作しやすくするための小ネタです。</p>
+]]>
+    
+    </summary>
+    
+      <category term="leaflet" scheme="http://jurishimizu.github.io/tags/leaflet/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[GeoJSONのデータをleafletを使って出力]]></title>
     <link href="http://jurishimizu.github.io/2015/03/22/output-geojson-using-the-leaflet/"/>
     <id>http://jurishimizu.github.io/2015/03/22/output-geojson-using-the-leaflet/</id>
     <published>2015-03-22T05:08:20.000Z</published>
-    <updated>2015-03-22T11:16:37.000Z</updated>
+    <updated>2015-03-26T12:48:19.000Z</updated>
     <content type="html"><![CDATA[<p>最近ずっとPostGISをいじっていろいろやっていたわけですが、<br>そろそろ地図を動かしたりしてみたい！！<br>ということで<a href="http://leafletjs.com/" target="_blank" rel="external">leaflet</a>に挑戦してみます。</p>
 <a id="more"></a>
 
@@ -71,7 +143,7 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">L.geoJson(geojsonFeature).addTo(<span class="built_in">map</span>);</div></pre></td></tr></table></figure>
 
 <p>マーカーをクリックしたときにポップアップ表示をさせる場合はこんな感じです。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">L.geoJson(</div><div class="line">geojsonFeature,</div><div class="line">{</div><div class="line">    onEachFeature: <span class="function"><span class="keyword">function</span><span class="params">(feature, layer)</span></span>{</div><div class="line">        layer.name(feature.properties.popupContent);</div><div class="line">    }</div><div class="line">}</div><div class="line">).addTo(map);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">L.geoJson(</div><div class="line">geojsonFeature,</div><div class="line">{</div><div class="line">    onEachFeature: <span class="function"><span class="keyword">function</span><span class="params">(feature, layer)</span></span>{</div><div class="line">        layer.bindPopup(feature.properties.name);</div><div class="line">    }</div><div class="line">}</div><div class="line">).addTo(map);</div></pre></td></tr></table></figure>
 
 <h2 id="GeoJSONのデータを外だしする">GeoJSONのデータを外だしする</h2>
 <p>大量のデータをhtmlファイルに書いていくのはあんまりイケてないので、<br>GeoJSONのデータを外だしします。</p>
@@ -103,6 +175,8 @@
       <category term="osm" scheme="http://jurishimizu.github.io/tags/osm/"/>
     
       <category term="geojson" scheme="http://jurishimizu.github.io/tags/geojson/"/>
+    
+      <category term="postgis" scheme="http://jurishimizu.github.io/tags/postgis/"/>
     
   </entry>
   

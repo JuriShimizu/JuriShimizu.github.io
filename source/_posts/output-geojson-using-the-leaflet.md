@@ -4,6 +4,7 @@ tags:
 - leaflet
 - osm
 - geojson
+- postgis
 ---
 
 最近ずっとPostGISをいじっていろいろやっていたわけですが、
@@ -140,7 +141,7 @@ L.geoJson(
 geojsonFeature,
 {
     onEachFeature: function(feature, layer){
-        layer.name(feature.properties.popupContent);
+        layer.bindPopup(feature.properties.name);
     }
 }
 ).addTo(map);

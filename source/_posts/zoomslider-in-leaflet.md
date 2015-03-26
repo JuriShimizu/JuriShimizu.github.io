@@ -35,7 +35,7 @@ L.control.scale({imperial:false}).addTo(map);
 ![scalebar](leaflet_2.png)
 
 他にも地図を重ねたり、切り替えたり、いろんなことが出来るようです。
-leafletの[公式HP](http://leafletjs.com/reference.html)にいろいろ書いてあります
+leafletの[公式HP](http://leafletjs.com/reference.html)を参照してみてください。
 
 ## ズームコントローラをスライダーに変更
 
@@ -44,9 +44,9 @@ leafletのズームコントローラはデフォルトでは、`＋` `ー`ボ�
 ![zoomControl](leaflet_3.png)
 
 これをスライダーに変更してみます。
+これはleafletではサポートしていないので、[mapbox](https://www.mapbox.com/)の機能を使います。
 
-まずは`<head>`タグ内で、mapboxが提供している
-ズームスライダーを読み込みます。
+まずは`<head>`タグ内で、ズームスライダーを読み込みます。
 
 ```html
 <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-zoomslider/v0.7.0/L.Control.Zoomslider.js'></script>

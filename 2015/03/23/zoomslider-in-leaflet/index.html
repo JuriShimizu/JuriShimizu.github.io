@@ -143,7 +143,7 @@
 <p>背景色（background-color）が黒、横幅が２ピクセルになっています。<br>線のように見えていたのは、背景色だったのですね。</p>
 <p><code>box-sizing: content-box</code>が指定されている状態だと、<br>このボックスの幅は、<code>2px + 9px（ボーダーの太さ）* 2 = 20</code> となり、<br>背景色（黒）がみえる部分は 2px になります。</p>
 <p><code>box-sizing: border-box</code>が指定されている状態だと、<br>このボックスの幅は、<code>2px</code> となり、<br>幅がボーダーラインよりも小さくなってしまって、背景色（黒）が見えなくなってしまうのです。</p>
-<p>なので、　こんな感じで<code>.leaflet-control-zoomslider-body</code>　の<br><code>box-sizing</code>の定義を書き換えることで、スライーダーの線が見えるようになるのです。</p>
+<p>なので、　こんな感じで<code>.leaflet-control-zoomslider-body</code>　の<br><code>box-sizing</code>の定義を書き換えることで、スライダーの線が見えるようになるのです。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class">.leaflet-control-zoomslider-body</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">box-sizing</span>:<span class="value"> content-box</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
 
 <p>ツマミが小さくなってしまったのも、同じ理由になります。</p>

@@ -4,7 +4,7 @@
   <subtitle><![CDATA[知識ゼロからGeoなSEを目指すブログ]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jurishimizu.github.io/"/>
-  <updated>2015-03-26T12:51:53.446Z</updated>
+  <updated>2015-03-29T04:21:09.688Z</updated>
   <id>http://jurishimizu.github.io/</id>
   
   <author>
@@ -15,11 +15,64 @@
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[Bootstrapを使うとleafletのズームスライダーがキレイに表示されない]]></title>
+    <link href="http://jurishimizu.github.io/2015/03/29/zoomslider-in-case-of-using-bootstrap/"/>
+    <id>http://jurishimizu.github.io/2015/03/29/zoomslider-in-case-of-using-bootstrap/</id>
+    <published>2015-03-29T03:55:36.000Z</published>
+    <updated>2015-03-29T04:19:02.000Z</updated>
+    <content type="html"><![CDATA[<p><a href="http://www.jurigis.me/2015/03/23/zoomslider-in-leaflet/" target="_blank" rel="external">前回</a>、leafletでズームスライダーを表示する方法をご紹介しましたが、<br>実は、<a href="http://getbootstrap.com/" target="_blank" rel="external">Bootstrap</a>を使っていると、ズームスライダーがうまく表示されなくなります。<br>今回はその解消方法について書きます。</p>
+<a id="more"></a>
+
+<p>leafletの地図の表示については<a href="http://www.jurigis.me/2015/03/22/output-geojson-using-the-leaflet/" target="_blank" rel="external">こちら</a>を参照<br>leafletの地図にズームスライダーを表示する方法については<a href="http://www.jurigis.me/2015/03/23/zoomslider-in-leaflet/" target="_blank" rel="external">こちら</a>を参照</p>
+<h2 id="事象">事象</h2>
+<p>まず、Bootstrapを使っていない場合のスライダーはこんな感じ</p>
+<p><img src="leaflet_1.png" alt="zoomslider"></p>
+<p>Bootstrapを使っていると、こんなマヌケな姿に、、、</p>
+<p><img src="leaflet_2.png" alt="zoomslider"></p>
+<p>真ん中の線が消えて、<br>ツマミも小さくなってつまみづらくなっています。。。</p>
+<h2 id="対策">対策</h2>
+<p>cssにこの記述を追加すると、元通りになります。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class">.leaflet-control-zoomslider-body</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">box-sizing</span>:<span class="value"> content-box</span></span>;</div><div class="line"><span class="rule">}</span></div><div class="line"></div><div class="line"><span class="class">.leaflet-control-zoomslider-knob</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">box-sizing</span>:<span class="value"> content-box</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<h2 id="原因">原因</h2>
+<p>なぜBootstrapを使うとスライダーの線が消えてしまったのでしょうか？</p>
+<p>Bootstrapのcssにはこんな定義があります。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">box-sizing</span>:<span class="value"> border-box</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<p><code>box-sizing</code>はボックスサイズの算出方法を指定します。</p>
+<p><code>border-box</code>だと線（border）と余白（padding）を幅・高さに含める<br><code>content-box</code>だと線（border）と余白（padding）を幅・高さに含めない</p>
+<p>デフォルトは<code>content-box</code>です。</p>
+<p>スライダーのツマミを動かす部分は、<code>L.Control.Zoomslider.css</code>でこのように定義されています。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class">.leaflet-control-zoomslider-body</span> <span class="rules">{</span></div><div class="line">	        <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">2px</span></span></span>;</div><div class="line">	        <span class="rule"><span class="attribute">border</span>:<span class="value"> solid <span class="hexcolor">#fff</span></span></span>;</div><div class="line">	        <span class="rule"><span class="attribute">border-width</span>:<span class="value"> <span class="number">0px</span> <span class="number">9px</span> <span class="number">0px</span> <span class="number">9px</span></span></span>;</div><div class="line">	        <span class="rule"><span class="attribute">background-color</span>:<span class="value"> black</span></span>;</div><div class="line">	        <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span> auto</span></span>;</div><div class="line">	<span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<p>背景色（background-color）が黒、横幅が２ピクセルになっています。<br>線のように見えていたのは、背景色だったのですね。</p>
+<p><code>box-sizing: content-box</code>が指定されている状態だと、<br>このボックスの幅は、<code>2px + 9px（ボーダーの太さ）* 2 = 20</code> となり、<br>背景色（黒）がみえる部分は 2px になります。</p>
+<p><code>box-sizing: border-box</code>が指定されている状態だと、<br>このボックスの幅は、<code>2px</code> となり、<br>幅がボーダーラインよりも小さくなってしまって、背景色（黒）が見えなくなってしまうのです。</p>
+<p>なので、　こんな感じで<code>.leaflet-control-zoomslider-body</code>　の<br><code>box-sizing</code>の定義を書き換えることで、スライダーの線が見えるようになるのです。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class">.leaflet-control-zoomslider-body</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">box-sizing</span>:<span class="value"> content-box</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<p>ツマミが小さくなってしまったのも、同じ理由になります。</p>
+<p>GISとは関係のない話になりましたが、<br>いろんなcssを読み込むときは注意が必要ですね！</p>
+<p>という話でした！</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><a href="http://www.jurigis.me/2015/03/23/zoomslider-in-leaflet/" target="_blank" rel="external">前回</a>、leafletでズームスライダーを表示する方法をご紹介しましたが、<br>実は、<a href="http://getbootstrap.com/" target="_blank" rel="external">Bootstrap</a>を使っていると、ズームスライダーがうまく表示されなくなります。<br>今回はその解消方法について書きます。</p>
+]]>
+    
+    </summary>
+    
+      <category term="leaflet" scheme="http://jurishimizu.github.io/tags/leaflet/"/>
+    
+      <category term="bootstrap" scheme="http://jurishimizu.github.io/tags/bootstrap/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[leafletに縮尺を追加 & ズームコントローラをスライダーに変更]]></title>
     <link href="http://jurishimizu.github.io/2015/03/23/zoomslider-in-leaflet/"/>
     <id>http://jurishimizu.github.io/2015/03/23/zoomslider-in-leaflet/</id>
     <published>2015-03-23T06:04:22.000Z</published>
-    <updated>2015-03-26T12:51:47.000Z</updated>
+    <updated>2015-03-29T04:11:43.000Z</updated>
     <content type="html"><![CDATA[<p>leafletの地図を見やすく＆操作しやすくするための小ネタです。</p>
 <a id="more"></a>
 
@@ -49,32 +102,6 @@
 
 <p>こうすると、スライダーが表示されます。</p>
 <p><img src="leaflet_4.png" alt="zoomControl"></p>
-<p>しかし、、、<br><a href="http://getbootstrap.com/" target="_blank" rel="external">Bootstrap</a>を使っていると、スライダーの線が消えて、こんなマヌケな姿になってしまします、、、</p>
-<p><img src="leaflet_5.png" alt="zoomControl"></p>
-<p>しかもよく見ると、ツマミも小さくなって、つまみづらくなってる、、、</p>
-<p>こんなときはcssにこの記述を追加すると、元通りになります。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class">.leaflet-control-zoomslider-body</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">box-sizing</span>:<span class="value"> content-box</span></span>;</div><div class="line"><span class="rule">}</span></div><div class="line"></div><div class="line"><span class="class">.leaflet-control-zoomslider-knob</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">box-sizing</span>:<span class="value"> content-box</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
-
-<h2 id="おまけ：なんでスライダーの線が消えてしまったのか？？？">おまけ：なんでスライダーの線が消えてしまったのか？？？</h2>
-<p>なぜBootstrapを使うとスライダーの線が消えてしまったのでしょうか？</p>
-<p>Bootstrapのcssにはこんな定義があります。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">box-sizing</span>:<span class="value"> border-box</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
-
-<p><code>box-sizing</code>はボックスサイズの算出方法を指定します。</p>
-<p><code>border-box</code>だと線の太さを幅・高さに含める<br><code>content-box</code>だと線の太さを幅・高さに含めない</p>
-<p>デフォルトは<code>content-box</code>です。</p>
-<p>スライダーのツマミを動かす部分は、<code>L.Control.Zoomslider.css</code>でこのように定義されています。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class">.leaflet-control-zoomslider-body</span> <span class="rules">{</span></div><div class="line">	        <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">2px</span></span></span>;</div><div class="line">	        <span class="rule"><span class="attribute">border</span>:<span class="value"> solid <span class="hexcolor">#fff</span></span></span>;</div><div class="line">	        <span class="rule"><span class="attribute">border-width</span>:<span class="value"> <span class="number">0px</span> <span class="number">9px</span> <span class="number">0px</span> <span class="number">9px</span></span></span>;</div><div class="line">	        <span class="rule"><span class="attribute">background-color</span>:<span class="value"> black</span></span>;</div><div class="line">	        <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span> auto</span></span>;</div><div class="line">	<span class="rule">}</span></div></pre></td></tr></table></figure>
-
-<p>背景色（background-color）が黒、横幅が２ピクセルになっています。<br>線のように見えていたのは、背景色だったのですね。</p>
-<p><code>box-sizing: content-box</code>が指定されている状態だと、<br>このボックスの幅は、<code>2px + 9px（ボーダーの太さ）* 2 = 20</code> となり、<br>背景色（黒）がみえる部分は 2px になります。</p>
-<p><code>box-sizing: border-box</code>が指定されている状態だと、<br>このボックスの幅は、<code>2px</code> となり、<br>幅がボーダーラインよりも小さくなってしまって、背景色（黒）が見えなくなってしまうのです。</p>
-<p>なので、　こんな感じで<code>.leaflet-control-zoomslider-body</code>　の<br><code>box-sizing</code>の定義を書き換えることで、スライダーの線が見えるようになるのです。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class">.leaflet-control-zoomslider-body</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">box-sizing</span>:<span class="value"> content-box</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
-
-<p>ツマミが小さくなってしまったのも、同じ理由になります。</p>
-<p>GISとは関係のない話になりましたが、<br>いろんなcssを読み込むときは注意が必要ですね！</p>
-<p>という話でした！</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>leafletの地図を見やすく＆操作しやすくするための小ネタです。</p>

@@ -15,7 +15,6 @@
 <meta property="og:image" content="leaflet_2.png">
 <meta property="og:image" content="leaflet_3.png">
 <meta property="og:image" content="leaflet_4.png">
-<meta property="og:image" content="leaflet_5.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leafletに縮尺を追加 & ズームコントローラをスライダーに変更">
 <meta name="twitter:description" content="leafletの地図を見やすく＆操作しやすくするための小ネタです。">
@@ -123,32 +122,6 @@
 
 <p>こうすると、スライダーが表示されます。</p>
 <p><img src="leaflet_4.png" alt="zoomControl"></p>
-<p>しかし、、、<br><a href="http://getbootstrap.com/" target="_blank" rel="external">Bootstrap</a>を使っていると、スライダーの線が消えて、こんなマヌケな姿になってしまします、、、</p>
-<p><img src="leaflet_5.png" alt="zoomControl"></p>
-<p>しかもよく見ると、ツマミも小さくなって、つまみづらくなってる、、、</p>
-<p>こんなときはcssにこの記述を追加すると、元通りになります。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class">.leaflet-control-zoomslider-body</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">box-sizing</span>:<span class="value"> content-box</span></span>;</div><div class="line"><span class="rule">}</span></div><div class="line"></div><div class="line"><span class="class">.leaflet-control-zoomslider-knob</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">box-sizing</span>:<span class="value"> content-box</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
-
-<h2 id="おまけ：なんでスライダーの線が消えてしまったのか？？？">おまけ：なんでスライダーの線が消えてしまったのか？？？</h2>
-<p>なぜBootstrapを使うとスライダーの線が消えてしまったのでしょうか？</p>
-<p>Bootstrapのcssにはこんな定義があります。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">box-sizing</span>:<span class="value"> border-box</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
-
-<p><code>box-sizing</code>はボックスサイズの算出方法を指定します。</p>
-<p><code>border-box</code>だと線の太さを幅・高さに含める<br><code>content-box</code>だと線の太さを幅・高さに含めない</p>
-<p>デフォルトは<code>content-box</code>です。</p>
-<p>スライダーのツマミを動かす部分は、<code>L.Control.Zoomslider.css</code>でこのように定義されています。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class">.leaflet-control-zoomslider-body</span> <span class="rules">{</span></div><div class="line">	        <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">2px</span></span></span>;</div><div class="line">	        <span class="rule"><span class="attribute">border</span>:<span class="value"> solid <span class="hexcolor">#fff</span></span></span>;</div><div class="line">	        <span class="rule"><span class="attribute">border-width</span>:<span class="value"> <span class="number">0px</span> <span class="number">9px</span> <span class="number">0px</span> <span class="number">9px</span></span></span>;</div><div class="line">	        <span class="rule"><span class="attribute">background-color</span>:<span class="value"> black</span></span>;</div><div class="line">	        <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span> auto</span></span>;</div><div class="line">	<span class="rule">}</span></div></pre></td></tr></table></figure>
-
-<p>背景色（background-color）が黒、横幅が２ピクセルになっています。<br>線のように見えていたのは、背景色だったのですね。</p>
-<p><code>box-sizing: content-box</code>が指定されている状態だと、<br>このボックスの幅は、<code>2px + 9px（ボーダーの太さ）* 2 = 20</code> となり、<br>背景色（黒）がみえる部分は 2px になります。</p>
-<p><code>box-sizing: border-box</code>が指定されている状態だと、<br>このボックスの幅は、<code>2px</code> となり、<br>幅がボーダーラインよりも小さくなってしまって、背景色（黒）が見えなくなってしまうのです。</p>
-<p>なので、　こんな感じで<code>.leaflet-control-zoomslider-body</code>　の<br><code>box-sizing</code>の定義を書き換えることで、スライダーの線が見えるようになるのです。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class">.leaflet-control-zoomslider-body</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">box-sizing</span>:<span class="value"> content-box</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
-
-<p>ツマミが小さくなってしまったのも、同じ理由になります。</p>
-<p>GISとは関係のない話になりましたが、<br>いろんなcssを読み込むときは注意が必要ですね！</p>
-<p>という話でした！</p>
 
       
     </div>
@@ -165,6 +138,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2015/03/29/zoomslider-in-case-of-using-bootstrap/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Bootstrapを使うとleafletのズームスライダーがキレイに表示されない
+        
+      </div>
+    </a>
   
   
     <a href="/2015/03/22/output-geojson-using-the-leaflet/" id="article-nav-older" class="article-nav-link-wrap">
@@ -197,6 +179,10 @@
       <ul>
         
           <li>
+            <a href="/2015/03/29/zoomslider-in-case-of-using-bootstrap/">Bootstrapを使うとleafletのズームスライダーがキレイに表示されない</a>
+          </li>
+        
+          <li>
             <a href="/2015/03/23/zoomslider-in-leaflet/">leafletに縮尺を追加 &amp; ズームコントローラをスライダーに変更</a>
           </li>
         
@@ -212,10 +198,6 @@
             <a href="/2015/03/08/filter-in-qgis/">QGISで表示する地物を絞る＆ラベルを表示</a>
           </li>
         
-          <li>
-            <a href="/2015/02/28/conditions-in-postgis/">PostGISでGeoな検索条件</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -225,7 +207,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/">centos</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/geojson/">geojson</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leaflet/">leaflet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osm/">osm</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgis/">postgis</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/">postgresql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qgis/">qgis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vagrant/">vagrant</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualized-environment/">virtualized_environment</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap/">bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/">centos</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/geojson/">geojson</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leaflet/">leaflet</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osm/">osm</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgis/">postgis</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/">postgresql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qgis/">qgis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vagrant/">vagrant</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualized-environment/">virtualized_environment</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -234,7 +216,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 

@@ -4,7 +4,7 @@
   <subtitle><![CDATA[知識ゼロからGeoなSEを目指すブログ]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jurishimizu.github.io/"/>
-  <updated>2015-03-29T04:23:53.898Z</updated>
+  <updated>2015-03-29T07:30:57.234Z</updated>
   <id>http://jurishimizu.github.io/</id>
   
   <author>
@@ -13,6 +13,48 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Leaflet.drawを使って、地図上に図形を描く]]></title>
+    <link href="http://jurishimizu.github.io/2015/03/29/drawing-on-the-map-using-leafletdraw/"/>
+    <id>http://jurishimizu.github.io/2015/03/29/drawing-on-the-map-using-leafletdraw/</id>
+    <published>2015-03-29T05:04:06.000Z</published>
+    <updated>2015-03-29T07:30:44.000Z</updated>
+    <content type="html"><![CDATA[<p>今日は<a href="https://github.com/Leaflet/Leaflet.draw" target="_blank" rel="external">Leaflet.draw</a>というプラグインを使って、<br>leafletの地図上に図形やマーカーを追加する機能を作ってみます。</p>
+<a id="more"></a>
+
+<p>leafletの地図の表示については<a href="http://www.jurigis.me/2015/03/22/output-geojson-using-the-leaflet/" target="_blank" rel="external">こちら</a>を参照</p>
+<p>まずは、スタイルシートとjsを読み込みます。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">'https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.css'</span> <span class="attribute">rel</span>=<span class="value">'stylesheet'</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">'https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.js'</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p>追加した図形をまとめるためのオブジェクト<code>FeatureGroup</code>を宣言し、<br>図形を追加するためのコントローラを追加します。</p>
+<figure class="highlight javascpipt"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 図形をまとめるためのオブジェクト</span></div><div class="line"><span class="built_in">var</span> drawnItems <span class="subst">=</span> <span class="literal">new</span> L<span class="built_in">.</span>FeatureGroup()<span class="built_in">.</span>addTo(<span class="built_in">map</span>);</div><div class="line"></div><div class="line"><span class="comment">// 図形を描くためのコントローラ</span></div><div class="line"><span class="comment">// 位置のデフォルトは左上ですが、右上に指定を変えています。</span></div><div class="line"><span class="built_in">var</span> drawControl <span class="subst">=</span> <span class="literal">new</span> L<span class="built_in">.</span>Control<span class="built_in">.</span>Draw({</div><div class="line">  edit: {</div><div class="line">    featureGroup: drawnItems</div><div class="line">  }</div><div class="line">  ,position: <span class="string">'topright'</span></div><div class="line">})<span class="built_in">.</span>addTo(<span class="built_in">map</span>);</div></pre></td></tr></table></figure>
+
+<p>図形が描かれたときに、<br>その図形をレイヤに追加するよう設定します。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">map.on(<span class="string">'draw:created'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span> </span>{</div><div class="line">  drawnItems.addLayer(e.layer);</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p>こうすると地図上にコントローラが現れ、<br>ポリライン、ポリゴン、四角形、丸、マーカーを、追加したり編集したり削除したりできるようになります。</p>
+<p><img src="leaflet.draw_1.png" alt="leaflet.draw"></p>
+<p>もちろんいろいろなカスタマイズも可能です。<br>試しにこんなカスタマイズをしてみました。</p>
+<ul>
+<li>追加できるのをポリラインとマーカーだけにする</li>
+<li>ポリラインの色と透明度を変える</li>
+<li>マーカーを連続で作成できるようにする</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> drawControl <span class="subst">=</span> <span class="literal">new</span> L<span class="built_in">.</span>Control<span class="built_in">.</span>Draw({</div><div class="line">  draw: {</div><div class="line">    polyline: {</div><div class="line">      shapeOptions:{</div><div class="line">        color: <span class="string">'#C3415D'</span>,</div><div class="line">        opacity: <span class="number">0.8</span></div><div class="line">      }</div><div class="line">    }</div><div class="line">    ,polygon: <span class="literal">false</span></div><div class="line">    ,rectangle: <span class="literal">false</span></div><div class="line">    ,circle: <span class="literal">false</span></div><div class="line">    ,marker: {</div><div class="line">      repeatMode: <span class="literal">true</span></div><div class="line">    }</div><div class="line">  }</div><div class="line">  ,edit: {</div><div class="line">    featureGroup: drawnItems</div><div class="line">  }</div><div class="line">  ,position: <span class="string">'topright'</span></div><div class="line">})<span class="built_in">.</span>addTo(<span class="built_in">map</span>);</div></pre></td></tr></table></figure>
+
+<p><img src="leaflet.draw_2.png" alt="leaflet.draw"></p>
+<p>この技術を生かして、自分で地図上の情報を編集したり、参照したりできるようにしたいな〜<br>と思いつつ、今日はここまで〜</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>今日は<a href="https://github.com/Leaflet/Leaflet.draw" target="_blank" rel="external">Leaflet.draw</a>というプラグインを使って、<br>leafletの地図上に図形やマーカーを追加する機能を作ってみます。</p>
+]]>
+    
+    </summary>
+    
+      <category term="leaflet" scheme="http://jurishimizu.github.io/tags/leaflet/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Bootstrapを使うとleafletのズームスライダーがキレイに表示されない]]></title>

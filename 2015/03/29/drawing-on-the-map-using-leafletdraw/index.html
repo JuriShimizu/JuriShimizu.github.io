@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Leaflet.drawを使って、地図上に図形を描く | JURI★GIS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="今日はLeaflet.drawというプラグインを使って、leafletの地図上に図形やマーカーを追加する機能を作ってみます。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leaflet.drawを使って、地図上に図形を描く">
+<meta property="og:url" content="http://jurishimizu.github.io/2015/03/29/drawing-on-the-map-using-leafletdraw/">
+<meta property="og:site_name" content="JURI★GIS">
+<meta property="og:description" content="今日はLeaflet.drawというプラグインを使って、leafletの地図上に図形やマーカーを追加する機能を作ってみます。">
+<meta property="og:image" content="leaflet.draw_1.png">
+<meta property="og:image" content="leaflet.draw_2.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Leaflet.drawを使って、地図上に図形を描く">
+<meta name="twitter:description" content="今日はLeaflet.drawというプラグインを使って、leafletの地図上に図形やマーカーを追加する機能を作ってみます。">
+
+  
+    <link rel="alternative" href="/atom.xml" title="JURI★GIS" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link href='//fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:700' rel='stylesheet' type='text/css'>
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">JURI★GIS</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">知識ゼロからGeoなSEを目指すブログ</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://jurishimizu.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-drawing-on-the-map-using-leafletdraw" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/29/drawing-on-the-map-using-leafletdraw/" class="article-date">
+  <time datetime="2015-03-29T05:04:06.000Z" itemprop="datePublished">Mar 29 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Leaflet.drawを使って、地図上に図形を描く
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今日は<a href="https://github.com/Leaflet/Leaflet.draw" target="_blank" rel="external">Leaflet.draw</a>というプラグインを使って、<br>leafletの地図上に図形やマーカーを追加する機能を作ってみます。</p>
+<a id="more"></a>
+
+<p>leafletの地図の表示については<a href="http://www.jurigis.me/2015/03/22/output-geojson-using-the-leaflet/" target="_blank" rel="external">こちら</a>を参照</p>
+<p>まずは、スタイルシートとjsを読み込みます。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">'https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.css'</span> <span class="attribute">rel</span>=<span class="value">'stylesheet'</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">'https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.js'</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p>追加した図形をまとめるためのオブジェクト<code>FeatureGroup</code>を宣言し、<br>図形を追加するためのコントローラを追加します。</p>
+<figure class="highlight javascpipt"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 図形をまとめるためのオブジェクト</span></div><div class="line"><span class="built_in">var</span> drawnItems <span class="subst">=</span> <span class="literal">new</span> L<span class="built_in">.</span>FeatureGroup()<span class="built_in">.</span>addTo(<span class="built_in">map</span>);</div><div class="line"></div><div class="line"><span class="comment">// 図形を描くためのコントローラ</span></div><div class="line"><span class="comment">// 位置のデフォルトは左上ですが、右上に指定を変えています。</span></div><div class="line"><span class="built_in">var</span> drawControl <span class="subst">=</span> <span class="literal">new</span> L<span class="built_in">.</span>Control<span class="built_in">.</span>Draw({</div><div class="line">  edit: {</div><div class="line">    featureGroup: drawnItems</div><div class="line">  }</div><div class="line">  ,position: <span class="string">'topright'</span></div><div class="line">})<span class="built_in">.</span>addTo(<span class="built_in">map</span>);</div></pre></td></tr></table></figure>
+
+<p>図形が描かれたときに、<br>その図形をレイヤに追加するよう設定します。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">map.on(<span class="string">'draw:created'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span> </span>{</div><div class="line">  drawnItems.addLayer(e.layer);</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p>こうすると地図上にコントローラが現れ、<br>ポリライン、ポリゴン、四角形、丸、マーカーを、追加したり編集したり削除したりできるようになります。</p>
+<p><img src="leaflet.draw_1.png" alt="leaflet.draw"></p>
+<p>もちろんいろいろなカスタマイズも可能です。<br>試しにこんなカスタマイズをしてみました。</p>
+<ul>
+<li>追加できるのをポリラインとマーカーだけにする</li>
+<li>ポリラインの色と透明度を変える</li>
+<li>マーカーを連続で作成できるようにする</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> drawControl <span class="subst">=</span> <span class="literal">new</span> L<span class="built_in">.</span>Control<span class="built_in">.</span>Draw({</div><div class="line">  draw: {</div><div class="line">    polyline: {</div><div class="line">      shapeOptions:{</div><div class="line">        color: <span class="string">'#C3415D'</span>,</div><div class="line">        opacity: <span class="number">0.8</span></div><div class="line">      }</div><div class="line">    }</div><div class="line">    ,polygon: <span class="literal">false</span></div><div class="line">    ,rectangle: <span class="literal">false</span></div><div class="line">    ,circle: <span class="literal">false</span></div><div class="line">    ,marker: {</div><div class="line">      repeatMode: <span class="literal">true</span></div><div class="line">    }</div><div class="line">  }</div><div class="line">  ,edit: {</div><div class="line">    featureGroup: drawnItems</div><div class="line">  }</div><div class="line">  ,position: <span class="string">'topright'</span></div><div class="line">})<span class="built_in">.</span>addTo(<span class="built_in">map</span>);</div></pre></td></tr></table></figure>
+
+<p><img src="leaflet.draw_2.png" alt="leaflet.draw"></p>
+<p>この技術を生かして、自分で地図上の情報を編集したり、参照したりできるようにしたいな〜<br>と思いつつ、今日はここまで〜</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jurishimizu.github.io/2015/03/29/drawing-on-the-map-using-leafletdraw/" data-id="wl9rr2ggty89hmj6" class="article-share-link">Share</a>
+      
+        <a href="http://jurishimizu.github.io/2015/03/29/drawing-on-the-map-using-leafletdraw/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leaflet/">leaflet</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/03/29/zoomslider-in-case-of-using-bootstrap/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Bootstrapを使うとleafletのズームスライダーがキレイに表示されない</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/03/29/drawing-on-the-map-using-leafletdraw/">Leaflet.drawを使って、地図上に図形を描く</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/29/zoomslider-in-case-of-using-bootstrap/">Bootstrapを使うとleafletのズームスライダーがキレイに表示されない</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/23/zoomslider-in-leaflet/">leafletに縮尺を追加 &amp; ズームコントローラをスライダーに変更</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/22/output-geojson-using-the-leaflet/">GeoJSONのデータをleafletを使って出力</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/15/insert-in-postgis/">PostGISでGeoなINSERT</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap/">bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/">centos</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/geojson/">geojson</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leaflet/">leaflet</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osm/">osm</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgis/">postgis</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/">postgresql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qgis/">qgis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vagrant/">vagrant</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualized-environment/">virtualized_environment</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+</aside>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 JuriShimizu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'jurigis';
+  
+  var disqus_url = 'http://jurishimizu.github.io/2015/03/29/drawing-on-the-map-using-leafletdraw/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>

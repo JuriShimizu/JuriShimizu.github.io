@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015/4 | JURI★GIS</title>
+  <title>PyLadies Tokyo Meetup に参加しました | JURI★GIS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="JURI★GIS">
-<meta property="og:url" content="http://jurishimizu.github.io/archives/2015/04/">
+  <meta name="description" content="PyLadies Tokyo Meetup #4 に参加しました！ちょっと遅くなりましたが、感想や、学んだことをまとめておきます。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PyLadies Tokyo Meetup に参加しました">
+<meta property="og:url" content="http://jurishimizu.github.io/2015/04/21/join-pyladies-tokyo-meetup/">
 <meta property="og:site_name" content="JURI★GIS">
-<meta property="og:description">
+<meta property="og:description" content="PyLadies Tokyo Meetup #4 に参加しました！ちょっと遅くなりましたが、感想や、学んだことをまとめておきます。">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JURI★GIS">
-<meta name="twitter:description">
+<meta name="twitter:title" content="PyLadies Tokyo Meetup に参加しました">
+<meta name="twitter:description" content="PyLadies Tokyo Meetup #4 に参加しました！ちょっと遅くなりましたが、感想や、学んだことをまとめておきます。">
 
   
     <link rel="alternative" href="/atom.xml" title="JURI★GIS" type="application/atom+xml">
@@ -80,9 +80,7 @@ ga('send', 'pageview');
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-join-pyladies-tokyo-meetup" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-join-pyladies-tokyo-meetup" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/04/21/join-pyladies-tokyo-meetup/" class="article-date">
   <time datetime="2015-04-21T13:09:11.000Z" itemprop="datePublished">Apr 21 2015</time>
@@ -95,8 +93,8 @@ ga('send', 'pageview');
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/04/21/join-pyladies-tokyo-meetup/">PyLadies Tokyo Meetup に参加しました</a>
+    <h1 class="article-title" itemprop="name">
+      PyLadies Tokyo Meetup に参加しました
     </h1>
   
 
@@ -105,12 +103,72 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p><a href="http://pyladies-tokyo.connpass.com/event/11862/" target="_blank" rel="external">PyLadies Tokyo Meetup #4 </a>に参加しました！<br>ちょっと遅くなりましたが、感想や、学んだことをまとめておきます。</p>
+<a id="more"></a>
 
-        
-          <p class="article-more-link">
-            <a href="/2015/04/21/join-pyladies-tokyo-meetup/#more">Read More</a>
-          </p>
-        
+<h1 id="PyLadiesとは">PyLadiesとは</h1>
+<p>Pythonが好きな女性のコミュニティ。男性は参加禁止！！！<br>くわしくは<a href="http://www.pyladies.com/" target="_blank" rel="external">こちら</a>を参照</p>
+<p>今回のテーマは「Pythonでチャット機能を作ってみよう！」でした</p>
+<h1 id="参加しようと思ったきっかけ">参加しようと思ったきっかけ</h1>
+<p>GISを学ぶ上でPythonは知っておいた方がよいと聞いて、参加してみました。</p>
+<p>勉強会は男性ばかりなので、女性しかいない勉強会がどんな感じが興味があったというのも大きいです。</p>
+<h1 id="会の雰囲気">会の雰囲気</h1>
+<p>参加者は２０人弱。もちろん、講師含めて全員女性です。</p>
+<p>講師は２人で、いわゆるメンターはいなかったのですが、参加者同士でフォローし合う場面もありました。</p>
+<p>事前にslackの案内があって、当日もslackを開きながらの作業になりました。</p>
+<p>人見知りの私もslackなら発言できるから不思議です、、、</p>
+<h1 id="知ったこと・学んだこと">知ったこと・学んだこと</h1>
+<h3 id="PyCharm">PyCharm</h3>
+<p><a href="https://www.jetbrains.com/pycharm/" target="_blank" rel="external">PyCharm</a>というエディタを使ってプログラミングを行いました。</p>
+<p>今までは簡単な修正くらいしかしていなかったこともあり、Sublime Text か、vim を使っていましたが、</p>
+<p>Pycharmは仮想環境を作ったり、パッケージをインストールするのも手軽でとても便利そうでした！</p>
+<p>有料版だとさらに便利なようです</p>
+<h3 id="virtualenv">virtualenv</h3>
+<p>仮想環境を作るためのパッケージです。使い方はこんな感じ。</p>
+<ul>
+<li>仮想環境作成</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>virtualenv env</div></pre></td></tr></table></figure>
+
+<ul>
+<li>仮想環境に切り替える</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>source ~<span class="regexp">/env/bin</span><span class="regexp">/activate</span></div></pre></td></tr></table></figure>
+
+<ul>
+<li>仮想環境を抜ける</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(env) <span class="variable">$ </span>deactivate</div></pre></td></tr></table></figure>
+
+<p>Pycharmを使えば、画面から仮想環境の作成ができちゃいます。</p>
+<p>なんで仮想環境が必要になるのかというと、</p>
+<p>Pythonのバージョン（2系と3系で全然違う！！！）やパッケージのバージョンを、プログラムごとに管理するためです。</p>
+<p>管理を煩雑にしないため、プログラムごとに仮想環境をつくったほうがいいようです。</p>
+<h3 id="Tornado">Tornado</h3>
+<p>PythonのWEBフレームワーク/WEBサーバのライブラリ。</p>
+<p>これを使えば、WebSocketができるようになるのです！</p>
+<p>当日はこの技術をつかって、ローカルでチャットツールを作りました。<br>（作ったと言ってもソースを落としてきてコピペしただけですが、、、）</p>
+<h3 id="仮想環境の管理の仕方">仮想環境の管理の仕方</h3>
+<p>懇親会のときに教えていただいた、仮想環境のパッケージとそのバージョンを管理する方法です。</p>
+<p>例として、仮想環境<code>env1</code>と同じ環境<code>env2</code>を作りたいとします。</p>
+<p>まずは<code>env1</code>で下記のコマンドを実行</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="input"><span class="prompt">(env1) $ pip freeze -l &gt;</span> requirements.txt</span></div></pre></td></tr></table></figure>
+
+<p>こうすると、<code>env1</code>にインストールされているパッケージの一覧が<code>requirements.txt</code>に出力されます。</p>
+<p>そして、<code>env2</code>を作成して、下記コマンドを実行</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(env2) <span class="variable">$ </span>pip install -r requirements.txt</div></pre></td></tr></table></figure>
+
+<p>こうすると、<code>env1</code>と<code>env2</code>はパッケージもバージョンも同じ環境になります。</p>
+<p><code>requirements.txt</code>をGitHubにあげておけば、どこでもだれでも同じ環境が作れてしまうのです。</p>
+<p>これで「開発環境では動いてたのに〜〜！」みたいなミスが防げますね！</p>
+<h1 id="感想">感想</h1>
+<p>女性同士ということで、とても気軽にはなせましたし、時間がたっぷりあったこともあって充実していました。</p>
+<p>懇親会の時間も、みんなでわいわいおしゃべりしつつ、質問にも丁寧に答えていただけて、とてもためになりました。</p>
+<p>これからも定期的に開催されるとのことなので、次回以降も参加したいと思います！！</p>
+<h3 id="今後">今後</h3>
+<p>今回チャットツールをつくったといっても、ソースを落としてきてコピペしただけなので、全然まだ理解はできていないと思います。</p>
+<p>なので、Python + Tornado で、自分で簡単なものでもいいからWEBページを作る！</p>
+<p>というのを、個人的な次回までの宿題にしたいと思います。</p>
+
       
     </div>
     <footer class="article-footer">
@@ -124,103 +182,26 @@ ga('send', 'pageview');
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-ansible-hands-on" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/04/14/ansible-hands-on/" class="article-date">
-  <time datetime="2015-04-14T13:25:22.000Z" itemprop="datePublished">Apr 14 2015</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/04/14/ansible-hands-on/">Ansibleハンズオンに参加しました</a>
-    </h1>
+    <a href="/2015/04/14/ansible-hands-on/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Ansibleハンズオンに参加しました</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://ansible-users.connpass.com/event/13158/" target="_blank" rel="external">【初心者向け】Ansibleハンズオン</a>に参加したので、感想をまとめておきます。</p>
-
-        
-          <p class="article-more-link">
-            <a href="/2015/04/14/ansible-hands-on/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://jurishimizu.github.io/2015/04/14/ansible-hands-on/" data-id="3fj1canzlidumijk" class="article-share-link">Share</a>
-      
-        <a href="http://jurishimizu.github.io/2015/04/14/ansible-hands-on/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ansible/">ansible</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study-session/">study_session</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
 
 
-  
-    <article id="post-entry-to-nodeschool" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/04/13/entry-to-nodeschool/" class="article-date">
-  <time datetime="2015-04-13T11:57:22.000Z" itemprop="datePublished">Apr 13 2015</time>
-</a>
-    
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/04/13/entry-to-nodeschool/">東京Node学園に入学しました</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://nodejs.connpass.com/event/13182/" target="_blank" rel="external">nodeschool tokyo (東京Node学園 入学式) </a>に参加してきました。<br>感想などをつらつらと書いておこうと思います。</p>
-
-        
-          <p class="article-more-link">
-            <a href="/2015/04/13/entry-to-nodeschool/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://jurishimizu.github.io/2015/04/13/entry-to-nodeschool/" data-id="uonwaoq2vtl4pejv" class="article-share-link">Share</a>
-      
-        <a href="http://jurishimizu.github.io/2015/04/13/entry-to-nodeschool/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study-session/">study_session</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-  
+</section>
 </section>
         
       </div>
@@ -298,11 +279,13 @@ ga('send', 'pageview');
 <script>
   var disqus_shortname = 'jurigis';
   
+  var disqus_url = 'http://jurishimizu.github.io/2015/04/21/join-pyladies-tokyo-meetup/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>

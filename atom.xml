@@ -4,7 +4,7 @@
   <subtitle><![CDATA[知識ゼロからGeoなSEを目指すブログ]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jurishimizu.github.io/"/>
-  <updated>2015-04-21T13:22:54.241Z</updated>
+  <updated>2015-05-09T22:53:46.762Z</updated>
   <id>http://jurishimizu.github.io/</id>
   
   <author>
@@ -13,6 +13,58 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[WordPressの子テーマを作成する]]></title>
+    <link href="http://jurishimizu.github.io/2015/05/10/create-child-theme-of-wordpress/"/>
+    <id>http://jurishimizu.github.io/2015/05/10/create-child-theme-of-wordpress/</id>
+    <published>2015-05-09T19:58:28.000Z</published>
+    <updated>2015-05-09T22:52:25.000Z</updated>
+    <content type="html"><![CDATA[<p>わけあって、WordPressを勉強中です。</p>
+<p>デザインをカスタマイズするために、子テーマを作ってみます</p>
+<a id="more"></a>
+
+<h2 id="子テーマとは？">子テーマとは？</h2>
+<p>子テーマを利用すると、親テーマを書き換えずにデザインのカスタマイズができます。</p>
+<p>子テーマは独立しているテーマではなく、親テーマに依存していて、</p>
+<p>テーマのカスタマイズの管理画面をいじりたい〜なんていうのは、子テーマではできません。</p>
+<h2 id="子テーマを作る">子テーマを作る</h2>
+<p>WordPressの<code>wp-content／themes</code>フォルダに新しいフォルダを作ります。</p>
+<p>必須のファイルは<code>style.css</code>です。</p>
+<p>親テーマの<code>style.css</code>をコピーして、こんな感じで１番上のコメントを更新します。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line">Theme Name: name</div><div class="line">Author: XXXX</div><div class="line">Description: XXXX</div><div class="line">Version: 1.0.0</div><div class="line">Template: parent theme</div><div class="line">*/</div></pre></td></tr></table></figure>
+
+<p>必須なのは<code>Theme Name</code>と<code>Template</code>です。</p>
+<p><code>Template</code>には親テーマのディレクトリ名を書きます。</p>
+<p>コメントなのに、動作に影響するなんて変な感じですね。</p>
+<p>コレで、WordPressの管理画面で自分で作った子テーマを選べるようになります。</p>
+<h2 id="子テーマをいろいろカスタマイズ">子テーマをいろいろカスタマイズ</h2>
+<h4 id="デザインを変えたい">デザインを変えたい</h4>
+<p>文字の色などのデザインを変えたい場合は、<code>style.css</code>を更新すればOKです</p>
+<h4 id="テンプレートを変えたい">テンプレートを変えたい</h4>
+<p>デザインではなく、表示する項目とかを変えたいときは、</p>
+<p>各テンプレートファイル(header.php、footer.php、single.php などなど)を</p>
+<p>親テーマのディレクトリから子テーマのディレクトリにコピーしてきて、カスタマイズします。</p>
+<h4 id="関数を追加したり、新しいcssを読み込んだりしたい">関数を追加したり、新しいcssを読み込んだりしたい</h4>
+<p>関数を追加したり、新しいcssを読み込んだりしたい場合は、<code>functions.php</code>をカスタマイズします。</p>
+<p>このファイルは親テーマから持ってきてはいけません。</p>
+<p>親テーマの<code>functions.php</code>と子テーマの<code>functions.php</code>に同じ関数があると、<br>こんな感じのエラーになってしまうのです。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="input"><span class="prompt">Fatal error: Cannot redeclare edin_widgets_init() (previously declared in &lt;子テーマのfunctions.php&gt;</span> in &lt;親テーマのfunctions.php&gt;</span></div></pre></td></tr></table></figure>
+
+<p>なので、<code>functions.php</code>はこんな感じで、追加したいことだけ書きます。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">&lt;?php</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> * ここに追加したいことを書く</div><div class="line"> */</div><div class="line"><span class="preprocessor">?&gt;</span></div></pre></td></tr></table></figure>
+
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>わけあって、WordPressを勉強中です。</p>
+<p>デザインをカスタマイズするために、子テーマを作ってみます</p>
+]]>
+    
+    </summary>
+    
+      <category term="wordpress" scheme="http://jurishimizu.github.io/tags/wordpress/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[PyLadies Tokyo Meetup に参加しました]]></title>
@@ -1210,25 +1262,6 @@
 ]]></content>
     <summary type="html">
     <![CDATA[<p>GeoなSEってどんなSEなのかっていうと<br><a href="http://ja.wikipedia.org/wiki/%E5%9C%B0%E7%90%86%E6%83%85%E5%A0%B1%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0" target="_blank" rel="external">GIS</a>を自由自在に扱えるSEだと思います。</p>
-]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[はじめに]]></title>
-    <link href="http://jurishimizu.github.io/2014/12/29/Introduction/"/>
-    <id>http://jurishimizu.github.io/2014/12/29/Introduction/</id>
-    <published>2014-12-29T08:10:33.000Z</published>
-    <updated>2015-02-15T11:26:44.000Z</updated>
-    <content type="html"><![CDATA[<p>Geoはgeographic（地理的な, 地理学の）です。<br>地理につよいSEを目指します。</p>
-<a id="more"></a>
-
-<p>経験も知識もないですが、<br>カッコイイ地図をサクッと作ったり、<br>地理情報を使ったサービスが作れるようになりたいです</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>Geoはgeographic（地理的な, 地理学の）です。<br>地理につよいSEを目指します。</p>
 ]]>
     
     </summary>

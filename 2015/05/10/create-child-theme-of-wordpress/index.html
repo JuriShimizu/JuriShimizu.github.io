@@ -3,17 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: vagrant | JURI★GIS</title>
+  <title>WordPressの子テーマを作成する | JURI★GIS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="JURI★GIS">
-<meta property="og:url" content="http://jurishimizu.github.io/tags/vagrant/">
+  <meta name="description" content="わけあって、WordPressを勉強中です。
+デザインをカスタマイズするために、子テーマを作ってみます">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WordPressの子テーマを作成する">
+<meta property="og:url" content="http://jurishimizu.github.io/2015/05/10/create-child-theme-of-wordpress/">
 <meta property="og:site_name" content="JURI★GIS">
-<meta property="og:description">
+<meta property="og:description" content="わけあって、WordPressを勉強中です。
+デザインをカスタマイズするために、子テーマを作ってみます">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JURI★GIS">
-<meta name="twitter:description">
+<meta name="twitter:title" content="WordPressの子テーマを作成する">
+<meta name="twitter:description" content="わけあって、WordPressを勉強中です。
+デザインをカスタマイズするために、子テーマを作ってみます">
 
   
     <link rel="alternative" href="/atom.xml" title="JURI★GIS" type="application/atom+xml">
@@ -80,12 +83,10 @@ ga('send', 'pageview');
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-osm-download" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-create-child-theme-of-wordpress" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/01/12/osm-download/" class="article-date">
-  <time datetime="2015-01-12T08:35:12.000Z" itemprop="datePublished">Jan 12 2015</time>
+    <a href="/2015/05/10/create-child-theme-of-wordpress/" class="article-date">
+  <time datetime="2015-05-09T19:58:28.000Z" itemprop="datePublished">May 10 2015</time>
 </a>
     
   </div>
@@ -95,8 +96,8 @@ ga('send', 'pageview');
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/12/osm-download/">OSMのデータをPostGISのDBに入れてみる</a>
+    <h1 class="article-title" itemprop="name">
+      WordPressの子テーマを作成する
     </h1>
   
 
@@ -104,123 +105,74 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://jurishimizu.github.io/2015/01/09/postgis-install-2/" target="_blank" rel="external">前回</a>、Geoなデータベースを作ったので、<br>今回はそこにGeoなデータを入れてみたいと思います</p>
+        <p>わけあって、WordPressを勉強中です。</p>
+<p>デザインをカスタマイズするために、子テーマを作ってみます</p>
+<a id="more"></a>
 
-        
-          <p class="article-more-link">
-            <a href="/2015/01/12/osm-download/#more">Read More</a>
-          </p>
-        
+<h2 id="子テーマとは？">子テーマとは？</h2>
+<p>子テーマを利用すると、親テーマを書き換えずにデザインのカスタマイズができます。</p>
+<p>子テーマは独立しているテーマではなく、親テーマに依存していて、</p>
+<p>テーマのカスタマイズの管理画面をいじりたい〜なんていうのは、子テーマではできません。</p>
+<h2 id="子テーマを作る">子テーマを作る</h2>
+<p>WordPressの<code>wp-content／themes</code>フォルダに新しいフォルダを作ります。</p>
+<p>必須のファイルは<code>style.css</code>です。</p>
+<p>親テーマの<code>style.css</code>をコピーして、こんな感じで１番上のコメントを更新します。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line">Theme Name: name</div><div class="line">Author: XXXX</div><div class="line">Description: XXXX</div><div class="line">Version: 1.0.0</div><div class="line">Template: parent theme</div><div class="line">*/</div></pre></td></tr></table></figure>
+
+<p>必須なのは<code>Theme Name</code>と<code>Template</code>です。</p>
+<p><code>Template</code>には親テーマのディレクトリ名を書きます。</p>
+<p>コメントなのに、動作に影響するなんて変な感じですね。</p>
+<p>コレで、WordPressの管理画面で自分で作った子テーマを選べるようになります。</p>
+<h2 id="子テーマをいろいろカスタマイズ">子テーマをいろいろカスタマイズ</h2>
+<h4 id="デザインを変えたい">デザインを変えたい</h4>
+<p>文字の色などのデザインを変えたい場合は、<code>style.css</code>を更新すればOKです</p>
+<h4 id="テンプレートを変えたい">テンプレートを変えたい</h4>
+<p>デザインではなく、表示する項目とかを変えたいときは、</p>
+<p>各テンプレートファイル(header.php、footer.php、single.php などなど)を</p>
+<p>親テーマのディレクトリから子テーマのディレクトリにコピーしてきて、カスタマイズします。</p>
+<h4 id="関数を追加したり、新しいcssを読み込んだりしたい">関数を追加したり、新しいcssを読み込んだりしたい</h4>
+<p>関数を追加したり、新しいcssを読み込んだりしたい場合は、<code>functions.php</code>をカスタマイズします。</p>
+<p>このファイルは親テーマから持ってきてはいけません。</p>
+<p>親テーマの<code>functions.php</code>と子テーマの<code>functions.php</code>に同じ関数があると、<br>こんな感じのエラーになってしまうのです。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="input"><span class="prompt">Fatal error: Cannot redeclare edin_widgets_init() (previously declared in &lt;子テーマのfunctions.php&gt;</span> in &lt;親テーマのfunctions.php&gt;</span></div></pre></td></tr></table></figure>
+
+<p>なので、<code>functions.php</code>はこんな感じで、追加したいことだけ書きます。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">&lt;?php</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> * ここに追加したいことを書く</div><div class="line"> */</div><div class="line"><span class="preprocessor">?&gt;</span></div></pre></td></tr></table></figure>
+
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jurishimizu.github.io/2015/01/12/osm-download/" data-id="f82mlbbn22dy69dn" class="article-share-link">Share</a>
+      <a data-url="http://jurishimizu.github.io/2015/05/10/create-child-theme-of-wordpress/" data-id="ecyhig45bcx2q1hu" class="article-share-link">Share</a>
       
-        <a href="http://jurishimizu.github.io/2015/01/12/osm-download/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://jurishimizu.github.io/2015/05/10/create-child-theme-of-wordpress/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/">centos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/osm/">osm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgis/">postgis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vagrant/">vagrant</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/virtualized-environment/">virtualized_environment</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wordpress/">wordpress</a></li></ul>
 
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-postgis-install-2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/09/postgis-install-2/" class="article-date">
-  <time datetime="2015-01-09T02:46:17.000Z" itemprop="datePublished">Jan 9 2015</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/09/postgis-install-2/">CentOSにPostgreSQL/PostGISの環境構築</a>
-    </h1>
+    <a href="/2015/04/21/join-pyladies-tokyo-meetup/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">PyLadies Tokyo Meetup に参加しました</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://jurishimizu.github.io/2014/12/29/Postgis-install-1/" target="_blank" rel="external">前回</a>作った仮想環境に、<br><a href="http://ja.wikipedia.org/wiki/Postgis" target="_blank" rel="external">PostGIS</a>をインストールしてみます。<br>PostGISを入れるとPostgreSQLで地理空間情報が扱えるようになってしまうのです。<br>データベースで地理情報を扱えるなんてビックリです。</p>
-
-        
-          <p class="article-more-link">
-            <a href="/2015/01/09/postgis-install-2/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://jurishimizu.github.io/2015/01/09/postgis-install-2/" data-id="t0xsmf8vra1ca123" class="article-share-link">Share</a>
-      
-        <a href="http://jurishimizu.github.io/2015/01/09/postgis-install-2/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/">centos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgis/">postgis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postgresql/">postgresql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vagrant/">vagrant</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/virtualized-environment/">virtualized_environment</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
 
 
-  
-    <article id="post-postgis-install-1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/12/29/postgis-install-1/" class="article-date">
-  <time datetime="2014-12-29T08:40:17.000Z" itemprop="datePublished">Dec 29 2014</time>
-</a>
-    
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/29/postgis-install-1/">Vagrantで仮想環境を作成</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>これから勉強するために仮想環境をつくります。<br>自分のPCでやってもいいのですが、失敗した時のことを考えて、、、</p>
-
-        
-          <p class="article-more-link">
-            <a href="/2014/12/29/postgis-install-1/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://jurishimizu.github.io/2014/12/29/postgis-install-1/" data-id="8uv4vc1aj8ydbn5v" class="article-share-link">Share</a>
-      
-        <a href="http://jurishimizu.github.io/2014/12/29/postgis-install-1/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/">centos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vagrant/">vagrant</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/virtualized-environment/">virtualized_environment</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-  
+</section>
 </section>
         
       </div>
@@ -298,11 +250,13 @@ ga('send', 'pageview');
 <script>
   var disqus_shortname = 'jurigis';
   
+  var disqus_url = 'http://jurishimizu.github.io/2015/05/10/create-child-theme-of-wordpress/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>

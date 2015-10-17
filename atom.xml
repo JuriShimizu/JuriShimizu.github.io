@@ -4,7 +4,7 @@
   <subtitle><![CDATA[知識ゼロからGeoなSEを目指すブログ]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jurishimizu.github.io/"/>
-  <updated>2015-10-17T07:58:53.528Z</updated>
+  <updated>2015-10-17T08:02:15.689Z</updated>
   <id>http://jurishimizu.github.io/</id>
   
   <author>
@@ -264,7 +264,7 @@
     <link href="http://jurishimizu.github.io/2015/10/17/aws-re-invent-5/"/>
     <id>http://jurishimizu.github.io/2015/10/17/aws-re-invent-5/</id>
     <published>2015-10-17T05:45:02.000Z</published>
-    <updated>2015-10-17T07:57:30.000Z</updated>
+    <updated>2015-10-17T08:02:11.000Z</updated>
     <content type="html"><![CDATA[<p>そろそろ真面目に新サービスの紹介を、、、<br>まずはデータ分析に関する新サービスです。</p>
 <a id="more"></a>
 
@@ -307,7 +307,7 @@
 <li>Kinesis Analytics, Kinesis Firehoseを組み合わせれば、リアルタイムな時系列分析システムが構築可能になる</li>
 </ul>
 <p><img src="3.png" alt=""></p>
-<p>※Kinesis Firehoseについてはコチラの記事を参照</p>
+<p>※Kinesis Firehoseについては<a href="http://www.jurigis.me/2015/10/17/aws-re-invent-6/" target="_blank" rel="external">コチラ</a>の記事を参照</p>
 <hr>
 <p> リアルタイムで大量のデータの分析をすることが簡単にできるようになるんですね〜</p>
 ]]></content>

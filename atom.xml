@@ -4,7 +4,7 @@
   <subtitle><![CDATA[知識ゼロからGeoなSEを目指すブログ]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://jurishimizu.github.io/"/>
-  <updated>2015-05-09T22:53:46.762Z</updated>
+  <updated>2015-10-17T07:58:53.528Z</updated>
   <id>http://jurishimizu.github.io/</id>
   
   <author>
@@ -15,11 +15,502 @@
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[AWS re:Invent 2015 に行ってきました！（その１０〜来年参加される方へ〜）]]></title>
+    <link href="http://jurishimizu.github.io/2015/10/17/aws-re-invent-10/"/>
+    <id>http://jurishimizu.github.io/2015/10/17/aws-re-invent-10/</id>
+    <published>2015-10-17T07:33:41.000Z</published>
+    <updated>2015-10-17T07:57:04.000Z</updated>
+    <content type="html"><![CDATA[<p>僭越ながら、来年参加される方へのアドバイスなんぞを、、、、</p>
+<a id="more"></a> 
+
+<p>ちゃんとしたアドバイスは探せばいくらでもあるので、<br>私は細々とした、知らなくてもあまり困らないけど、知ってたほうがいいかもしれないアドバイスを、、、</p>
+<h3 id="朝食">朝食</h3>
+<p>re:Inventの朝食はともかくしょぼい上に、会場がめっちゃ広くて疲れるので、コンビニでテキトーに買ってすませたほうがいいかもしれません。</p>
+<p>昼食はけっこう美味しいです！</p>
+<h3 id="名刺">名刺</h3>
+<p>積極的に交流してなかった私でも名刺がたりなくなったので、名刺は一箱あると安心です。</p>
+<h3 id="水">水</h3>
+<p>ホテルの水は4ドルくらいしてめっちゃ高いので、注意しましょう！やすいとこなら１ドルくらいで買えます！</p>
+<h3 id="ホテルのチョイス">ホテルのチョイス</h3>
+<p>今回、re:Inventが開催されるベネチアンホテルに泊まるプランとちょっとお安めなフラミンゴホテルに泊まるプランがありました。<br>※<a href="http://www.his-j.com/tyo/group/sp_web/amazon/" target="_blank" rel="external">コチラ</a>のページを参照<br>私は８万円もやすいのなら！と思ってフラミンゴをチョイスしました。<br>ちょっと古い建物ではありますが、部屋も広いし、ホテル自体には特に問題はありませんでした。<br>が、やっぱり会場まではけっこう遠いです、、、<br>フラミンゴから会場までは２０分は必要。最初は迷ったりするので、４０分くらいみておいたほうがいいと思います。<br>あと、ちょっと荷物を置きたいとかそういう場面もちょいちょいあったので、ベネチアンのほうが便利そうだな、、、って思いました。</p>
+<h3 id="FB">FB</h3>
+<p>日本人のツアー参加者でFBのグループを作るのですが、こまめにチェックすると一緒に食事したりできる人が見つかります。</p>
+<h3 id="裏技？">裏技？</h3>
+<p>初日の成田の決起集会は、事前に言えば参加しなくてもいいらしいです。集合時間がかなり遅くなって楽になるとおもいます。<br>決起集会は特に参加しなくても困る内容ではないので、、、<br>また、帰りのホテル→空港の送迎バスもかなり時間の余裕をもってる感じなので、送迎バスもお断りしてしまうのも手かも、、、<br>ホテルから空港は近いので、タクシーでもそんなに高くはならないとおもいます。</p>
+<hr>
+<p>私は今年がおそらく最初で最後になるとおもいますが、<br>とても楽しくて刺激をもらえるイベントなので、チャンスがあれば参加するに越したことはないと思います！！<br>ついでに観光もできますしね！</p>
+<p>私は全く英語ができませんが、同時通訳もあるので、なんとかなりました！<br>（もちろん英語ができるに越したことはないですが、、、）</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>僭越ながら、来年参加される方へのアドバイスなんぞを、、、、</p>
+]]>
+    
+    </summary>
+    
+      <category term="aws" scheme="http://jurishimizu.github.io/tags/aws/"/>
+    
+      <category term="re:invent2015" scheme="http://jurishimizu.github.io/tags/re-invent2015/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[AWS re:Invent 2015 に行ってきました！（その９〜Mobile/IoT〜）]]></title>
+    <link href="http://jurishimizu.github.io/2015/10/17/aws-re-invent-9/"/>
+    <id>http://jurishimizu.github.io/2015/10/17/aws-re-invent-9/</id>
+    <published>2015-10-17T07:04:21.000Z</published>
+    <updated>2015-10-17T07:32:53.000Z</updated>
+    <content type="html"><![CDATA[<p>Mobile/IoTについての新サービスの発表がありました。</p>
+<a id="more"></a> 
+
+<h1 id="AWS_Mobile_Hub">AWS Mobile Hub</h1>
+<ul>
+<li>AWSが提供する、各種のサービスを組み合わせて、モバイルアプリケーションを簡単に構築するためのサービス</li>
+<li>ウィザード形式で必要とする機能（ユーザー認証やアラート送信）を選択し、<br>アプリケーションを作成するためのベースとなるコードのテンプレートを生成する事が可能</li>
+<li>コード作成後のテストを実行する事も可能</li>
+</ul>
+<p><img src="1.png" alt=""></p>
+<h1 id="AWS_IoT">AWS IoT</h1>
+<p>簡単にIoTアプリケーションを作ることのできるサービス</p>
+<h3 id="Device_Gateway">Device Gateway</h3>
+<p>軽量なプロトコルを用いつつ、セキュリティを確保した通信を実現</p>
+<p><img src="2.png" alt=""></p>
+<h3 id="Rules">Rules</h3>
+<p>デバイスからのメッセージをルールに基づいて様々なアプリケーションに引き渡すためのサービス<br>ルールは、SQLライクな文法で書けるので、とても簡単</p>
+<p><img src="3.png" alt=""></p>
+<h3 id="Shadow">Shadow</h3>
+<p>デバイスに対してのコミュニケーションを容易にするためのサービス</p>
+<p><img src="4.png" alt=""></p>
+<p>モノが常にネットワークに接続されているとは限らないので、<br>接続されてないときには１回メッセージをためておいて、<br>モノがネットワークにつながったら、またメッセージを送る、、、<br>ということができる。</p>
+<p>つまり、こっちはモノがネットワークに繋がっているかどうかを意識しなくていい！</p>
+<hr>
+<p>展示ブースにIoTの実物がたくさんあったので、見てきました。<br>コチラの温室は、温度や湿度の管理に Amazon IoT を使っているそうです！</p>
+<p><img src="5.jpg" alt=""></p>
+<p>AWS IoT関連セッションに参加するとIoT Button がもらえて、いろいろ自分でためすこともできたようなんですが、<br>私はその情報を知らず、もらえませんでした。。。<br>新サービスのセッションに行くと、いろいろ面白そうです。<br>来年参加されるかたはぜひ、、、</p>
+<p><a href="http://dev.classmethod.jp/cloud/aws/using-aws-iot-button/" target="_blank" rel="external">AWS IoT ButtonでAWS IoTを体験してみた！ #reinvent</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Mobile/IoTについての新サービスの発表がありました。</p>
+]]>
+    
+    </summary>
+    
+      <category term="aws" scheme="http://jurishimizu.github.io/tags/aws/"/>
+    
+      <category term="re:invent2015" scheme="http://jurishimizu.github.io/tags/re-invent2015/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[AWS re:Invent 2015 に行ってきました！（その８〜AWS Lambda〜）]]></title>
+    <link href="http://jurishimizu.github.io/2015/10/17/aws-re-invent-8/"/>
+    <id>http://jurishimizu.github.io/2015/10/17/aws-re-invent-8/</id>
+    <published>2015-10-17T07:04:18.000Z</published>
+    <updated>2015-10-17T07:26:20.000Z</updated>
+    <content type="html"><![CDATA[<p>AWS Lambda も数多くのアップデートがありました！</p>
+<a id="more"></a> 
+
+<h1 id="AWS_Lambdaとは？？">AWS Lambdaとは？？</h1>
+<p>昨年のre:Inventで発表された、イベントをトリガーにコードを実行するコンピュートサービス</p>
+<ul>
+<li>S3、Kinesis、SNS等でのイベント発生を元にユーザが用意したコード（Node.js）を実行</li>
+<li>OS、キャパシティ等インフラの管理不要</li>
+<li>毎日数件から毎秒数千件のリクエストまで自動的にスケール</li>
+<li>従量課金、実際にコードが稼働した時間に対してのお支払</li>
+</ul>
+<h1 id="アップデート">アップデート</h1>
+<ul>
+<li>Python for Lambda  <ul>
+<li>Python 2.7のサポート</li>
+</ul>
+</li>
+<li>最大 60 sec だったファンクション実行時間を 300 sec へ延長</li>
+<li>ファンクションのバージョニング  <ul>
+<li>特定のファンクションに対して、コードをアップロードすると<br>自動でバージョン番号を割当て名前付きのエイリアスもサポートされ、<br>バージョンやエイリアスを指定することが可能に</li>
+</ul>
+</li>
+<li>VPC 対応（年内提供開始予定）<ul>
+<li>VPC内のリソースへインターネットを経由せずにアクセス可能</li>
+</ul>
+</li>
+<li>スケジュール機能<ul>
+<li>Lambdaファンクションのスケジュール実行が可能に</li>
+<li>イベントソースとしてインターバルもしくはCron形式での指定</li>
+<li>現在は最短インターバルは5分</li>
+<li>コンソールからの設定のみ</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>Python for Lambda の発表のときは、拍手がおきました！<br>登壇者は「未だにPythonをつかってるシステムがあるのが信じられないけどね！」<br>「Pythonでさえ、カッコイイことができちゃうよ！」と言ってました、、、<br>あれ、Pythonってそんなにダサい感じなのかしら、、、、</p>
+<p>キーノートで、「サーバー管理を一番簡単にする方法は、サーバーをもたないことだ」と言ってました。（確か、、）<br>Lambdaでできることも広がったし、サーバーレスアーキテクチャがもっと広がっていくのかもしれません。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>AWS Lambda も数多くのアップデートがありました！</p>
+]]>
+    
+    </summary>
+    
+      <category term="aws" scheme="http://jurishimizu.github.io/tags/aws/"/>
+    
+      <category term="re:invent2015" scheme="http://jurishimizu.github.io/tags/re-invent2015/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[AWS re:Invent 2015 に行ってきました！（その７〜セキュリティ〜）]]></title>
+    <link href="http://jurishimizu.github.io/2015/10/17/aws-re-invent-7/"/>
+    <id>http://jurishimizu.github.io/2015/10/17/aws-re-invent-7/</id>
+    <published>2015-10-17T07:04:15.000Z</published>
+    <updated>2015-10-17T07:26:15.000Z</updated>
+    <content type="html"><![CDATA[<p>セキュリティ機能に関する新サービスです。</p>
+<a id="more"></a> 
+
+<h1 id="AWS_WAF">AWS WAF</h1>
+<ul>
+<li>HTTPトラフィックをルールに基づきフィルタリングし、外部からの不正アクセス・攻撃を防ぐサービス</li>
+<li>セルフサービスで簡単・即座に利用可能</li>
+<li>AWS（CloudFront)との統合</li>
+<li>利用した分だけの料金“Pay as you go”<br>$0.6/ million Requests</li>
+</ul>
+<h1 id="AWS_Config（既存機能）">AWS Config（既存機能）</h1>
+<p>AWSリソースの構成管理</p>
+<ul>
+<li>構成変更の履歴の蓄積</li>
+<li>構成変更の通知</li>
+<li>構成情報のスナップショットの取得</li>
+</ul>
+<p>このサービスは1年前のre:Inventで発表されました。<br>AWS Config がさらに便利になるよ！という発表がありました。</p>
+<h1 id="AWS_Config_Rules">AWS Config Rules</h1>
+<p>構成変更において、守るべきルールを事前に設定し、その内容に沿った構成変更が行われているか、<br>モニタリングすることが可能</p>
+<ul>
+<li>例<ul>
+<li>全てのEBCボリュームが暗号化されていること</li>
+<li>EC2インスタンスが適切にタグ付されていること</li>
+<li>Elastic IP address(EIP)がインスタンスにアタッチされていること</li>
+</ul>
+</li>
+</ul>
+<h1 id="AWS_Inspector">AWS Inspector</h1>
+<ul>
+<li>自動化された、セキュリティ診断サービス</li>
+<li>ネットワーク、VM、OSに加えてアプリケーションレベルで脆弱性、ベストプラクティス、セキュリティコンプライアンスガイドライン(例 PCI) からの乖離を診断、レポート化</li>
+<li>APIにて制御することで、開発プロセスの中に自動化して組み込むことが可能</li>
+</ul>
+<hr>
+<p>こういったサービスの登場で、<br>「Move Fast “or” Stay Secure」の選択は必要なくなり、<br>「Move Fast “and” Stay Secure」が実現可能になるそうです。</p>
+<p>クラウド化することで、むしろセキュリティレベルは高まる！と言い切っていたのが印象的でした。</p>
+<p>日本では金融系のシステムではまだまだクラウドは使われていませんが、<br>アメリカではもうけっこう導入されているっぽくて、事例紹介もありました。</p>
+<p>クラウドをためらう理由のひとつに「セキュリティ」があるかと思いますが、<br>オンプレでAWSと同じセキュリティレベルを保つのはかなり難しいのでは！？！？と思いました。</p>
+<p>要は「気持ち」の問題だけなのかな、、、、</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>セキュリティ機能に関する新サービスです。</p>
+]]>
+    
+    </summary>
+    
+      <category term="aws" scheme="http://jurishimizu.github.io/tags/aws/"/>
+    
+      <category term="re:invent2015" scheme="http://jurishimizu.github.io/tags/re-invent2015/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[AWS re:Invent 2015 に行ってきました！（その６〜データ移行〜）]]></title>
+    <link href="http://jurishimizu.github.io/2015/10/17/aws-re-invent-6/"/>
+    <id>http://jurishimizu.github.io/2015/10/17/aws-re-invent-6/</id>
+    <published>2015-10-17T07:04:12.000Z</published>
+    <updated>2015-10-17T07:26:13.000Z</updated>
+    <content type="html"><![CDATA[<p>データをクラウドに移動させるためのサービスです。</p>
+<a id="more"></a> 
+
+<h2 id="Amazon_Kinesis_Stream（既存のサービス）">Amazon Kinesis Stream（既存のサービス）</h2>
+<p>リアルタイムストリーミング処理のアプリケーションを作るためのプラットフォーム<br>Amazon Kinesisだったサービス名称が Amazon Kinesis Streamに変更になった</p>
+<p><img src="1.png" alt=""></p>
+<h2 id="Amazon_Kinesis_Firehose">Amazon Kinesis Firehose</h2>
+<p>ストリーミングデータをAmazon S3, Redshiftにロードするためのサービス</p>
+<p><img src="2.png" alt=""></p>
+<ul>
+<li>Amazon Kinesis Stream では、コードを書く必要があったが、コードを書かずに、データをAmazon S3, Redshiftにデータを配信することができる。</li>
+<li>消防車のホースのようにドバドバとデータを入れるイメージで、Firehoseという名称になった。</li>
+</ul>
+<h2 id="Amazon_Snowball">Amazon Snowball</h2>
+<p>簡単・安全にデータをAWSに移行するためのサービス</p>
+<ul>
+<li>１セットあたり50TBの容量</li>
+<li>複数台同時利用によりPBクラスの データを一週間で転送</li>
+<li>データを暗号化しているため、セキュリティも安心</li>
+<li>雨が降っても、ホコリにまみれても、落としてしまっても大丈夫<br>実際に舞台の上で落としてました！</li>
+</ul>
+<hr>
+<p>Snowballが展示スペースに実物があったのでさわってきました。<br>しかくいのに、なんでこの名称になったのでしょう。。。？</p>
+<p><img src="3.jpg" alt=""></p>
+<p>オンプレからクラウドにするための障害をどんどん取り除いていってるんですねぇ、、</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>データをクラウドに移動させるためのサービスです。</p>
+]]>
+    
+    </summary>
+    
+      <category term="aws" scheme="http://jurishimizu.github.io/tags/aws/"/>
+    
+      <category term="re:invent2015" scheme="http://jurishimizu.github.io/tags/re-invent2015/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[AWS re:Invent 2015 に行ってきました！（その５〜データ分析〜）]]></title>
+    <link href="http://jurishimizu.github.io/2015/10/17/aws-re-invent-5/"/>
+    <id>http://jurishimizu.github.io/2015/10/17/aws-re-invent-5/</id>
+    <published>2015-10-17T05:45:02.000Z</published>
+    <updated>2015-10-17T07:57:30.000Z</updated>
+    <content type="html"><![CDATA[<p>そろそろ真面目に新サービスの紹介を、、、<br>まずはデータ分析に関する新サービスです。</p>
+<a id="more"></a>
+
+<h1 id="Amazon_QuickSight">Amazon QuickSight</h1>
+<p>クラウドベースのBIツール<br>S3、Redshift、Hadoop クラスターなど複数のデータソースを使って、データの解析を行うことができます。</p>
+<ul>
+<li>高速<ul>
+<li>SPICEエンジンを使った、高速なクエリの実現</li>
+</ul>
+</li>
+<li>簡単<ul>
+<li>AWSのデータソースのオートディスカバリ等、運用をより簡単に</li>
+<li>直感的なビジュアライゼーション(Auto Graph 機能)</li>
+</ul>
+</li>
+<li>低コスト<ul>
+<li>ユーザーあたり $9/月より</li>
+</ul>
+</li>
+</ul>
+<h3 id="SPICEによる高速なクエリの実現">SPICEによる高速なクエリの実現</h3>
+<ul>
+<li>Super-fast, Parallel, In-memory optimized, Calculation Engine</li>
+<li>パラレルメモリーエンジン</li>
+<li>SSD よりも 3 倍高速</li>
+</ul>
+<h3 id="SPICEとサードパーティ製品の組合せも可能">SPICEとサードパーティ製品の組合せも可能</h3>
+<p>SPICEはQuickSight専用ではなく、他の製品とも組み合わせることができる</p>
+<p><img src="1.png" alt=""></p>
+<h3 id="Auto_Graph">Auto Graph</h3>
+<p>自動的に最適なグラフを選択してくれる。<br>グラフの中でドリルインしてデータを見たり、フィルタをかけたりすることももちろん可能。</p>
+<p><img src="2.png" alt=""></p>
+<h3 id="分析結果の共有">分析結果の共有</h3>
+<p>表示されるグラフはウェブ、ダッシュボードなどへの組み込みやモバイルアプリなど多彩なアプリケーションに連携できる。<br>キャプチャとして共有するのではなく、データとして共有できるので、分析も容易になる。</p>
+<h1 id="Amazon_Kinesis_Analytics（Pre_Announce）">Amazon Kinesis Analytics（Pre Announce）</h1>
+<p>SQLによってストリーミングデータの時系列分析を可能とするサービス</p>
+<ul>
+<li>ストリームデータに対してSQLを発行する事でデータの解析が可能</li>
+<li>1秒以内のレイテンシーで継続的なストリーミングデータ処理が可能</li>
+<li>Kinesis Analytics, Kinesis Firehoseを組み合わせれば、リアルタイムな時系列分析システムが構築可能になる</li>
+</ul>
+<p><img src="3.png" alt=""></p>
+<p>※Kinesis Firehoseについてはコチラの記事を参照</p>
+<hr>
+<p> リアルタイムで大量のデータの分析をすることが簡単にできるようになるんですね〜</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>そろそろ真面目に新サービスの紹介を、、、<br>まずはデータ分析に関する新サービスです。</p>
+]]>
+    
+    </summary>
+    
+      <category term="aws" scheme="http://jurishimizu.github.io/tags/aws/"/>
+    
+      <category term="re:invent2015" scheme="http://jurishimizu.github.io/tags/re-invent2015/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[AWS re:Invent 2015 に行ってきました！（その４〜re:Play Party〜）]]></title>
+    <link href="http://jurishimizu.github.io/2015/10/17/aws-re-invent-4/"/>
+    <id>http://jurishimizu.github.io/2015/10/17/aws-re-invent-4/</id>
+    <published>2015-10-17T05:44:59.000Z</published>
+    <updated>2015-10-17T06:49:23.000Z</updated>
+    <content type="html"><![CDATA[<p>参加者（19000人）全員参加のイベント最大のパーティが <strong>re:Play Party</strong> です！</p>
+<a id="more"></a>
+
+<p>去年までは屋内だったそうですが、参加者が多くなりすぎて、今年は屋外での開催でした。</p>
+<p><img src="entrance.jpg" alt=""></p>
+<p>ラウンジ、ゲーム、ロボット、クラブ の４つのゾーンに分かれています。</p>
+<p>壁でゲームができたり</p>
+<p><img src="game.jpg" alt=""></p>
+<p>ゲーム機があったり、プリクラ？みたいな機械もあったり、なぜかドッヂボールをするエリアがあったり、、、</p>
+<p>とにかくお祭り騒ぎでした。</p>
+<p>その中でも一番盛り上がってるエリアはクラブでした。<br>毎年スペシャルゲストがくるのですが、今年のゲストは <strong>ZEDD</strong> ！！！！<br>私は知らなかったのですが、有名なDJらしいです。</p>
+<p><img src="club.jpg" alt=""></p>
+<p>クラブに行ったこともないのに、盛り上がってきました！</p>
+<p>パーティーは夜中まで続きます、、、、</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>参加者（19000人）全員参加のイベント最大のパーティが <strong>re:Play Party</strong> です！</p>
+]]>
+    
+    </summary>
+    
+      <category term="aws" scheme="http://jurishimizu.github.io/tags/aws/"/>
+    
+      <category term="re:invent2015" scheme="http://jurishimizu.github.io/tags/re-invent2015/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[AWS re:Invent 2015 に行ってきました！（その３〜企業ブース〜）]]></title>
+    <link href="http://jurishimizu.github.io/2015/10/17/aws-re-invent-3/"/>
+    <id>http://jurishimizu.github.io/2015/10/17/aws-re-invent-3/</id>
+    <published>2015-10-17T05:44:57.000Z</published>
+    <updated>2015-10-17T06:37:37.000Z</updated>
+    <content type="html"><![CDATA[<p>たくさんの企業がブースをだして、自社のサービスを紹介したりしています。</p>
+<a id="more"></a>
+
+<p><img src="3.jpg" alt=""></p>
+<p>ドローンもあったり、、、</p>
+<p><img src="drone.jpg" alt=""></p>
+<p>レゴがあったり、、、、</p>
+<p><img src="lego.jpg" alt=""></p>
+<p>卓球してる人や、ボードゲームで遊んでる人がいたり、、、</p>
+<p><img src="game.jpg" alt=""></p>
+<p>この人たちはみんな知り合いなのか、<br>たまたま集まった他人が試合をしていたのかは不明です、、、</p>
+<p>まったく英語が話せない私ですが、セッションの合間にちょこちょこ寄って、けっこう楽しめました！</p>
+<p>そしてノベルティグッズをたくさんゲットしました！</p>
+<p><img src="goods.jpg" alt=""><br><img src="T-shirt.jpg" alt=""></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>たくさんの企業がブースをだして、自社のサービスを紹介したりしています。</p>
+]]>
+    
+    </summary>
+    
+      <category term="aws" scheme="http://jurishimizu.github.io/tags/aws/"/>
+    
+      <category term="re:invent2015" scheme="http://jurishimizu.github.io/tags/re-invent2015/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[AWS re:Invent 2015 に行ってきました！（その２〜Keynote〜）]]></title>
+    <link href="http://jurishimizu.github.io/2015/10/17/aws-re-invent-2/"/>
+    <id>http://jurishimizu.github.io/2015/10/17/aws-re-invent-2/</id>
+    <published>2015-10-17T05:44:54.000Z</published>
+    <updated>2015-10-17T06:37:38.000Z</updated>
+    <content type="html"><![CDATA[<p>re:Inventのメインイベントのひとつは <strong>Keynote</strong> です！</p>
+<a id="more"></a>
+
+<p>Keynote（基調講演）ということで、かた〜〜い感じをイメージしてましたが、<br>会場はこんな感じで、パーティーみたいです。<br>始めるまでの間、DJのお姉さんが音楽で盛り上げます。</p>
+<p><img src="1.JPG" alt=""><br><img src="2.JPG" alt=""></p>
+<p>AWSの偉い人や、ゲストスピーカー（AWSのパートナー企業の偉い人。BMWとかIntelの人が登場しました！）の講演は、<br>とても興味深かったです。</p>
+<p>１日目のKeynoteのテーマは <strong>FREE</strong> だったのですが、<br>クラウドによってエンジニアは面倒なサーバ構築やセキュリティ対策から <strong>自由</strong> になることで、<br>「これは自分のウェブサイトだ！」と感じ、「もっとこのサイトをよくしたい！」という感情が生まれる！<br>ということでした。</p>
+<p>面倒なことはAWSに任せて、新しいアイディアを実現させたり、他社と差別化することに注力する、、、<br>というのがAWSを使う大きな動機になるんですね</p>
+<p>今回のKeynoteで発表された新サービスは下記の通りです。</p>
+<h3 id="DAY1">DAY1</h3>
+<ul>
+<li>Amazon QuickSight</li>
+<li>Amazon Kinesis Firehose</li>
+<li>AWS Database Migration Service</li>
+<li>AWS Schema conversion tool</li>
+<li>RDS for Maria DB</li>
+<li>AWS Import/Export Snowball</li>
+<li>AWS Config Rules</li>
+<li>AWS Inspector</li>
+</ul>
+<h3 id="DAY2">DAY2</h3>
+<ul>
+<li>Kinesis Analytics</li>
+<li>EC2 X1 instances</li>
+<li>EC2 t2.nano instances</li>
+<li>EC2 Container Services Update</li>
+<li>Lambda Update</li>
+<li>AWS IoT</li>
+</ul>
+<p>新サービスについては、他の記事で詳しく書きたいと思います。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>re:Inventのメインイベントのひとつは <strong>Keynote</strong> です！</p>
+]]>
+    
+    </summary>
+    
+      <category term="aws" scheme="http://jurishimizu.github.io/tags/aws/"/>
+    
+      <category term="re:invent2015" scheme="http://jurishimizu.github.io/tags/re-invent2015/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[AWS re:Invent 2015 に行ってきました！（その１〜概要〜）]]></title>
+    <link href="http://jurishimizu.github.io/2015/10/17/aws-re-invent-1/"/>
+    <id>http://jurishimizu.github.io/2015/10/17/aws-re-invent-1/</id>
+    <published>2015-10-17T05:35:49.000Z</published>
+    <updated>2015-10-17T06:37:39.000Z</updated>
+    <content type="html"><![CDATA[<p>AWS re:Invent 2015 に参加してきました！</p>
+<a id="more"></a>
+
+<h1 id="AWS_re:Invent_2015_とは？？？">AWS re:Invent 2015　とは？？？</h1>
+<p>AWSが主催する年に１度のイベント。<br>営業やマーケティング目的のカンファレンスではなく、参加者の「学び」を重視したイベント</p>
+<ul>
+<li>日程：2015 年 10 月 6～9 日（移動時間を含め、出張期間は5日〜11日）</li>
+<li>場所：ネバダ州 ラスベガス ベネチアンホテル（全室スイートの超高級ホテル）</li>
+<li>参加人数：19000人。日本からは400人。</li>
+</ul>
+<p>詳しくは<a href="http://reinvent.awseventsjapan.com/" target="_blank" rel="external">コチラ</a></p>
+<h1 id="主なイベント">主なイベント</h1>
+<ul>
+<li>Keynote（基調講演）<ul>
+<li>パーティーみたいな雰囲気で新サービスが発表されたりしてとっても盛り上がる</li>
+<li>日本語同時通訳あり</li>
+</ul>
+</li>
+<li>セッション<ul>
+<li>事例・ベストプラクティスなどの紹介</li>
+<li>２５０以上ある中から、好きなのを選んで聞くことができる</li>
+<li>一部日本語同時通訳あり</li>
+</ul>
+</li>
+<li>企業ブース<ul>
+<li>たくさんの企業がブースを出していて、自社の製品のアピールなどをしている。</li>
+<li>Keynoteで発表された新サービスに関わる展示もあったりする。</li>
+<li>なぜか卓球台などの遊び場もある。</li>
+<li>ノベルティグッズがたくさんもらえる</li>
+</ul>
+</li>
+<li>JapanNight<ul>
+<li>日本人だけでの立食パーティー</li>
+</ul>
+</li>
+<li>Pub Crawl<ul>
+<li>スポンサーさんのご好意（？）でホテル内のパブで飲み食いできる。（あんまり食べ物はない）</li>
+<li>tatonka challenge という鶏肉の早食い競争が名物。参加するとTシャツがもらえるらしい。</li>
+</ul>
+</li>
+<li>re:Party<ul>
+<li>参加者全員のパーティー。人だらけ</li>
+<li>クラブエリアがあったり、壁でゲームできたり、ドッヂボールしたり</li>
+<li>毎年スペシャルゲストが来る。今年はZEDDっていう人でした。</li>
+</ul>
+</li>
+</ul>
+<p>日本語同時通訳のおかげで、全く英語ができなくても、十分楽しめます！</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>AWS re:Invent 2015 に参加してきました！</p>
+]]>
+    
+    </summary>
+    
+      <category term="aws" scheme="http://jurishimizu.github.io/tags/aws/"/>
+    
+      <category term="re:invent2015" scheme="http://jurishimizu.github.io/tags/re-invent2015/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[WordPressの子テーマを作成する]]></title>
     <link href="http://jurishimizu.github.io/2015/05/10/create-child-theme-of-wordpress/"/>
     <id>http://jurishimizu.github.io/2015/05/10/create-child-theme-of-wordpress/</id>
-    <published>2015-05-09T19:58:28.000Z</published>
-    <updated>2015-05-09T22:52:25.000Z</updated>
+    <published>2015-05-09T22:58:28.000Z</published>
+    <updated>2015-05-09T22:55:18.000Z</updated>
     <content type="html"><![CDATA[<p>わけあって、WordPressを勉強中です。</p>
 <p>デザインをカスタマイズするために、子テーマを作ってみます</p>
 <a id="more"></a>
@@ -621,650 +1112,6 @@
     </summary>
     
       <category term="qgis" scheme="http://jurishimizu.github.io/tags/qgis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[PostGISでGeoな検索条件]]></title>
-    <link href="http://jurishimizu.github.io/2015/02/28/conditions-in-postgis/"/>
-    <id>http://jurishimizu.github.io/2015/02/28/conditions-in-postgis/</id>
-    <published>2015-02-28T07:09:17.000Z</published>
-    <updated>2015-03-08T13:17:11.000Z</updated>
-    <content type="html"><![CDATA[<p>すっかり勉強をサボってしまいましたが、<br>前回に引き続き、OSMのデータを使ってPostGISのGeoなSQLを学んでいきます！</p>
-<p>今回はGeoな検索条件です。</p>
-<a id="more"></a>
-
-<h4 id="ST_Within(geometry_A_,_geometry_B)">ST_Within(geometry A , geometry B)</h4>
-<p>ジオメトリAが完全にジオメトリBの中に含まれているときにTRUEを返します。</p>
-<p>台東区内にあるファストフード店をselectしてみます</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span></span></div><div class="line">japan-#     fst.name</div><div class="line">japan-# <span class="keyword">from</span></div><div class="line">japan-#     planet_osm_point fst</div><div class="line">japan-#     ,planet_osm_polygon tit</div><div class="line">japan-# <span class="keyword">where</span></div><div class="line">japan-#     tit.name <span class="keyword">like</span> <span class="string">'台東%'</span></div><div class="line">japan-#     <span class="keyword">and</span> tit.boundary = <span class="string">'administrative'</span></div><div class="line">japan-#     <span class="keyword">and</span> tit.admin_level = <span class="string">'7'</span></div><div class="line">japan-#     <span class="keyword">and</span> fst.amenity = <span class="string">'fast_food'</span></div><div class="line">japan-#     <span class="keyword">and</span> ST_Within(fst.way,tit.way)</div><div class="line">japan-# ;</div><div class="line">            name</div><div class="line"><span class="comment">----------------------------</span></div><div class="line"> 麺昇七辻</div><div class="line"> かめや</div><div class="line"> 東京チカラ飯</div><div class="line"> フレッシュネスバーガー</div><div class="line"> 吉野家</div><div class="line"> 奥州麺処 秘伝</div><div class="line"> 川中島うどん店</div><div class="line"> 日高屋</div><div class="line"> 富士そば</div><div class="line"> サブウェイ</div><div class="line"> ケンタッキーフライドチキン</div><div class="line"> マクドナルド</div><div class="line"> 回転寿司 大江戸</div><div class="line"> 味噌麺</div><div class="line"> マクドナルド</div><div class="line"> 味噌屋 せいべえ</div><div class="line"> 吉野家</div><div class="line"> かつや</div><div class="line"> 富士そば</div><div class="line"> Freshness Burger</div><div class="line"> 楽釜製麺所</div><div class="line"> まぐろ人</div><div class="line"> 寿司食べ放題</div><div class="line"> 藪そば</div><div class="line"> 大江戸 回転寿司</div><div class="line"> 東尋坊</div><div class="line"> てん屋</div><div class="line"></div><div class="line"> 元祖寿司</div><div class="line"> 牛の力</div><div class="line"></div><div class="line"> モスバーガー</div><div class="line"></div><div class="line"> Yoshinoya</div><div class="line"> すき家</div><div class="line"> McDonalds</div><div class="line"> たい焼き たいち</div><div class="line"> 麺八</div><div class="line"> 松屋</div><div class="line"> 日本海</div><div class="line"> Sukiya</div><div class="line"> デリカ ぱくぱく</div><div class="line"> モスバーガー</div><div class="line"> ら麺亭 (Ramen-tei)</div><div class="line"> 松屋</div><div class="line"> ケンタッキーフライドチキン</div><div class="line"> 銀だこ (Gindaco)</div><div class="line"> CoCo壱番屋</div><div class="line">(48 rows)</div></pre></td></tr></table></figure>
-
-<p>ファストフード？？？みたいなお店もありますが、ちゃんとselectできました。</p>
-<h4 id="ST_Contains(geometry_A,_geometry_B_)">ST_Contains(geometry A, geometry B )</h4>
-<p>ST_Withinの真逆です。</p>
-<p>ジオメトリBが完全にジオメトリAの中に含まれているときにTRUEを返します。</p>
-<p>ST_Withinの代わりにST_Containsを使って、引数をひっくり返すと同じ結果になります。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span></span></div><div class="line">japan-#     fst.name</div><div class="line">japan-# <span class="keyword">from</span></div><div class="line">japan-#     planet_osm_point fst</div><div class="line">japan-#     ,planet_osm_polygon tit</div><div class="line">japan-# <span class="keyword">where</span></div><div class="line">japan-#     tit.name <span class="keyword">like</span> <span class="string">'台東%'</span></div><div class="line">japan-#     <span class="keyword">and</span> tit.boundary = <span class="string">'administrative'</span></div><div class="line">japan-#     <span class="keyword">and</span> tit.admin_level = <span class="string">'7'</span></div><div class="line">japan-#     <span class="keyword">and</span> fst.amenity = <span class="string">'fast_food'</span></div><div class="line">japan-#     <span class="keyword">and</span> ST_Contains(tit.way,fst.way)</div><div class="line">japan-# ;</div><div class="line">            name</div><div class="line"><span class="comment">----------------------------</span></div><div class="line"> 麺昇七辻</div><div class="line"> かめや</div><div class="line"> 東京チカラ飯</div><div class="line">・・・・・</div><div class="line">(48 rows)</div></pre></td></tr></table></figure>
-
-<h4 id="ST_Equals(geometry_A_,_geometry_B)">ST_Equals(geometry A , geometry B)</h4>
-<p>AとBがまったく同じジオメトリのときにTRUEを返します。</p>
-<p><code>ST_Equals(A,B)</code>は、<br><code>ST_Within(A,B) and ST_Contains(A,B)</code>と同じ意味になります。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span></span></div><div class="line">japan-#     fst.osm_id</div><div class="line">japan-#     ,fst.name</div><div class="line">japan-# <span class="keyword">from</span></div><div class="line">japan-#     planet_osm_polygon fst</div><div class="line">japan-#     ,(<span class="keyword">select</span> way <span class="keyword">from</span> planet_osm_polygon <span class="keyword">where</span> name <span class="keyword">like</span> <span class="string">'東京%'</span> <span class="keyword">and</span> boundary = <span class="string">'administrative'</span>) tky</div><div class="line">japan-# <span class="keyword">where</span></div><div class="line">japan-#     ST_Equals(fst.way,tky.way)</div><div class="line">japan-#     <span class="keyword">and</span> name <span class="keyword">like</span> <span class="string">'東京%'</span></div><div class="line">japan-# ;</div><div class="line">  osm_id  |  name</div><div class="line"><span class="comment">----------+--------</span></div><div class="line"> -1543125 | 東京都</div><div class="line"> -1543125 | 東京都</div><div class="line"> -1543125 | 東京都</div><div class="line"> -1543125 | 東京都</div><div class="line"> -1543125 | 東京都</div><div class="line"> -1543125 | 東京都</div><div class="line"> -4479121 | 東京都</div><div class="line"> -1543125 | 東京都</div><div class="line">(8 rows)</div></pre></td></tr></table></figure>
-
-<p>なぜか、まったく同じ東京がたくさん。。。<br>いろんな人が登録しちゃったってことですかね。。。</p>
-<h4 id="ST_DWithin">ST_DWithin</h4>
-<p>ジオメトリが，指定したジオメトリから指定した距離内にある場合に，TRUEを返します。<br>メートル単位で距離を指定するためにはgeography型にする必要があるようです。</p>
-<p>東京駅の半径１km以内にあるファストフードを検索してみます</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span></span></div><div class="line">japan-#     fst.name</div><div class="line">japan-# <span class="keyword">from</span></div><div class="line">japan-#     planet_osm_point fst</div><div class="line">japan-#     ,(<span class="keyword">select</span> way <span class="keyword">from</span> planet_osm_point  <span class="keyword">where</span> name = <span class="string">'東京'</span>) tky</div><div class="line">japan-# <span class="keyword">where</span></div><div class="line">japan-#     ST_DWithin(geography(ST_Transform( fst.way,<span class="number">4326</span> )),geography(ST_Transform( tky.way,<span class="number">4326</span> )),<span class="number">1000</span>)</div><div class="line">japan-#     <span class="keyword">and</span> amenity = <span class="string">'fast_food'</span></div><div class="line">japan-# ;</div><div class="line">        name</div><div class="line"><span class="comment">--------------------</span></div><div class="line"> ロッテリア</div><div class="line"> よもだそば</div><div class="line"> 喜多方ラーメン坂内</div><div class="line"> サブウェイ</div><div class="line"> 吉野家</div><div class="line"> カレーショップC&C</div><div class="line"> 吉野家</div><div class="line"> 吉野家</div><div class="line"> サブウェイ</div><div class="line"> マクドナルド</div><div class="line"> 松屋</div><div class="line"> 富士そば</div><div class="line"> 小諸そば</div><div class="line"> 小諸そば</div><div class="line"> なか卯</div><div class="line">(15 rows)</div></pre></td></tr></table></figure>
-
-<p>１５件ほどひっかかりました！</p>
-<p>型の変換をしないとこんな感じで検索結果が変わってしまいます。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span></span></div><div class="line">japan-#     fst.name</div><div class="line">japan-# <span class="keyword">from</span></div><div class="line">japan-#     planet_osm_point fst</div><div class="line">japan-#     ,(<span class="keyword">select</span> way <span class="keyword">from</span> planet_osm_point  <span class="keyword">where</span> name = <span class="string">'東京'</span>) tky</div><div class="line">japan-# <span class="keyword">where</span></div><div class="line">japan-#     ST_DWithin(fst.way,tky.way,<span class="number">1000</span>)</div><div class="line">japan-#     <span class="keyword">and</span> amenity = <span class="string">'fast_food'</span></div><div class="line">japan-# ;</div><div class="line">       name</div><div class="line"><span class="comment">-------------------</span></div><div class="line"> 吉野家</div><div class="line"> カレーショップC&C</div><div class="line"> 吉野家</div><div class="line"> サブウェイ</div><div class="line"> マクドナルド</div><div class="line"> 松屋</div><div class="line"> 富士そば</div><div class="line"> 小諸そば</div><div class="line"> 小諸そば</div><div class="line"> なか卯</div><div class="line">(10 rows)</div></pre></td></tr></table></figure>
-
-<p>ST_DWithinの引数は、ラインやポリゴンでもOKです。</p>
-<h4 id="ST_Touches">ST_Touches</h4>
-<p>ジオメトリが共通のポイントを少なくとも一つ持ち，内部でインタセクトしない場合に，TRUEを返します。<br>つまり、接しているか？ってことですね</p>
-<p>台東区に接している区を調べてみましょう！</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span></span></div><div class="line">japan-#     cty.name</div><div class="line">japan-#     ,cty.admin_level</div><div class="line">japan-# <span class="keyword">from</span></div><div class="line">japan-#     planet_osm_polygon cty</div><div class="line">japan-#     ,planet_osm_polygon tit</div><div class="line">japan-# <span class="keyword">where</span></div><div class="line">japan-#     tit.name <span class="keyword">like</span> <span class="string">'台東%'</span></div><div class="line">japan-#     <span class="keyword">and</span> tit.boundary = <span class="string">'administrative'</span></div><div class="line">japan-#     <span class="keyword">and</span> tit.admin_level = <span class="string">'7'</span></div><div class="line">japan-#     <span class="keyword">and</span> cty.boundary = <span class="string">'administrative'</span></div><div class="line">japan-#     <span class="keyword">and</span> cty.admin_level = <span class="string">'7'</span></div><div class="line">japan-#     <span class="keyword">and</span> ST_Touches(tit.way,cty.way)</div><div class="line">japan-# ;</div><div class="line">      name       | admin_level</div><div class="line"><span class="comment">-----------------+-------------</span></div><div class="line"> 中央区          | 7</div><div class="line"> 千代田区        | 7</div><div class="line"> 墨田区 (Sumida) | 7</div><div class="line"> 荒川区          | 7</div><div class="line">(4 rows)</div></pre></td></tr></table></figure>
-
-<p>あれ？文京区とかも接しているはずなんですが、、、</p>
-<p>検索してみたところ、文京区のデータがそもそもありませんでした。<br>OSMにデータ登録されてないのか、うまくデータインポートできていないのかはナゾです。。。</p>
-<p>他にもクロスしてる〜とか、ジオメトリの関係を表す検索条件はいっぱいあるようです！</p>
-<p>SQLはずっと使っていますが、Geoな条件はちょっと勝手が違って戸惑いました。。。<br>SQLがあんまりキレーじゃないのは許してください。。。</p>
-<p>今日はここまで！</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>すっかり勉強をサボってしまいましたが、<br>前回に引き続き、OSMのデータを使ってPostGISのGeoなSQLを学んでいきます！</p>
-<p>今回はGeoな検索条件です。</p>
-]]>
-    
-    </summary>
-    
-      <category term="postgis" scheme="http://jurishimizu.github.io/tags/postgis/"/>
-    
-      <category term="osm" scheme="http://jurishimizu.github.io/tags/osm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[PostGISでGeoなSELECT]]></title>
-    <link href="http://jurishimizu.github.io/2015/02/07/select-in-postgis/"/>
-    <id>http://jurishimizu.github.io/2015/02/07/select-in-postgis/</id>
-    <published>2015-02-07T11:05:03.000Z</published>
-    <updated>2015-02-28T12:53:09.000Z</updated>
-    <content type="html"><![CDATA[<p>PostGISの環境は整ったので、<br>OSMのデータを使ってPostGISのGeoなSQLについて、学んでいきたいと思います！</p>
-<p>今日はGeoなSELECTです</p>
-<a id="more"></a>
-
-<p>まずはフツーにSELECTしてみると、、、</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span> way <span class="keyword">from</span> planet_osm_point  <span class="keyword">where</span> name = <span class="string">'東京'</span>;</span></div><div class="line">                        way</div><div class="line"><span class="comment">----------------------------------------------------</span></div><div class="line"> 010100002031BF0D00A4703D6A13AD6D411F85EBA10E3D5041</div><div class="line">(1 row)</div></pre></td></tr></table></figure>
-
-<p>こんな感じでわけがわかりません、、、</p>
-<h4 id="ST_SRID">ST_SRID</h4>
-<p>ジオメトリのSRIDを確認<br>テーブル定義を確認すればわかるんですけどね・・</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span> ST_SRID(way) <span class="keyword">from</span> planet_osm_point  <span class="keyword">where</span> name = <span class="string">'東京'</span>;</span></div><div class="line"> st_srid</div><div class="line"><span class="comment">---------</span></div><div class="line">  900913</div><div class="line">(1 row)</div></pre></td></tr></table></figure>
-
-<h4 id="ST_AsText">ST_AsText</h4>
-<p>GeoなデータをTextで返してくれます。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">japan=#  <span class="operator"><span class="keyword">select</span> ST_Astext(way) <span class="keyword">from</span> planet_osm_point  <span class="keyword">where</span> name = <span class="string">'東京'</span>;</span></div><div class="line">           st_astext</div><div class="line"><span class="comment">-------------------------------</span></div><div class="line"> POINT(15558811.32 4256826.53)</div><div class="line">(1 row)</div></pre></td></tr></table></figure>
-
-<p>私のデータのSRIDは900913、<a href="http://ja.wikipedia.org/wiki/%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%88%E3%83%AB%E5%9B%B3%E6%B3%95" target="_blank" rel="external">メルカトル図法</a>なので、XY座標で返ってきます。</p>
-<h4 id="ST_Transform">ST_Transform</h4>
-<p>空間座標系を変換してくれます</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">japan=#  <span class="operator"><span class="keyword">select</span> ST_Astext(ST_Transform(way,<span class="number">4326</span>)) <span class="keyword">from</span> planet_osm_point  <span class="keyword">where</span> name = <span class="string">'東京'</span>;</span></div><div class="line">                st_astext</div><div class="line"><span class="comment">------------------------------------------</span></div><div class="line"> POINT(139.767180114878 35.6810784606139)</div><div class="line">(1 row)</div></pre></td></tr></table></figure>
-
-<p><a href="http://ja.wikipedia.org/wiki/%E5%9C%B0%E7%90%86%E5%BA%A7%E6%A8%99%E7%B3%BB" target="_blank" rel="external">地理座標系</a>を使っている4326に変換したので、緯度経度になりましたね！</p>
-<h4 id="ST_Simplify">ST_Simplify</h4>
-<p>ジオメトリを「簡略化」したものを返します<br>たとえばクネクネの道を高縮尺のときは簡略化したい、、、なんていうときに使えます。</p>
-<p>都庁を簡略化してみましょう</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">japan=# <span class="operator"><span class="keyword">select</span> name ,ST_Astext(way) <span class="keyword">from</span> planet_osm_polygon <span class="keyword">where</span> name <span class="keyword">like</span> <span class="string">'東 京都庁%'</span>;</span></div><div class="line">                                name                                 |             st_astext</div><div class="line"><span class="comment">---------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span></div><div class="line"> 東京都庁舎 第二本庁舎 (Tokyo Metropolitan Government Building No.2) | POLYGON((15550413.95 4257817.44,15550418.97 4257818.58,15550417.58 4257827.96,15550426.27 4257829.92,15550424.56 4257841.44,15550448.89 4257846.93,15550450.66 4257835.04,15550459.39 4257837.01,15550461.36 4257823.76,15550471.75 4257826.1,15550475.47 4257801.06,15550467.95 4257799.36,15550468.74 4257794.06,15550476.9 4257795.91,15550481.11 4257767.62,15550474.16 4257766.05,15550474.97 4257760.64,15550482.44257762.31,15550486.53 4257734.52,15550479.1 4257732.85,15550479.98 4257726.9,15550474.89 4257725.75,15550476.11 4257717.52,15550447.25 4257711.03,15550445.94 4257719.76,15550436.73 4257717.67,15550435.77 4257724.14,15550428.9 4257722.59,15550424.48 4257752.31,15550430.88 4257753.75,15550429.96 4257760.01,15550423.3 4257758.52,15550419.28 4257785.53,15550425.7 4257786.97,15550424.97 4257791.88,15550417.98 4257790.31,15550413.95 4257817.44))</div><div class="line"> 東京都庁舎 第一本庁舎 (Tokyo Metropolitan Government Building No.1) | POLYGON((15550365.85 4258023.11,15550373.12 4258024.66,15550371.66 4258031.54,15550379.49 4258033.2,15550377.03 4258044.83,15550406.24 4258051.04,15550408.39 4258040.91,15550416.42 4258042.61,15550417.74 4258036.42,15550427.38 4258038.46,15550433.63 4258008.99,15550422.58 4258006.65,15550432.79 4257958.54,15550441.95 4257960.49,15550447.51 4257934.2,15550437.02 4257931.98,15550438.75 4257923.78,15550430.27 4257921.97,15550432.86 4257909.71,15550403.65 4257903.51,15550401.37 4257914.26,15550393.99 4257912.69,15550392.39 4257920.22,15550385.48 4257918.75,15550379.91 4257945.03,15550388.16 4257946.78,15550377.96 4257994.9,15550372.1 4257993.66,15550365.85 4258023.11))</div><div class="line">(2 rows)</div><div class="line">japan=# <span class="operator"><span class="keyword">select</span> name ,ST_Astext(ST_Simplify(way,<span class="number">10</span>)) <span class="keyword">from</span> planet_osm_polygon <span class="keyword">where</span> name <span class="keyword">like</span> <span class="string">'東京都庁%'</span>;</span></div><div class="line">                                name                                 |                          st_astext</div><div class="line"><span class="comment">---------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span></div><div class="line"> 東京都庁舎 第二本庁舎 (Tokyo Metropolitan Government Building No.2) | POLYGON((15550413.95 4257817.44,15550424.56 4257841.44,15550448.89 4257846.93,15550471.75 4257826.1,15550486.53 4257734.52,15550476.11 4257717.52,15550428.9 4257722.59,15550413.95 4257817.44))</div><div class="line"> 東京都庁舎 第一本庁舎 (Tokyo Metropolitan Government Building No.1) | POLYGON((15550365.85 4258023.11,15550377.03 4258044.83,15550427.38 4258038.46,15550433.63 4258008.99,15550422.58 4258006.65,15550447.51 4257934.2,15550432.86 4257909.71,15550403.65 4257903.51,15550385.48 4257918.75,15550365.85 4258023.11))</div><div class="line">(2 rows)</div></pre></td></tr></table></figure>
-
-<p>簡略化して、ポリゴンの頂点の数がぐっと減りました。</p>
-<p>今回10を指定した二つ目の引数ですが、簡略化を行う場合のしきい値で、この値が大きければ大きいほど簡略化されます。</p>
-<h4 id="ST_Area">ST_Area</h4>
-<p>ポリゴンの面積を返します。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span> name,ST_Area(way) <span class="keyword">from</span> planet_osm_polygon <span class="keyword">where</span> name <span class="keyword">like</span> <span class="string">'台東%'</span> <span class="keyword">and</span> boundary = <span class="string">'administrative'</span>;</span></div><div class="line">      name      |     st_area</div><div class="line"><span class="comment">----------------+------------------</span></div><div class="line"> 台東区 (Taitō) | 15340131.5390491</div><div class="line">(1 row)</div></pre></td></tr></table></figure>
-
-<p>単位がSRIDに依存するらしいです。（900913が何の単位になるのかよくわからない。。。）<br>Geography型に変換するとメートル単位になるらしいのでやってみます。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span> name,ST_Area(Geography( ST_Transform( way,<span class="number">4326</span> ))) <span class="keyword">from</span> planet_osm_polygon <span class="keyword">where</span> name <span class="keyword">like</span> <span class="string">'台東%'</span> <span class="keyword">and</span> boundary = <span class="string">'administrative'</span>;</span></div><div class="line">      name      |     st_area</div><div class="line"><span class="comment">----------------+------------------</span></div><div class="line"> 台東区 (Taitō) | 10090876.0546307</div><div class="line">(1 row)</div></pre></td></tr></table></figure>
-
-<p>台頭区の面積をググったところ、10.08 km² だったので、だいたい合ってますかね</p>
-<h4 id="ST_Length">ST_Length</h4>
-<p>LINEの長さを返します</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">japan=#  <span class="operator"><span class="keyword">select</span> name,ST_Length( way ) <span class="keyword">from</span> planet_osm_line <span class="keyword">where</span> name <span class="keyword">like</span> <span class="string">'京王電鉄京王線%'</span>;</span></div><div class="line"></div><div class="line">                  name                   |    st_length</div><div class="line"><span class="comment">-----------------------------------------+------------------</span></div><div class="line"> 京王電鉄京王線 (Keio Railway Keio Line) | 1186.87117791301</div><div class="line"> 京王電鉄京王線 (Keio Railway Keio Line) | 370.687813260911</div><div class="line"> 京王電鉄京王線 (Keio Railway Keio Line) | 97.0250626921177</div><div class="line"> 京王電鉄京王線 (Keio Railway Keio Line) | 1021.35274896948</div><div class="line"> 京王電鉄京王線 (Keio Railway Keio Line) |  617.29770580598</div><div class="line"> 京王電鉄京王線 (Keio Railway Keio Line) | 87.7408468154708</div><div class="line">・・・・・・・</div></pre></td></tr></table></figure>
-
-<p>同じ電鉄でもひとつの地物ではないので、たくさん結果が返ってきました。</p>
-<p>これもメートルにしてみましょう</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span> name,ST_Length( Geography( ST_Transform( way,<span class="number">4326</span> ))) <span class="keyword">from</span> planet_osm_line <span class="keyword">where</span> name <span class="keyword">like</span> <span class="string">'京王電鉄京王線%'</span>;</span></div><div class="line">                  name                   |    st_length</div><div class="line"><span class="comment">-----------------------------------------+------------------</span></div><div class="line"> 京王電鉄京王線 (Keio Railway Keio Line) | 961.734727315897</div><div class="line"> 京王電鉄京王線 (Keio Railway Keio Line) | 301.046955913747</div><div class="line"> 京王電鉄京王線 (Keio Railway Keio Line) | 78.8656422237801</div><div class="line"> 京王電鉄京王線 (Keio Railway Keio Line) |  830.57417351145</div><div class="line"> 京王電鉄京王線 (Keio Railway Keio Line) | 501.064401755556</div><div class="line"> 京王電鉄京王線 (Keio Railway Keio Line) | 71.3841606965213</div><div class="line"> ・・・・・・・</div></pre></td></tr></table></figure>
-
-<h4 id="ST_distance">ST_distance</h4>
-<p>2つのジオメトリの距離を返します。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span> ST_distance(kudan.way , tokyo.way) <span class="keyword">from</span> planet_osm_point kudan , planet_osm_point tokyo <span class="keyword">where</span> kudan.name = <span class="string">'九段下'</span> <span class="keyword">and</span> kudan.railway = <span class="string">'station'</span> <span class="keyword">and</span> tokyo.name = <span class="string">'東京'</span> <span class="keyword">and</span> tokyo.railway = <span class="string">'station'</span> ;</span></div><div class="line">   st_distance</div><div class="line"><span class="comment">------------------</span></div><div class="line"> 2640.28394709686</div><div class="line">(1 row)</div></pre></td></tr></table></figure>
-
-<p>緯度経度の空間参照系にして、第3引数をfalseにするとメートルになるらしいのでやってみます。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span> ST_distance(ST_Transform(kudan.way,<span class="number">4326</span>) , ST_Transform(tokyo.way,<span class="number">4326</span>),<span class="literal">false</span>) <span class="keyword">from</span> planet_osm_point kudan , planet_osm_point tokyo <span class="keyword">where</span> kudan.name = <span class="string">'九段下'</span> <span class="keyword">and</span> kudan.railway = <span class="string">'station'</span> <span class="keyword">and</span> tokyo.name = <span class="string">'東京'</span> <span class="keyword">and</span> tokyo.railway = <span class="string">'station'</span> ;</span></div><div class="line">  st_distance</div><div class="line"><span class="comment">----------------</span></div><div class="line"> 2142.050032445</div><div class="line">(1 row)</div></pre></td></tr></table></figure>
-
-<p>九段下と東京の距離は2kmくらいなのでだいたい合ってます。</p>
-<p>他にもPostGISの機能はたくさんあるので、これから順次勉強していきます！！！</p>
-<p>今日はここまで！</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>PostGISの環境は整ったので、<br>OSMのデータを使ってPostGISのGeoなSQLについて、学んでいきたいと思います！</p>
-<p>今日はGeoなSELECTです</p>
-]]>
-    
-    </summary>
-    
-      <category term="postgis" scheme="http://jurishimizu.github.io/tags/postgis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[PostGISで使用されるSRIDについて]]></title>
-    <link href="http://jurishimizu.github.io/2015/02/05/about-srid/"/>
-    <id>http://jurishimizu.github.io/2015/02/05/about-srid/</id>
-    <published>2015-02-05T12:52:30.000Z</published>
-    <updated>2015-02-15T11:26:44.000Z</updated>
-    <content type="html"><![CDATA[<p>今までSRIDのことはあまり触れずに、フワフワとしていましたが、<br>そろそろちゃんと理解していないと先に進めなさそうなので、ちょっと整理したいと思います。<br><a id="more"></a><br>SRIDは<a href="http://www.geopacific.org/opensourcegis/gcngisbook/QGIS_book/7b2c17ae0/7b2c17ae07b2c37bc062955f716cd530686e2c57307cfb" target="_blank" rel="external">空間参照情報</a>を表しています。<br>空間参照系は、<a href="http://www.pasco.co.jp/recommend/word/word076/" target="_blank" rel="external">測地系</a>と<a href="http://ja.wikipedia.org/wiki/%E5%9C%B0%E7%90%86%E5%BA%A7%E6%A8%99%E7%B3%BB" target="_blank" rel="external">座標系</a>の組み合わせです。</p>
-<h2 id="測地系">測地系</h2>
-<p>測地系の代表格は、、、</p>
-<ul>
-<li><p>WGS84<br>アメリカで使用されている世界測地系<br>Googleマップで使われていて、世界的に一番メジャーな測地系</p>
-</li>
-<li><p>Tokyo<br>旧日本測地系とも呼ばれる<br>2002年からJGD2000から使用されるようになった</p>
-</li>
-<li><p>JGD2000<br>日本で使用されている世界測地系<br>WGS84とほとんど同じ</p>
-</li>
-</ul>
-<h2 id="座標系">座標系</h2>
-<p>座標系の代表格は、、、</p>
-<ul>
-<li><p><a href="http://ja.wikipedia.org/wiki/%E5%9C%B0%E7%90%86%E5%BA%A7%E6%A8%99%E7%B3%BB" target="_blank" rel="external">地理座標系</a><br>緯度経度で場所を表す。一番おなじみ</p>
-</li>
-<li><p><a href="http://ja.wikipedia.org/wiki/%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%88%E3%83%AB%E5%9B%B3%E6%B3%95" target="_blank" rel="external">メルカトル図法</a><br>地球を円筒状にして、XY座標で場所を表す</p>
-</li>
-<li><p><a href="http://ja.wikipedia.org/wiki/%E5%B9%B3%E9%9D%A2%E7%9B%B4%E8%A7%92%E5%BA%A7%E6%A8%99%E7%B3%BB" target="_blank" rel="external">平面直角座標系</a><br>狭い範囲だけを投影して歪みを少なくして、投影する図法<br>３つの数字で場所を表す</p>
-</li>
-<li><p><a href="http://ja.wikipedia.org/wiki/%E3%83%A6%E3%83%8B%E3%83%90%E3%83%BC%E3%82%B5%E3%83%AB%E6%A8%AA%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%88%E3%83%AB%E5%9B%B3%E6%B3%95" target="_blank" rel="external">UTM図法</a><br>地球を60に分けて、その範囲ごとに投影する図法</p>
-</li>
-</ul>
-<h2 id="SRID">SRID</h2>
-<p>よくつかわれるSRIDは、、、、</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">SRID</th>
-<th style="text-align:left">測地系</th>
-<th style="text-align:left">座標系</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">4301</td>
-<td style="text-align:left">Tokyo</td>
-<td style="text-align:left">地理座標系</td>
-</tr>
-<tr>
-<td style="text-align:left">30161〜30179</td>
-<td style="text-align:left">Tokyo</td>
-<td style="text-align:left">平面直角座標系1系〜19系</td>
-</tr>
-<tr>
-<td style="text-align:left">102151〜102156</td>
-<td style="text-align:left">Tokyo</td>
-<td style="text-align:left">UTMゾーン51〜55</td>
-</tr>
-<tr>
-<td style="text-align:left">4612</td>
-<td style="text-align:left">JGD2000</td>
-<td style="text-align:left">地理座標系</td>
-</tr>
-<tr>
-<td style="text-align:left">2443〜2461</td>
-<td style="text-align:left">JGD2000</td>
-<td style="text-align:left">平面直角座標系1系〜19系</td>
-</tr>
-<tr>
-<td style="text-align:left">3097〜3101</td>
-<td style="text-align:left">JGD2000</td>
-<td style="text-align:left">UTMゾーン51〜55</td>
-</tr>
-<tr>
-<td style="text-align:left">4326</td>
-<td style="text-align:left">WGS84</td>
-<td style="text-align:left">地理座標系</td>
-</tr>
-<tr>
-<td style="text-align:left">3857 , 900913</td>
-<td style="text-align:left">WGS84</td>
-<td style="text-align:left">メルカトル図法</td>
-</tr>
-</tbody>
-</table>
-<p>だいたいこんな感じです</p>
-<p>平面直角座標系とUTMゾーンが 「〜」 ってなっているのは、地域によって座標の基準が変わるからです。<br>石川県だったら７系、、、みたいな感じです。</p>
-<p>900913はGoogleマップで使われている、、、というより、Googleマップのための空間座標なようです。</p>
-<p>google → 900913<br>！！！！</p>
-<p>プログラミングというより、地理学の話ですね、、、</p>
-<p>内容がかなり薄いですが、<br>いままでフワフワとしてた知識がちょっとだけスッキリしました。</p>
-<p>このへんのことを踏まえて、これからPostGISの勉強をしていきたいと思います！！！</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>今までSRIDのことはあまり触れずに、フワフワとしていましたが、<br>そろそろちゃんと理解していないと先に進めなさそうなので、ちょっと整理したいと思います。<br>]]>
-    
-    </summary>
-    
-      <category term="postgis" scheme="http://jurishimizu.github.io/tags/postgis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[QGISのスタイルを変更＆画像を出力]]></title>
-    <link href="http://jurishimizu.github.io/2015/01/29/output-image-in-qgis/"/>
-    <id>http://jurishimizu.github.io/2015/01/29/output-image-in-qgis/</id>
-    <published>2015-01-29T09:58:14.000Z</published>
-    <updated>2015-02-15T11:26:44.000Z</updated>
-    <content type="html"><![CDATA[<p>今回は小ネタとして、QGISで表示されている画面を、画像として出力する方法をご紹介します</p>
-<a id="more"></a>
-
-<h2 id="QGISのスタイルの変更">QGISのスタイルの変更</h2>
-<p>画像を出力する前に、見栄えをよくするために、スタイルを変更しましょう</p>
-<p>レイヤ毎のスタイルは<br>レイヤを選択→右クリック→プロパティ→スタイル で変更できます</p>
-<p><img src="QGIS_01.png" alt="レイヤプロパティ"></p>
-<p>プロジェクトのスタイルは<br>プロジェクト→プロジェクトのプロパティ→一般情報 で変更します<br>背景色と選択した地物の色が選べます。</p>
-<p><img src="QGIS_02.png" alt="プロジェクトのプロパティ"></p>
-<h2 id="画像を出力">画像を出力</h2>
-<p>プロジェクト→イメージで保存<br>出力形式を選んでSaveを押すだけです。<br>簡単ですね</p>
-<p><img src="QGIS_03.png" alt="QGIS"></p>
-<p>QGISで分析した結果をプレゼンで使う、、、なんていう場面で必要になると思われます。</p>
-<p>画像を出力するという機会がなくても、<br>スタイルの変更方法は覚えておいた方がいいかなと思います。</p>
-<p>というのも、<br>デフォルトの背景色は白なのですが、<br>レイヤを追加するとQGISが勝手にスタイルを決めるので、<br>たまにすっごく薄い黄色とかになって、とてつもなく見づらいのです、、、</p>
-<p>私は背景色を黒、選択した地物を黄色にして、<br>レイヤは見づらかったら、ピンクとかブルーに適当に変えています</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>今回は小ネタとして、QGISで表示されている画面を、画像として出力する方法をご紹介します</p>
-]]>
-    
-    </summary>
-    
-      <category term="qgis" scheme="http://jurishimizu.github.io/tags/qgis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[QGISでPostGISのデータを確認]]></title>
-    <link href="http://jurishimizu.github.io/2015/01/29/display-postgis-data-in-qgis/"/>
-    <id>http://jurishimizu.github.io/2015/01/29/display-postgis-data-in-qgis/</id>
-    <published>2015-01-29T08:59:38.000Z</published>
-    <updated>2015-02-15T11:26:44.000Z</updated>
-    <content type="html"><![CDATA[<p>前回、OSMのデータをDBに入れて、selectしたりしたわけですが、<br>やっぱり視覚的に「ちゃんと日本のデータが入った！」っていうのを確認したいですね。<br>ということで、今回は<a href="http://ja.wikipedia.org/wiki/QGIS" target="_blank" rel="external">QGIS</a>でデータの中身を確認してみます。<br><a id="more"></a><br>QGISはGISのツールの中でもメジャーな方なので、比較的情報もたくさんあります。<br>かなり奥深いツールですが、今回はデータを見てみるだけにしておきます。</p>
-<p>QGISのインストールは<a href="http://www.qgis.org/ja/site/forusers/download.html" target="_blank" rel="external">こちらのページ</a>からインストーラを落として実行するだけです。</p>
-<h2 id="QGISにデータを読み込む">QGISにデータを読み込む</h2>
-<p>QGISを起動して、左側にあるゾウのマークをクリックします</p>
-<p><img src="QGIS_01.png" alt="QGIS"></p>
-<p>「PostGIS テーブルを追加」という画面が出てくるので、新規をクリック</p>
-<p><img src="QGIS_02.png" alt="QGIS"></p>
-<p>こんな感じで接続情報を書きます。<br>ホストは<a href="http://jurishimizu.github.io/2014/12/29/postgis-install-1/" target="_blank" rel="external">この記事</a>でつくった仮想環境です。<br>接続テストがでてきたら、OKをクリック</p>
-<p><img src="QGIS_03.png" alt="QGIS"></p>
-<p>「接続」ボタンを押すとテーブルの一覧がでてきます。<br>osmのデータが入っている４つのテーブルを選んで「追加」をクリック</p>
-<p><img src="QGIS_04.png" alt="QGIS"></p>
-<p>そうすると、レイヤーに選択したテーブルがでてきて、徐々に日本地図が現れます<br>（けっこう時間かかります）</p>
-<p><img src="QGIS_05.png" alt="QGIS"></p>
-<h2 id="地物を確認してみる">地物を確認してみる</h2>
-<p>地図にのってる建物や道のことを<a href="http://wiki.openstreetmap.org/wiki/JA:%E5%9C%B0%E7%89%A9" target="_blank" rel="external">地物</a>といいます。<br>この地物をQGISで確認してみましょう。</p>
-<p>＋ボタンを使って、東京駅のあるところまでズームします</p>
-<p><img src="QGIS_06.png" alt="QGIS"></p>
-<p>iボタン（地物情報表示）で地物をひとつ選んでみます</p>
-<p><img src="QGIS_07.png" alt="QGIS"></p>
-<p>そうすると、こんな画面がでてきて、DBの値がわかります</p>
-<p><img src="QGIS_08.png" alt="QGIS"></p>
-<p>こうやって視覚的に見れると、ちゃんと日本地図のデータが入ったんだなって実感しますね</p>
-<p>今日はここまで！</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>前回、OSMのデータをDBに入れて、selectしたりしたわけですが、<br>やっぱり視覚的に「ちゃんと日本のデータが入った！」っていうのを確認したいですね。<br>ということで、今回は<a href="http://ja.wikipedia.org/wiki/QGIS" target="_blank" rel="external">QGIS</a>でデータの中身を確認してみます。<br>]]>
-    
-    </summary>
-    
-      <category term="postgis" scheme="http://jurishimizu.github.io/tags/postgis/"/>
-    
-      <category term="osm" scheme="http://jurishimizu.github.io/tags/osm/"/>
-    
-      <category term="qgis" scheme="http://jurishimizu.github.io/tags/qgis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[OSMのデータをPostGISのDBに入れてみる]]></title>
-    <link href="http://jurishimizu.github.io/2015/01/12/osm-download/"/>
-    <id>http://jurishimizu.github.io/2015/01/12/osm-download/</id>
-    <published>2015-01-12T08:35:12.000Z</published>
-    <updated>2015-02-15T11:26:44.000Z</updated>
-    <content type="html"><![CDATA[<p><a href="http://jurishimizu.github.io/2015/01/09/postgis-install-2/" target="_blank" rel="external">前回</a>、Geoなデータベースを作ったので、<br>今回はそこにGeoなデータを入れてみたいと思います</p>
-<a id="more"></a>
-
-<p><a href="http://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%88%E3%83%9E%E3%83%83%E3%83%97" target="_blank" rel="external">OSM（オープンストリートマップ）</a>のデータをいれてみます。<br>OSMは誰でも使用できて、だれでも編集できる地図なのです。<br>もちろんタダです。<br>そしてこのOSMを編集する人をマッパーと呼ぶらしいです。地図好きってけっこう多いんですね</p>
-<p>他にも<a href="http://nlftp.mlit.go.jp" target="_blank" rel="external">国土数値情報</a>とか<a href="http://www.vegetation.biodic.go.jp/" target="_blank" rel="external">自然環境情報GIS</a>とか、<br>タダでダウンロードできるGISデータはたくさんあるようです。<br>それを組み合わせれば、いろいろ面白そうですね</p>
-<h2 id="osm2pgsqlインストール">osm2pgsqlインストール</h2>
-<p>OSMのデータを扱うために、<a href="http://wiki.openstreetmap.org/wiki/Osm2pgsql" target="_blank" rel="external">osm2pgsql</a>を入れます。<br>説明が英語だ、、、<br>OSMのデータをPostGISのDBにいれるためのツールってことでいいかと思います。。。</p>
-<p>osm2pgsqlを入れるためは、他にもいろいろインストールが必要なのですが、<br>その辺もあんまり理解できていないので、<br>トライ&amp;エラーでやっていきたいと思います。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git clone https://github.com/openstreetmap/osm2pgsql</div><div class="line">$ <span class="built_in">cd</span> osm2pgsql</div><div class="line">$ ./autogen.sh</div><div class="line">./autogen.sh: line <span class="number">2</span>: autoreconf: command not found</div></pre></td></tr></table></figure>
-
-<p>案の定エラーになりました、、、<br>libtoolが必要らしいので入れます</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ yum install libtool</div><div class="line">$ ./autogen.sh</div></pre></td></tr></table></figure>
-
-<p>これでautogen.shは成功しました</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ ./configure --with-protobuf-c</div><div class="line">checking <span class="keyword">for</span> xml2-config... no</div><div class="line">configure: error:  does not exist or it is not an exectuable file</div></pre></td></tr></table></figure>
-
-<p>またエラーだ、、、<br>libxml12を入れます</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ yum install libxml2 libxml2-devel</div><div class="line">$ ./configure --with-protobuf-c</div><div class="line">checking <span class="keyword">for</span> bzip2 compression library... no</div><div class="line">configure: error: required library not found</div></pre></td></tr></table></figure>
-
-<p>別のエラーが、、、<br>bzip2をいれます</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ yum install bzip2 bzip2-devel</div><div class="line">$ ./configure --with-protobuf-c</div><div class="line">configure: error: geos-config does not exist or it is not an exectuable file</div></pre></td></tr></table></figure>
-
-<p>今度はgeosです</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ yum install geos geos-devel</div><div class="line">$ ./configure --with-protobuf-c</div><div class="line">checking <span class="keyword">for</span> proj projection library... no</div><div class="line">configure: error: required library not found</div></pre></td></tr></table></figure>
-
-<p>続いてproj、、、、</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ yum install proj proj-devel</div><div class="line">$ ./configure --with-protobuf-c</div><div class="line">checking <span class="keyword">for</span> protobuf-c usability... no</div><div class="line">configure: WARNING: protobuf-c support requested but headers or library not found. Specify valid prefix of protobuf-c using --with-protobuf-c=[DIR] or provide include directory and linker flags using --with-protobuf-c-inc and --with-protobuf-c-lib</div><div class="line">checking <span class="keyword">for</span> pg_config... no</div><div class="line">configure: error:  does not exist or it is not an exectuable file</div></pre></td></tr></table></figure>
-
-<p>protobuf-cがない、、、</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ yum install protobuf-c protobuf-c-devel</div><div class="line">$ ./configure --with-protobuf-c</div><div class="line">checking <span class="keyword">for</span> pg_config... no</div><div class="line">configure: error:  does not exist or it is not an exectuable file</div></pre></td></tr></table></figure>
-
-<p>pg_configがみつからないようですが、<br>これは環境変数を設定すればOKなようです</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ <span class="keyword">export</span> PATH=/usr/pgsql-<span class="number">9.3</span>/bin:<span class="variable">$PATH</span></div><div class="line">$ ./configure --with-protobuf-c</div><div class="line">checking <span class="keyword">if</span> more special flags are required <span class="keyword">for</span> pthreads... no</div><div class="line">checking <span class="keyword">for</span> boostlib &gt;= <span class="number">1.48</span>... configure: We could not detect the boost libraries (version <span class="number">1.48</span> or higher). If you have a staged boost library (still not installed) please specify <span class="variable">$BOOST_ROOT</span> <span class="keyword">in</span> your environment and <span class="keyword">do</span> not give a PATH to --with-boost option.  If you are sure you have boost installed, <span class="keyword">then</span> check your version number looking <span class="keyword">in</span> &lt;boost/version.hpp&gt;. See http://randspringer.de/boost <span class="keyword">for</span> more documentation.</div><div class="line">configure: error: cannot find Boost libraries, which are are required <span class="keyword">for</span> building osm2pgsql. Please install libboost-dev.</div></pre></td></tr></table></figure>
-
-<p>Boostが必要なようです<br>これは手でいれないといけないみたい、、、</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ wget http://downloads.sourceforge.net/project/boost/boost/<span class="number">1.53</span>.<span class="number">0</span>/boost_1_53_0.tar.gz</div><div class="line">$ tar -xvzf boost_1_53_0.tar.gz</div><div class="line">$ <span class="built_in">cd</span> boost_1_53_0</div><div class="line">$ ./bootstrap.sh --prefix=/usr/local</div><div class="line">$ ./b2</div><div class="line">$ ./b2 install</div><div class="line">$ /sbin/ldconfig</div></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ./configure --with-protobuf-c</div></pre></td></tr></table></figure>
-
-<p>やっと成功しました。あとはmakeすればOK</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="keyword">make</span></div><div class="line">$ <span class="keyword">make</span> install</div></pre></td></tr></table></figure>
-
-<p>やっとできました。。。。<br>長かった、、、</p>
-<h2 id="OSMのデータをいれる">OSMのデータをいれる</h2>
-<p>日本の最新の地図情報を落としてきて、DBに入れてみます</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ wget <span class="keyword">http</span>://download.geofabrik.de/asia/japan-latest.osm.pbf</div><div class="line">$ osm2pgsql -c -d japan -S /usr/<span class="built_in">local</span>/share/osm2pgsql/default.style <span class="comment">--host localhost japan-latest.osm.pbf</span></div><div class="line">osm2pgsql: error <span class="keyword">while</span> loading shared libraries: libboost_filesystem.so<span class="number">.1</span><span class="number">.53</span><span class="number">.0</span>: cannot <span class="built_in">open</span> shared object <span class="built_in">file</span>: No such <span class="built_in">file</span> <span class="operator">or</span> <span class="built_in">directory</span></div></pre></td></tr></table></figure>
-
-<p>またエラーが、、、<br>libboost_filesystem.so* の場所を探して、環境変数に追加</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$ sudo find / -<span class="property">name</span> libboost_filesystem.so*</div><div class="line">$ export LD_LIBRARY_PATH=/usr/<span class="keyword">local</span>/lib/</div><div class="line">$ osm2pgsql -c -d japan -S /usr/<span class="keyword">local</span>/share/osm2pgsql/default.style <span class="comment">--host localhost japan-latest.osm.pbf</span></div><div class="line">osm2pgsql SVN <span class="property">version</span> <span class="number">0.87</span><span class="number">.2</span>-dev (<span class="number">64</span>bit <span class="property">id</span> <span class="constant">space</span>)</div><div class="line"></div><div class="line">Using built-<span class="keyword">in</span> tag processing pipeline</div><div class="line">Using projection SRS <span class="number">900913</span> (Spherical Mercator)</div><div class="line">Setting up table: planet_osm_point</div><div class="line">Setting up table: planet_osm_line</div><div class="line">Setting up table: planet_osm_polygon</div><div class="line">Setting up table: planet_osm_roads</div><div class="line">Allocating memory <span class="keyword">for</span> dense node cache</div><div class="line">Out <span class="keyword">of</span> memory <span class="keyword">for</span> node cache dense index, <span class="keyword">try</span> using <span class="string">"--cache-strategy sparse"</span> instead</div><div class="line">Error occurred, cleaning up</div></pre></td></tr></table></figure>
-
-<p>またエラーになってしまいました。<br><code>--cache-strategy sparse</code>のオプションをつけよと言われたので、その通りに、、、、</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">$ osm2pgsql -c -d japan -U postgres --cache-strategy sparse -S /usr/local/share/osm2pgsql/<span class="keyword">default</span>.style --host localhost japan-latest.osm.pbf</div><div class="line">osm2pgsql SVN version <span class="number">0.87</span>.<span class="number">2</span>-dev (<span class="number">64</span>bit id space)</div><div class="line"></div><div class="line"><span class="keyword">Using</span> built-<span class="keyword">in</span> tag processing pipeline</div><div class="line"><span class="keyword">Using</span> projection SRS <span class="number">900913</span> (Spherical Mercator)</div><div class="line">Setting up table: planet_osm_point</div><div class="line">Setting up table: planet_osm_line</div><div class="line">Setting up table: planet_osm_polygon</div><div class="line">Setting up table: planet_osm_roads</div><div class="line">Allocating memory <span class="keyword">for</span> sparse node cache</div><div class="line">Node-cache: cache=<span class="number">800</span>MB, maxblocks=<span class="number">102400</span>*<span class="number">8192</span>, allocation <span class="function"><span class="keyword">method</span>=1</span></div><div class="line"><span class="title">Mid</span>: Ram, scale=<span class="number">100</span></div><div class="line"></div><div class="line">Reading <span class="keyword">in</span> file: japan-latest.osm.pbf</div><div class="line">Processing: Node(<span class="number">52420</span>k <span class="number">859.3</span>k/s) Way(<span class="number">0</span>k <span class="number">0.00</span>k/s) Relation(<span class="number">0</span> <span class="number">0.00</span>/s)</div><div class="line">Node cache size <span class="keyword">is</span> too small <span class="keyword">to</span> fit all nodes. Please increase cache size</div><div class="line">Error occurred, cleaning up</div></pre></td></tr></table></figure>
-
-<p>メモリが足りないので<code>-C</code>で指定してあげます。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ osm2pgsql -c -d japan -U postgres <span class="comment">--cache-strategy sparse -C 2400 -S /usr/local/share/osm2pgsql/default.style --host localhost japan-latest.osm.pbf</span></div><div class="line">osm2pgsql SVN version <span class="number">0.87</span><span class="number">.2</span>-dev (<span class="number">64</span>bit id space)</div><div class="line"></div><div class="line">Using built-<span class="keyword">in</span> tag processing pipeline</div><div class="line">Using projection SRS <span class="number">900913</span> (Spherical Mercator)</div><div class="line">Setting up <span class="built_in">table</span>: planet_osm_point</div><div class="line">Setting up <span class="built_in">table</span>: planet_osm_line</div><div class="line">Setting up <span class="built_in">table</span>: planet_osm_polygon</div><div class="line">Setting up <span class="built_in">table</span>: planet_osm_roads</div><div class="line">Allocating memory <span class="keyword">for</span> sparse node cache</div><div class="line">Out of memory <span class="keyword">for</span> sparse node cache, reduce <span class="comment">--cache size</span></div><div class="line">Error occurred, cleaning up</div></pre></td></tr></table></figure>
-
-<p>そもそも、メモリが足りない、、、<br><code>-C</code>の値をいろいろ変えてみても、<br>メモリが多いとそもそもメモリがないよと怒られ、メモリが少ないとメモリが足りないと言われます、、、、<br>詰んだ、、、、</p>
-<p>ここで諦めてはいけません<br><a href="http://jurishimizu.github.io/2014/12/29/postgis-install-1/" target="_blank" rel="external">この記事</a>で作った仮想環境のメモリを増やしましょう<br>まず今のメモリを確認</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>free</div><div class="line">             total       used       free     shared    buffers     cached</div><div class="line"><span class="constant">Mem</span><span class="symbol">:</span>        <span class="number">469452</span>     <span class="number">117408</span>     <span class="number">352044</span>          <span class="number">0</span>       <span class="number">2432</span>      <span class="number">42320</span></div><div class="line">-<span class="regexp">/+ buffers/cache</span><span class="symbol">:</span>      <span class="number">72656</span>     <span class="number">396796</span></div><div class="line"><span class="constant">Swap</span><span class="symbol">:</span>       <span class="number">950264</span>      <span class="number">25060</span>     <span class="number">925204</span></div></pre></td></tr></table></figure>
-
-<p>vagrantの環境からログアウトして、Vagrantfileにメモリ割当の記述を追加</p>
-<figure class="highlight Vagrantfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">config.vm.provider <span class="symbol">:virtualbox</span> <span class="keyword">do</span> |vb|</div><div class="line">  ・</div><div class="line">  ・</div><div class="line">  vb.customize [<span class="string">"modifyvm"</span>, <span class="symbol">:id</span>, <span class="string">"--memory"</span>, <span class="number">2048</span>]</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-
-<p>vagrantを再起動して、メモリを確認</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>vagrant reload</div><div class="line"><span class="variable">$ </span>vagrant ssh</div><div class="line"><span class="variable">$ </span>free</div><div class="line">             total       used       free     shared    buffers     cached</div><div class="line"><span class="constant">Mem</span><span class="symbol">:</span>       <span class="number">1922488</span>     <span class="number">172968</span>    <span class="number">1749520</span>          <span class="number">0</span>       <span class="number">7184</span>      <span class="number">64644</span></div><div class="line">-<span class="regexp">/+ buffers/cache</span><span class="symbol">:</span>     <span class="number">101140</span>    <span class="number">1821348</span></div><div class="line"><span class="constant">Swap</span><span class="symbol">:</span>       <span class="number">950264</span>          <span class="number">0</span>     <span class="number">950264</span></div></pre></td></tr></table></figure>
-
-<p>メモリが増えました。</p>
-<p>しかし、この方法で<code>-C</code>の値を4200までふやしましたが、<br>エラーが解消されませんでした、、、、<br>やっぱり詰んだ、、、</p>
-<p>と思っていましたが、slimモードを使うと、メモリが少なくてもいけるそうです。<br><code>--slim</code>を追加して、再実行！</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div></pre></td><td class="code"><pre><div class="line">$ osm2pgsql -c -d japan -U postgres <span class="comment">--slim -C 4200 --cache-strategy sparse -S /usr/local/share/osm2pgsql/default.style --host localhost japan-latest.osm.pbf</span></div><div class="line">osm2pgsql SVN version 0.87.2-dev (64bit id space)</div><div class="line"></div><div class="line">Using built-in tag processing pipeline</div><div class="line">Using projection SRS 900913 (Spherical Mercator)</div><div class="line">Setting up table: planet_osm_point</div><div class="line">Setting up table: planet_osm_line</div><div class="line">Setting up table: planet_osm_polygon</div><div class="line">Setting up table: planet_osm_roads</div><div class="line">Allocating memory for sparse node <span class="operator"><span class="keyword">cache</span></span></div><div class="line">Node-<span class="keyword">cache</span>: <span class="keyword">cache</span>=<span class="number">4200</span>MB, maxblocks=<span class="number">537600</span>*<span class="number">8192</span>, allocation method=<span class="number">9</span></div><div class="line"><span class="keyword">Mid</span>: pgsql, scale=<span class="number">100</span> <span class="keyword">cache</span>=<span class="number">4200</span></div><div class="line">Setting up <span class="keyword">table</span>: planet_osm_nodes</div><div class="line">Setting up <span class="keyword">table</span>: planet_osm_ways</div><div class="line">Setting up <span class="keyword">table</span>: planet_osm_rels</div><div class="line"></div><div class="line">Reading <span class="keyword">in</span> file: japan-latest.osm.pbf</div><div class="line">Processing: Node(<span class="number">103668</span>k <span class="number">1.7</span>k/s) Way(<span class="number">9965</span>k <span class="number">10.77</span>k/s) Relation(<span class="number">23920</span> <span class="number">42.64</span>/s)  <span class="keyword">parse</span> <span class="keyword">time</span>: <span class="number">60967</span>s</div><div class="line">Node stats: total(<span class="number">103668009</span>), <span class="keyword">max</span>(<span class="number">3297129224</span>) <span class="keyword">in</span> <span class="number">59481</span>s</div><div class="line">Way stats: total(<span class="number">9965258</span>), <span class="keyword">max</span>(<span class="number">322927091</span>) <span class="keyword">in</span> <span class="number">925</span>s</div><div class="line">Relation stats: total(<span class="number">23920</span>), <span class="keyword">max</span>(<span class="number">4497829</span>) <span class="keyword">in</span> <span class="number">561</span>s</div><div class="line">Committing <span class="keyword">transaction</span> <span class="keyword">for</span> planet_osm_point</div><div class="line">Committing <span class="keyword">transaction</span> <span class="keyword">for</span> planet_osm_line</div><div class="line">Committing <span class="keyword">transaction</span> <span class="keyword">for</span> planet_osm_polygon</div><div class="line">Committing <span class="keyword">transaction</span> <span class="keyword">for</span> planet_osm_roads</div><div class="line">Setting up <span class="keyword">table</span>: planet_osm_nodes</div><div class="line">Setting up <span class="keyword">table</span>: planet_osm_ways</div><div class="line">Setting up <span class="keyword">table</span>: planet_osm_rels</div><div class="line"><span class="keyword">Using</span> built-<span class="keyword">in</span> tag processing pipeline</div><div class="line"></div><div class="line">Going over pending ways...</div><div class="line">  <span class="number">2856546</span> ways <span class="keyword">are</span> pending</div><div class="line"></div><div class="line"><span class="keyword">Using</span> <span class="number">1</span> helper-processes</div><div class="line">Finished processing <span class="number">2856546</span> ways <span class="keyword">in</span> <span class="number">1052</span> sec</div><div class="line"></div><div class="line"><span class="number">2856546</span> Pending ways took <span class="number">1052</span>s <span class="keyword">at</span> a rate <span class="keyword">of</span> <span class="number">2715.35</span>/s</div><div class="line">Committing <span class="keyword">transaction</span> <span class="keyword">for</span> planet_osm_point</div><div class="line">Committing <span class="keyword">transaction</span> <span class="keyword">for</span> planet_osm_line</div><div class="line">Committing <span class="keyword">transaction</span> <span class="keyword">for</span> planet_osm_polygon</div><div class="line">Committing <span class="keyword">transaction</span> <span class="keyword">for</span> planet_osm_roads</div><div class="line"></div><div class="line">Going over pending relations...</div><div class="line">  <span class="number">0</span> relations <span class="keyword">are</span> pending</div><div class="line"></div><div class="line"><span class="keyword">Using</span> <span class="number">1</span> helper-processes</div><div class="line">Finished processing <span class="number">0</span> relations <span class="keyword">in</span> <span class="number">0</span> sec</div><div class="line"></div><div class="line">Committing <span class="keyword">transaction</span> <span class="keyword">for</span> planet_osm_point</div><div class="line">WARNING:  there <span class="keyword">is</span> <span class="keyword">no</span> <span class="keyword">transaction</span> <span class="keyword">in</span> progress</div><div class="line">Committing <span class="keyword">transaction</span> <span class="keyword">for</span> planet_osm_line</div><div class="line">WARNING:  there <span class="keyword">is</span> <span class="keyword">no</span> <span class="keyword">transaction</span> <span class="keyword">in</span> progress</div><div class="line">Committing <span class="keyword">transaction</span> <span class="keyword">for</span> planet_osm_polygon</div><div class="line">WARNING:  there <span class="keyword">is</span> <span class="keyword">no</span> <span class="keyword">transaction</span> <span class="keyword">in</span> progress</div><div class="line">Committing <span class="keyword">transaction</span> <span class="keyword">for</span> planet_osm_roads</div><div class="line">WARNING:  there <span class="keyword">is</span> <span class="keyword">no</span> <span class="keyword">transaction</span> <span class="keyword">in</span> progress</div><div class="line">Stopping <span class="keyword">table</span>: planet_osm_rels</div><div class="line">Building <span class="keyword">index</span> <span class="keyword">on</span> <span class="keyword">table</span>: planet_osm_rels (fastupdate=off)</div><div class="line">Stopping <span class="keyword">table</span>: planet_osm_ways</div><div class="line">Stopping <span class="keyword">table</span>: planet_osm_nodes</div><div class="line">Stopped <span class="keyword">table</span>: planet_osm_nodes <span class="keyword">in</span> <span class="number">0</span>s</div><div class="line">Sorting <span class="keyword">data</span> <span class="keyword">and</span> creating indexes <span class="keyword">for</span> planet_osm_point</div><div class="line">Sorting <span class="keyword">data</span> <span class="keyword">and</span> creating indexes <span class="keyword">for</span> planet_osm_line</div><div class="line">Sorting <span class="keyword">data</span> <span class="keyword">and</span> creating indexes <span class="keyword">for</span> planet_osm_polygon</div><div class="line">Building <span class="keyword">index</span> <span class="keyword">on</span> <span class="keyword">table</span>: planet_osm_ways (fastupdate=off)</div><div class="line">Sorting <span class="keyword">data</span> <span class="keyword">and</span> creating indexes <span class="keyword">for</span> planet_osm_roads</div><div class="line">Analyzing planet_osm_point finished</div><div class="line">Stopped <span class="keyword">table</span>: planet_osm_rels <span class="keyword">in</span> <span class="number">10</span>s</div><div class="line">Analyzing planet_osm_roads finished</div><div class="line">Analyzing planet_osm_polygon finished</div><div class="line">Analyzing planet_osm_line finished</div><div class="line">Copying planet_osm_point <span class="keyword">to</span> cluster <span class="keyword">by</span> geometry finished</div><div class="line">Creating geometry <span class="keyword">index</span> <span class="keyword">on</span>  planet_osm_point</div><div class="line">Copying planet_osm_roads <span class="keyword">to</span> cluster <span class="keyword">by</span> geometry finished</div><div class="line">Creating geometry <span class="keyword">index</span> <span class="keyword">on</span>  planet_osm_roads</div><div class="line">Creating osm_id <span class="keyword">index</span> <span class="keyword">on</span>  planet_osm_point</div><div class="line">Creating indexes <span class="keyword">on</span>  planet_osm_point finished</div><div class="line"><span class="keyword">All</span> indexes <span class="keyword">on</span>  planet_osm_point created  <span class="keyword">in</span> <span class="number">188</span>s</div><div class="line">Completed planet_osm_point</div><div class="line">Creating osm_id <span class="keyword">index</span> <span class="keyword">on</span>  planet_osm_roads</div><div class="line">Creating indexes <span class="keyword">on</span>  planet_osm_roads finished</div><div class="line"><span class="keyword">All</span> indexes <span class="keyword">on</span>  planet_osm_roads created  <span class="keyword">in</span> <span class="number">216</span>s</div><div class="line">Completed planet_osm_roads</div><div class="line">Copying planet_osm_polygon <span class="keyword">to</span> cluster <span class="keyword">by</span> geometry finished</div><div class="line">Creating geometry <span class="keyword">index</span> <span class="keyword">on</span>  planet_osm_polygon</div><div class="line">Creating osm_id <span class="keyword">index</span> <span class="keyword">on</span>  planet_osm_polygon</div><div class="line">Creating indexes <span class="keyword">on</span>  planet_osm_polygon finished</div><div class="line"><span class="keyword">All</span> indexes <span class="keyword">on</span>  planet_osm_polygon created  <span class="keyword">in</span> <span class="number">674</span>s</div><div class="line">Completed planet_osm_polygon</div><div class="line">Copying planet_osm_line <span class="keyword">to</span> cluster <span class="keyword">by</span> geometry finished</div><div class="line">Creating geometry <span class="keyword">index</span> <span class="keyword">on</span>  planet_osm_line</div><div class="line">Creating osm_id <span class="keyword">index</span> <span class="keyword">on</span>  planet_osm_line</div><div class="line">Creating indexes <span class="keyword">on</span>  planet_osm_line finished</div><div class="line"><span class="keyword">All</span> indexes <span class="keyword">on</span>  planet_osm_line created  <span class="keyword">in</span> <span class="number">1496</span>s</div><div class="line">Completed planet_osm_line</div><div class="line">Stopped <span class="keyword">table</span>: planet_osm_ways <span class="keyword">in</span> <span class="number">1873</span>s</div><div class="line">node <span class="keyword">cache</span>: stored: <span class="number">103668009</span>(<span class="number">100.00</span>%), storage efficiency: <span class="number">50.00</span>% (dense blocks: <span class="number">0</span>, sparse nodes: <span class="number">103668009</span>), hit rate: <span class="number">100.00</span>%</div><div class="line"></div><div class="line">Osm2pgsql took <span class="number">63895</span>s overall</div></pre></td></tr></table></figure>
-
-<p>やっとできました。。。<br>長い道のりだった、、、、</p>
-<h2 id="データを確認する">データを確認する</h2>
-<p>ほんとに入ってるか、DBをのぞいてみましょう</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">sudo</span> su - postgres</div><div class="line">$ psql <span class="operator">-d</span> japan</div></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">japan=# \d</div><div class="line">               List of relations</div><div class="line"> Schema |        Name        | Type  |  Owner</div><div class="line"><span class="comment">--------+--------------------+-------+----------</span></div><div class="line"> public | geography_columns  | view  | postgres</div><div class="line"> public | geometry_columns   | view  | postgres</div><div class="line"> public | planet_osm_line    | table | postgres</div><div class="line"> public | planet_osm_nodes   | table | postgres</div><div class="line"> public | planet_osm_point   | table | postgres</div><div class="line"> public | planet_osm_polygon | table | postgres</div><div class="line"> public | planet_osm_rels    | table | postgres</div><div class="line"> public | planet_osm_roads   | table | postgres</div><div class="line"> public | planet_osm_ways    | table | postgres</div><div class="line"> public | raster_columns     | view  | postgres</div><div class="line"> public | raster_overviews   | view  | postgres</div><div class="line"> public | spatial_ref_sys    | table | postgres</div><div class="line">(12 rows)</div></pre></td></tr></table></figure>
-
-<p>テーブルが増えてます！</p>
-<p><code>planet_osm_polygon</code>に建物などの「面」の情報（ポリゴン）<br><code>planet_osm_line</code>に道路などの「線」の情報（ライン）<br><code>planet_osm_point</code>に「点」の情報（ポイント）が格納されています。<br>じゃあ、<code>planet_osm_roads</code>は何なのかというと、<br>縮尺が大きいときにつかわれる<code>planet_osm_line</code>のサブセットだそうです。<br>縮尺が大きいときに細い道まで全部表示したら大変だからってことでしょうかね<br>他の３つは中間テーブルのようです。</p>
-<p>詳細は<a href="http://wiki.openstreetmap.org/wiki/JA:Osm2pgsql/schema" target="_blank" rel="external">コチラ</a></p>
-<p>テーブルの定義をみてみます</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">japan=# \d planet_osm_polygon</div><div class="line">           Table "public.planet_osm_polygon"</div><div class="line">       Column       |          Type           | Modifiers</div><div class="line"><span class="comment">--------------------+-------------------------+-----------</span></div><div class="line"> osm_id             | bigint                  |</div><div class="line"> access             | text                    |</div><div class="line"> addr:housename     | text                    |</div><div class="line"> addr:housenumber   | text                    |</div><div class="line"> addr:interpolation | text                    |</div><div class="line">・・・・・・・</div><div class="line"> wetland            | text                      |</div><div class="line"> width              | text                      |</div><div class="line"> wood               | text                      |</div><div class="line"> z_order            | integer                   |</div><div class="line"> way_area           | real                      |</div><div class="line"> way                | geometry(Geometry,900913) |</div></pre></td></tr></table></figure>
-
-<p>カラムが多い、、、、<br>最後にあるgeometryというデータ型がジオなデータなわけですね。<br>900913というナゾの数字、これは前回のブログでもふれた空間参照系を表しています。<br>繰り返しになりますが、DBで扱える空間参照系は<code>spatial_ref_sys</code>テーブルで管理しています。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span> * <span class="keyword">from</span> spatial_ref_sys <span class="keyword">where</span> srid=<span class="number">900913</span>;</span></div><div class="line">  srid  |       auth_name        | auth_srid |                                                                       srtext                                                                                                       |            proj4text</div><div class="line"><span class="comment">--------+------------------------+-----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------</span></div><div class="line"> 900913 | spatialreferencing.org |    900913 | PROJCS["Popular Visualisation CRS / Mercator (deprecated)",GEOGCS["Popular Visualisation CRS",DATUM["Popular_Visualisation_Datum",SPHEROID["Popular Visualisation Sphere",6378137,0,AUTHORITY["EPSG","7059"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY["EPSG","6055"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.01745329251994328,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4055"]],UNIT["metre",1,AUTHORITY["EPSG","9001"]],PROJECTION["Mercator_1SP"],PARAMETER["central_meridian",0],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],AUTHORITY["EPSG","3785"],AXIS["X",EAST],AXIS["Y",NORTH]] | +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs</div><div class="line">(1 row)</div></pre></td></tr></table></figure>
-
-<p>意味不明ですが、<a href="http://ja.wikipedia.org/wiki/%E6%B8%AC%E5%9C%B0%E7%B3%BB#.E4.B8.96.E7.95.8C.E6.B8.AC.E5.9C.B0.E7.B3.BB.E3.81.A8.E3.81.84.E3.81.86.E5.91.BC.E7.A7.B0" target="_blank" rel="external">WGS</a>と書いてあるので、世界測地系なのでしょう、、、<br>wayというカラムはこの空間参照系のデータだよっていうことですね。</p>
-<p>テーブルの中身を見てみなしょう。<br>まずは件数</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span> <span class="keyword">count</span>(<span class="number">1</span>) <span class="keyword">from</span>  planet_osm_polygon ;</span></div><div class="line">  count</div><div class="line"><span class="comment">---------</span></div><div class="line"> 2591940</div><div class="line">(1 row)</div></pre></td></tr></table></figure>
-
-<p>カラムも多いけど、データ数も多いですね。日本全国なので、、、、<br>適当にselectしても混乱しそうなので、データの仕様を確認してみましょう。</p>
-<p>OSMの仕様はこちらで確認できます。<br><a href="http://wiki.openstreetmap.org/wiki/JA:Map_Features" target="_blank" rel="external">http://wiki.openstreetmap.org/wiki/JA:Map_Features</a></p>
-<p>例えば<a href="http://wiki.openstreetmap.org/wiki/JA:Map_Features#.E5.95.86.E6.A5.AD.E6.96.BD.E8.A8.AD" target="_blank" rel="external">このページ</a>をみれば、<br>buildingカラムに「commercial」が設定されていたらは「商業施設なんだな」ってわかるわけですね。<br>バーとかアイスクリーム屋さんまで指定できるみたいで、眺めてると結構面白いです。</p>
-<p>商業施設をselectしてみましょう</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">select</span> name,building <span class="keyword">from</span> planet_osm_polygon <span class="keyword">where</span> building=<span class="string">'commercial'</span> <span class="keyword">limit</span> <span class="number">10</span> ;</span></div><div class="line">              name               |  building</div><div class="line"><span class="comment">---------------------------------+------------</span></div><div class="line"> 久米島町B&G海洋センター         | commercial</div><div class="line"> ヤマダ電機                      | commercial</div><div class="line">                                 | commercial</div><div class="line"> JPR那覇ビル (JPR Naha Building) | commercial</div><div class="line"> 和民 (Watami)                   | commercial</div><div class="line">                                 | commercial</div><div class="line"> A-Price                         | commercial</div><div class="line"> 西原シティ (Nishihara City)     | commercial</div><div class="line"> BEST                            | commercial</div><div class="line">                                 | commercial</div><div class="line">(10 rows)</div></pre></td></tr></table></figure>
-
-<p>それっぽい検索結果になったので、ちゃんとデータが入ってるみたいです！<br>今日はここまで！！！</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p><a href="http://jurishimizu.github.io/2015/01/09/postgis-install-2/" target="_blank" rel="external">前回</a>、Geoなデータベースを作ったので、<br>今回はそこにGeoなデータを入れてみたいと思います</p>
-]]>
-    
-    </summary>
-    
-      <category term="vagrant" scheme="http://jurishimizu.github.io/tags/vagrant/"/>
-    
-      <category term="centos" scheme="http://jurishimizu.github.io/tags/centos/"/>
-    
-      <category term="virtualized_environment" scheme="http://jurishimizu.github.io/tags/virtualized-environment/"/>
-    
-      <category term="postgis" scheme="http://jurishimizu.github.io/tags/postgis/"/>
-    
-      <category term="osm" scheme="http://jurishimizu.github.io/tags/osm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[yumを使わずにwgetでPostGISをインストール]]></title>
-    <link href="http://jurishimizu.github.io/2015/01/09/postgis-install-extla/"/>
-    <id>http://jurishimizu.github.io/2015/01/09/postgis-install-extla/</id>
-    <published>2015-01-09T09:18:40.000Z</published>
-    <updated>2015-02-15T11:26:44.000Z</updated>
-    <content type="html"><![CDATA[<p><a href="http://jurishimizu.github.io/2015/01/09/postgis-install-2/" target="_blank" rel="external">前回</a>はあっさりとyumでPOSTGISをインストールしましたが、<br>諸事情でyumを使えないこともあるってことで、yumを使わないインストール方法を書いておきます。<br>PostgreSQLのインストールは省いてます、、、</p>
-<a id="more"></a>
-
-<h1 id="PostGISをインストール">PostGISをインストール</h1>
-<p><a href="http://www.torutk.com/projects/swe/wiki/PROJ4" target="_blank" rel="external">PROJ</a>インストール</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="char">$ </span>wget <span class="method">http:</span>//download.osgeo.org/proj/proj-<span class="number">4.8</span><span class="number">.0</span>.tar.gz</div><div class="line"><span class="char">$ </span>tar xvfz  proj-<span class="number">4.8</span><span class="number">.0</span>.tar.gz</div><div class="line"><span class="char">$ </span>cd proj-<span class="number">4.8</span><span class="number">.0</span></div><div class="line"><span class="char">$ </span>./configure --prefix=/opt/geo</div><div class="line"><span class="char">$ </span>make</div><div class="line"><span class="char">$ </span>make install</div></pre></td></tr></table></figure>
-
-<p><a href="http://www.informatix.co.jp/top/club2/coding/contents/cont140207-12.html" target="_blank" rel="external">GEOS</a>インストール</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="char">$ </span>wget <span class="method">http:</span>//download.osgeo.org/geos/geos-<span class="number">3.4</span><span class="number">.2</span>.tar.bz2</div><div class="line"><span class="char">$ </span>tar -jxvf geos-<span class="number">3.4</span><span class="number">.2</span>.tar.bz2</div><div class="line"><span class="char">$ </span>cd geos-<span class="number">3.4</span><span class="number">.2</span></div><div class="line"><span class="char">$ </span>./configure --prefix=/opt/geo</div><div class="line"><span class="char">$ </span>make</div><div class="line"><span class="char">$ </span>make install</div></pre></td></tr></table></figure>
-
-<p><a href="http://ja.wikipedia.org/wiki/GDAL" target="_blank" rel="external">GDAL</a>インストール</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>wget <span class="symbol">http:</span>/<span class="regexp">/download.osgeo.org/gdal</span><span class="regexp">/1.10.0/gdal</span>-<span class="number">1.10</span>.<span class="number">0</span>.tar.gz</div><div class="line"><span class="variable">$ </span>tar xvfz gdal-<span class="number">1.10</span>.<span class="number">0</span>.tar.gz</div><div class="line"><span class="variable">$ </span>cd gdal-<span class="number">1.10</span>.<span class="number">0</span></div><div class="line"><span class="variable">$ </span>./configure --prefix=<span class="regexp">/opt/geo</span></div><div class="line"><span class="variable">$ </span>make</div><div class="line"><span class="variable">$ </span>make install</div></pre></td></tr></table></figure>
-
-<p>PostGISインストール</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>wget <span class="symbol">http:</span>/<span class="regexp">/download.osgeo.org/postgis</span><span class="regexp">/source/postgis</span>-<span class="number">2.0</span>.<span class="number">4</span>.tar.gz</div><div class="line"><span class="variable">$ </span>tar xvfz postgis-<span class="number">2.0</span>.<span class="number">4</span>.tar.gz</div><div class="line"><span class="variable">$ </span>cd postgis-<span class="number">2.0</span>.<span class="number">4</span></div><div class="line"><span class="variable">$ </span>./configure --prefix=<span class="regexp">/opt/geo</span> --with-projdir=<span class="regexp">/opt/geo</span> --with-gdalconfig=<span class="regexp">/opt/geo</span><span class="regexp">/bin/gdal</span>-config</div><div class="line"><span class="variable">$ </span>make</div><div class="line"><span class="variable">$ </span>make install</div></pre></td></tr></table></figure>
-
-<p>PROJとGEOSのライブラリを /etc/ld.so.conf に登録</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ <span class="keyword">vi</span> /etc/ld.<span class="keyword">so</span>.<span class="keyword">conf</span></div><div class="line"></div><div class="line">下記を追記</div><div class="line">/<span class="keyword">opt</span>/geo/lib</div></pre></td></tr></table></figure>
-
-<p>あとは<br><a href="http://jurishimizu.github.io/2015/01/09/postgis-install-2/" target="_blank" rel="external">前回</a>と同じ手順でOKです。</p>
-<p>/etc/ld.so.conf を編集を忘れるとこんな感じのエラーになります</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># <span class="operator"><span class="keyword">create</span> extension postgis;</span></div><div class="line">ERROR:  could not <span class="operator"><span class="keyword">load</span> library <span class="string">"/usr/lib/pgsql/postgis-2.0.so"</span>: /usr/lib/pgsql/postgis-<span class="number">2.0</span>.so: undefined symbol: pj_get_spheroid_defn</span></div></pre></td></tr></table></figure>
-
-<p>PROJのバージョンが4.8より古い場合にも同じエラーになるみたいです。</p>
-<p>PostGISを使うときは、PROJとかGDALとか、いろいろ必要なのですね。<br>yumでインストールしたときは、勝手にインストールしてくれてたってことですね。<br>yumって便利ですね、、、</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p><a href="http://jurishimizu.github.io/2015/01/09/postgis-install-2/" target="_blank" rel="external">前回</a>はあっさりとyumでPOSTGISをインストールしましたが、<br>諸事情でyumを使えないこともあるってことで、yumを使わないインストール方法を書いておきます。<br>PostgreSQLのインストールは省いてます、、、</p>
-]]>
-    
-    </summary>
-    
-      <category term="centos" scheme="http://jurishimizu.github.io/tags/centos/"/>
-    
-      <category term="postgis" scheme="http://jurishimizu.github.io/tags/postgis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[CentOSにPostgreSQL/PostGISの環境構築]]></title>
-    <link href="http://jurishimizu.github.io/2015/01/09/postgis-install-2/"/>
-    <id>http://jurishimizu.github.io/2015/01/09/postgis-install-2/</id>
-    <published>2015-01-09T02:46:17.000Z</published>
-    <updated>2015-02-15T11:26:44.000Z</updated>
-    <content type="html"><![CDATA[<p><a href="http://jurishimizu.github.io/2014/12/29/Postgis-install-1/" target="_blank" rel="external">前回</a>作った仮想環境に、<br><a href="http://ja.wikipedia.org/wiki/Postgis" target="_blank" rel="external">PostGIS</a>をインストールしてみます。<br>PostGISを入れるとPostgreSQLで地理空間情報が扱えるようになってしまうのです。<br>データベースで地理情報を扱えるなんてビックリです。</p>
-<a id="more"></a>
-
-<h1 id="PostgreSQL/PostGISをインストール">PostgreSQL/PostGISをインストール</h1>
-<p>前回作成した仮想環境に接続して、Postgisをインストールします</p>
-<p>仮想環境に接続</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>vagrant ssh</div></pre></td></tr></table></figure>
-
-<p>PostgreSQLとPostGISインストール</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>rpm -ivh <span class="symbol">http:</span>/<span class="regexp">/yum.postgresql.org/</span><span class="number">9.3</span>/redhat/rhel-<span class="number">6</span>-x86_64/pgdg-centos93-<span class="number">9.3</span>-<span class="number">1</span>.noarch.rpm</div><div class="line"><span class="variable">$ </span>yum -y install postgresql93 postgresql93-server postgresql93-libspostgresql93-contrib postgresql93-devel</div><div class="line"><span class="variable">$ </span>rpm -ivh <span class="symbol">http:</span>/<span class="regexp">/dl.fedoraproject.org/pub</span><span class="regexp">/epel/</span><span class="number">6</span>/x86_64/epel-release-<span class="number">6</span>-<span class="number">8</span>.noarch.rpm</div><div class="line"><span class="variable">$ </span>yum -y install <span class="constant">Postgis2_93</span></div></pre></td></tr></table></figure>
-
-<p>バージョン確認</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ psql --version</div><div class="line"><span class="function"><span class="title">psql</span> <span class="params">(<span class="variable">PostgreSQL</span>)</span> 9.3.5</span></div></pre></td></tr></table></figure>
-
-<p>自動起動をonにする</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ chkconfig postgresql-<span class="number">9.3</span> <span class="function_start"><span class="keyword">on</span></span></div><div class="line">$ chkconfig <span class="comment">--list postgresql-9.3</span></div><div class="line">postgresql-<span class="number">9.3</span> 	<span class="number">0</span>:off	<span class="number">1</span>:off	<span class="number">2</span>:<span class="function_start"><span class="keyword">on</span></span>	<span class="number">3</span>:<span class="function_start"><span class="keyword">on</span></span>	<span class="number">4</span>:<span class="function_start"><span class="keyword">on</span></span>	<span class="number">5</span>:<span class="function_start"><span class="keyword">on</span></span>	<span class="number">6</span>:off</div></pre></td></tr></table></figure>
-
-<p>DB初期化</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="class"><span class="keyword">service</span> <span class="title">postgresql</span>-9.3 initdb</span></div><div class="line">Initializing database:                                     [  OK  ]</div></pre></td></tr></table></figure>
-
-<p>外部からのアクセスを許可するように設定を変更する<br>postgresql.conf編集</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ <span class="keyword">vi</span> /var/lib/pgsql/<span class="number">9.3</span>/data/pg_hba.<span class="keyword">conf</span></div><div class="line"> </div><div class="line"> 変更前</div><div class="line"> host    <span class="keyword">all</span>             <span class="keyword">all</span>             <span class="number">127.0</span>.<span class="number">0.1</span>/<span class="number">32</span>            ident</div><div class="line"> 変更後</div><div class="line"> host    <span class="keyword">all</span>             <span class="keyword">all</span>             <span class="number">0.0</span>.<span class="number">0.0</span>/<span class="number">0</span>            trust</div></pre></td></tr></table></figure>
-
-<p>pg_hba.conf編集</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ vi /var/lib/pgsql/<span class="number">9.3</span>/data/pg_hba.conf</div><div class="line"></div><div class="line"> 変更前</div><div class="line"> <span class="comment"># listen_addresses = ‘localhost’</span></div><div class="line"> <span class="comment"># port = 5432</span></div><div class="line"> 変更後</div><div class="line"> <span class="variable">listen_addresses =</span> ‘*’</div><div class="line"> <span class="variable">port =</span> <span class="number">5432</span></div></pre></td></tr></table></figure>
-
-<p>サーバ起動</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ service postgresql-9.3 <span class="operator"><span class="keyword">start</span></span></div><div class="line"><span class="keyword">Starting</span> postgresql-<span class="number">9.3</span> service:                           [  OK  ]</div></pre></td></tr></table></figure>
-
-<h2 id="Geoなデータベースを作成">Geoなデータベースを作成</h2>
-<p>まずは普通にデータベースを作成<br>後で日本地図のデータを入れたいので、名前はjapanにします</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>sudo su - postgres</div><div class="line"><span class="variable">$ </span>createdb japan</div></pre></td></tr></table></figure>
-
-<p>ログインして<code>create extension Postgis;</code>を実行します</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ psql <span class="operator">-d</span> japan</div></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight SQL"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">japan=# <span class="operator"><span class="keyword">create</span> extension Postgis;</span></div><div class="line"><span class="operator"><span class="keyword">CREATE</span> EXTENSION</span></div><div class="line">japan=# <span class="keyword">SELECT</span> Postgis_full_version() ;</div><div class="line">                                                                        Postgis_full_version</div><div class="line"></div><div class="line"><span class="comment">---------------------------------------------------------------------------------------------------------------------------------------------------------------------</span></div><div class="line"> Postgis="2.1.5 r13152" GEOS="3.4.2-CAPI-1.8.2 r3921" PROJ="Rel. 4.8.0, 6 March2012" GDAL="GDAL 1.9.2, released 2012/10/08" LIBXML="2.7.6" LIBJSON="UNKNOWN" RASTER</div><div class="line">(1 row)</div></pre></td></tr></table></figure>
-
-<p>これでGeoなデータベースの出来上がりです！</p>
-<p>ここでデータベースの中身を確認してみます</p>
-<figure class="highlight SQL"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">japan=# \d</div><div class="line">               List of relations</div><div class="line"> Schema |       Name        | Type  |  Owner</div><div class="line"><span class="comment">--------+-------------------+-------+----------</span></div><div class="line"> public | geography_columns | view  | postgres</div><div class="line"> public | geometry_columns  | view  | postgres</div><div class="line"> public | raster_columns    | view  | postgres</div><div class="line"> public | raster_overviews  | view  | postgres</div><div class="line"> public | spatial_ref_sys   | table | postgres</div><div class="line">(5 rows)</div></pre></td></tr></table></figure>
-
-<p>まだ何もしてないのに、テーブルとビューができてます。<br>このおかげでGeoなデータが扱えるようになるみたいですね。</p>
-<p><code>spatial_ref_sys</code>の中身を除いてみます。</p>
-<figure class="highlight SQL"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">japan=# \d spatial_ref_sys</div><div class="line">         Table "public.spatial_ref_sys"</div><div class="line">  Column   |          Type           | Modifiers</div><div class="line"><span class="comment">-----------+-------------------------+-----------</span></div><div class="line"> srid      | integer                 | not null</div><div class="line"> auth_name | character varying(256)  |</div><div class="line"> auth_srid | integer                 |</div><div class="line"> srtext    | character varying(2048) |</div><div class="line"> proj4text | character varying(2048) |</div><div class="line">Indexes:</div><div class="line">    "spatial_ref_sys_pkey" PRIMARY KEY, btree (srid)</div><div class="line"><span class="operator"><span class="keyword">Check</span> <span class="keyword">constraints</span>:</span></div><div class="line">    <span class="string">"spatial_ref_sys_srid_check"</span> <span class="keyword">CHECK</span> (srid &gt; <span class="number">0</span> <span class="keyword">AND</span> srid &lt;= <span class="number">998999</span>)</div></pre></td></tr></table></figure>
-
-<p>このテーブルはデータベース中で利用できるすべての<a href="http://www.geopacific.org/opensourcegis/gcngisbook/QGIS_book/7b2c17ae0/7b2c17ae07b2c37bc062955f716cd530686e2c57307cfb" target="_blank" rel="external">空間参照情報</a>を定義しています。<br>空間参照情報って何？？？って感じですが、要はその空間情報がどういう基準で作成されているか？ってことだと思います。<br>（たぶんもっともっと奥深いものですが、まだあまり理解できてません、、、）</p>
-<p>この辺はもうちょっと勉強してから記事を書きたいと思います。</p>
-<p>次回は、このデータベースにデータを入れていきたいと思います！！！</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p><a href="http://jurishimizu.github.io/2014/12/29/Postgis-install-1/" target="_blank" rel="external">前回</a>作った仮想環境に、<br><a href="http://ja.wikipedia.org/wiki/Postgis" target="_blank" rel="external">PostGIS</a>をインストールしてみます。<br>PostGISを入れるとPostgreSQLで地理空間情報が扱えるようになってしまうのです。<br>データベースで地理情報を扱えるなんてビックリです。</p>
-]]>
-    
-    </summary>
-    
-      <category term="vagrant" scheme="http://jurishimizu.github.io/tags/vagrant/"/>
-    
-      <category term="centos" scheme="http://jurishimizu.github.io/tags/centos/"/>
-    
-      <category term="virtualized_environment" scheme="http://jurishimizu.github.io/tags/virtualized-environment/"/>
-    
-      <category term="postgresql" scheme="http://jurishimizu.github.io/tags/postgresql/"/>
-    
-      <category term="postgis" scheme="http://jurishimizu.github.io/tags/postgis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Vagrantで仮想環境を作成]]></title>
-    <link href="http://jurishimizu.github.io/2014/12/29/postgis-install-1/"/>
-    <id>http://jurishimizu.github.io/2014/12/29/postgis-install-1/</id>
-    <published>2014-12-29T08:40:17.000Z</published>
-    <updated>2015-02-15T11:26:44.000Z</updated>
-    <content type="html"><![CDATA[<p>これから勉強するために仮想環境をつくります。<br>自分のPCでやってもいいのですが、失敗した時のことを考えて、、、</p>
-<a id="more"></a>
-
-<h1 id="仮想環境を作ってみる">仮想環境を作ってみる</h1>
-<p>Vagrant と VirtualBox を使って、仮想環境を作ってみます。</p>
-<h2 id="Vagrant_をインストール">Vagrant をインストール</h2>
-<p>こちらのサイトからdmgファイルをインストール</p>
-<p><a href="http://www.vagrantup.com/downloads.html" target="_blank" rel="external">Download Vagrant – Vagrant</a></p>
-<p>インストール後、バージョン確認</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ vagrant --version</div><div class="line">Vagrant <span class="number">1.7</span>.<span class="number">1</span></div></pre></td></tr></table></figure>
-
-<h2 id="VirtualBox_をインストール">VirtualBox をインストール</h2>
-<p>こちらのサイトからdmgファイルをインストール</p>
-<p><a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="external">Downloads – Oracle VM VirtualBox</a></p>
-<p>Launcpad に VirtualBox のアイコンがあればOK</p>
-<h2 id="仮想マシンを作成">仮想マシンを作成</h2>
-<p>まずはboxを確認</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ vagrant box list</div><div class="line">centos65        (virtualbox, <span class="number">0</span>)</div><div class="line">chef/centos-<span class="number">6.5</span> (virtualbox, <span class="number">1.0</span>.<span class="number">0</span>)</div><div class="line">precise32       (virtualbox, <span class="number">0</span>)</div></pre></td></tr></table></figure>
-
-<p>Vagrantfileを作成</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ mkdir -p ./Vagrant/CentOS65</div><div class="line">$ <span class="built_in">cd</span> ./Vagrant/CentOS65</div><div class="line">$ vagrant init chef/centos-<span class="number">6.5</span></div><div class="line">A `Vagrantfile` has been placed <span class="keyword">in</span> this directory. You are now</div><div class="line">ready to `vagrant up` your first virtual environment! Please <span class="built_in">read</span></div><div class="line">the comments <span class="keyword">in</span> the Vagrantfile as well as documentation on</div><div class="line">`vagrantup.com` <span class="keyword">for</span> more information on using Vagrant.</div><div class="line">$ ls</div><div class="line">Vagrantfile</div></pre></td></tr></table></figure>
-
-<p>作成されたVagrantfileの中身を確認して、<code>config.vm.box = &quot;chef/centos-6.5&quot;</code>となっていれば大丈夫。</p>
-<p>VMを起動する</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ vagrant up</div><div class="line">Bringing machine <span class="string">'default'</span> up with <span class="string">'virtualbox'</span> provider...</div><div class="line">==&gt; default: Importing base box <span class="string">'chef/centos-6.5'</span>...</div><div class="line">・・・</div></pre></td></tr></table></figure>
-
-<h2 id="ネットワーク設定をする">ネットワーク設定をする</h2>
-<p>Vagrantfileの下記の記述のコメントアウトを削除</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="array"># config.vm.network </span><span class="string">"private_network"</span>, ip: <span class="string">"192.168.33.10"</span></div></pre></td></tr></table></figure>
-
-
-
-<p>vagrant のリロード</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ vagrant reload</div><div class="line">==&gt; default: Attempting graceful shutdown of VM...</div><div class="line">==&gt; default: Checking <span class="keyword">if</span> box <span class="string">'chef/centos-6.5'</span> is up to date...</div><div class="line">・・・</div></pre></td></tr></table></figure>
-
-<p>これで192.168.33.10 というIPでアクセスできるようになりました</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ ping <span class="number">192.168</span>.<span class="number">33.10</span></div><div class="line">PING <span class="number">192.168</span>.<span class="number">33.10</span> (<span class="number">192.168</span>.<span class="number">33.10</span>): <span class="number">56</span> data bytes</div><div class="line"><span class="number">64</span> bytes from <span class="number">192.168</span>.<span class="number">33.10</span>: icmp_seq=<span class="number">0</span> ttl=<span class="number">64</span> time=<span class="number">0.585</span> ms</div><div class="line"><span class="number">64</span> bytes from <span class="number">192.168</span>.<span class="number">33.10</span>: icmp_seq=<span class="number">1</span> ttl=<span class="number">64</span> time=<span class="number">0.583</span> ms</div></pre></td></tr></table></figure>
-
-<h2 id="仮想環境に接続">仮想環境に接続</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ vagrant ssh</div><div class="line">Last login: Mon Dec <span class="number">29</span> <span class="number">09</span>:<span class="number">03</span>:<span class="number">57</span> <span class="number">2014</span> from <span class="number">10.0</span>.<span class="number">2.2</span></div><div class="line">[vagrant@localhost ~]$</div></pre></td></tr></table></figure>
-
-<p>これで、仮想環境の準備はOK！</p>
-<p>というわけで、今日はここまで、、、、<br>Geoな話までいかなかった、、、、</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>これから勉強するために仮想環境をつくります。<br>自分のPCでやってもいいのですが、失敗した時のことを考えて、、、</p>
-]]>
-    
-    </summary>
-    
-      <category term="vagrant" scheme="http://jurishimizu.github.io/tags/vagrant/"/>
-    
-      <category term="centos" scheme="http://jurishimizu.github.io/tags/centos/"/>
-    
-      <category term="virtualized_environment" scheme="http://jurishimizu.github.io/tags/virtualized-environment/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[GISについて]]></title>
-    <link href="http://jurishimizu.github.io/2014/12/29/aboutGIS/"/>
-    <id>http://jurishimizu.github.io/2014/12/29/aboutGIS/</id>
-    <published>2014-12-29T08:12:25.000Z</published>
-    <updated>2015-02-15T11:26:44.000Z</updated>
-    <content type="html"><![CDATA[<p>GeoなSEってどんなSEなのかっていうと<br><a href="http://ja.wikipedia.org/wiki/%E5%9C%B0%E7%90%86%E6%83%85%E5%A0%B1%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0" target="_blank" rel="external">GIS</a>を自由自在に扱えるSEだと思います。</p>
-<a id="more"></a>
-
-<p>GISと呼ばれるものはたくさんありますが、<br>他のメジャーな技術と比べるとやっぱり情報量が少なかったり、<br>情報があっても英語だったりするのが難儀なところです、、、</p>
-<p>さらに、GISを扱うためには、基本的な地理学の知識も必要になります。</p>
-<p>私が思う、今まで全く知らなかったけど、GISを扱う上で大切な地理の知識No1は、<br>ズバリ<a href="http://www.pasco.co.jp/recommend/word/word076/" target="_blank" rel="external">測地系</a>です。<br>この測地系が違うと、同じ緯度経度でも違う場所を指すことになるので、<br>複数のデータを組み合わせたりするときは意識しないと大変なことになってしまうのです。</p>
-<p>聞きなれない用語が他にもたくさんでてきますが、<br>その都度調べて理解していくしかないですね、、、<br>GISの用語集としてはこのサイトがわかりやすいです。</p>
-<p><a href="http://www.pasco.co.jp/recommend/word/" target="_blank" rel="external">http://www.pasco.co.jp/recommend/word/</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>GeoなSEってどんなSEなのかっていうと<br><a href="http://ja.wikipedia.org/wiki/%E5%9C%B0%E7%90%86%E6%83%85%E5%A0%B1%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0" target="_blank" rel="external">GIS</a>を自由自在に扱えるSEだと思います。</p>
-]]>
-    
-    </summary>
     
   </entry>
   
